@@ -1,0 +1,21 @@
+{
+  "name": "Clube de Jazz do Café com Letras",
+  "site_url_default": "https://clubedejazzdocafe.com",
+  "locale": "pt_BR",
+  "address": {
+    "street": "Rua Antônio de Albuquerque, 47",
+    "district": "Savassi",
+    "city": "Belo Horizonte",
+    "region": "MG",
+    "postal_code": "30112-010",
+    "country": "BR"
+  },
+  "phone": "+55 31 98424-4285",
+  "email": "contato@clubedejazzdocafe.com",
+  "social": {
+    "instagram": "https://www.instagram.com/clubedejazzdocafe/",
+    "youtube": "https://www.youtube.com/channel/UCuiCi2BOYnrZ3ITCsRHIjtg",
+    "facebook": "https://facebook.com/clubedejazzdocafe"
+  },
+  "timezone_offset": "-03:00"
+}

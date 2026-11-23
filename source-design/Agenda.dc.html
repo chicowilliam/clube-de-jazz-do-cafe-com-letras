@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Agenda de shows — Clube de Jazz</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>@font-face{font-family:"Sharp Grotesk";src:url(/_blob/ab935f9fdb2c84faf4af7ccd4481f5bc) format("opentype");font-weight:100 900;font-style:normal}</style>
+<style>
+body{margin:0;background:#0F0E0D}
+a{color:#DEAC00}a:hover{color:#F0C53A}
+</style>
+</helmet>
+<div style="background: #0F0E0D; color: #F2ECE1; font-family: Inter, system-ui, sans-serif; min-height: 100vh">
+<dc-import name="Nav" active="agenda" hint-size="100%,88px"></dc-import>
+
+<section style="max-width: 1360px; margin: 0 auto; padding: 96px 40px 32px; box-sizing: border-box">
+  <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #DEAC00; font-weight: 600">Agenda</p>
+  <h1 style="margin: 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-weight: 900; font-size: 80px; line-height: 0.95">Próximos shows</h1>
+  <p style="margin: 24px 0 0; font-size: 18px; color: #D9D1C4; max-width: 720px; line-height: 1.55">Dois sets por noite, um único ingresso. Área interna dedicada à escuta; área externa, com som ambiente, paga meia.</p>
+
+  <div role="group" aria-label="Filtrar por estilo" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 48px; padding-bottom: 32px; border-bottom: 1px solid rgba(242,236,225,0.12)">
+    <sc-for list="{{ chips }}" as="c" hint-placeholder-count="7">
+      <button type="button" onClick="{{ c.pick }}" aria-pressed="{{ c.pressed }}" style="{{ c.style }}">{{ c.label }}</button>
+    </sc-for>
+  </div>
+</section>
+
+<section style="max-width: 1360px; margin: 0 auto; padding: 0 40px 120px; box-sizing: border-box">
+  <p style="margin: 0 0 8px; font-size: 14px; color: #B9B0A3">{{ countLabel }}</p>
+  <sc-for list="{{ shows }}" as="s" hint-placeholder-count="6">
+    <article style="display: flex; flex-wrap: wrap; gap: 40px; padding: 40px 0; border-bottom: 1px solid rgba(242,236,225,0.12); align-items: stretch">
+      <div style="flex: 0 0 140px">
+        <p style="margin: 0; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #DEAC00; font-weight: 600">{{ s.wd }}</p>
+        <p style="margin: 6px 0 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-size: 56px; line-height: 0.9">{{ s.dd }}</p>
+        <p style="margin: 6px 0 0; font-size: 14px; color: #B9B0A3; text-transform: uppercase; letter-spacing: 0.12em">{{ s.mm }}</p>
+      </div>
+      <a href="Show.dc.html" style="flex: 0 1 360px; min-width: 260px; display: block"><img src="{{ s.img }}" alt="{{ s.title }}" style="width: 100%; aspect-ratio: 600 / 510; object-fit: cover; border-radius: 10px; display: block; background: #2A2622"></a>
+      <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+        <h2 style="margin: 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-weight: 900; font-size: 38px; line-height: 1.02">{{ s.title }}</h2>
+        <p style="margin: 0; font-size: 17px; color: #EFADFF; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 400; line-height: 1.4">{{ s.sub }}</p>
+        <p style="margin: 4px 0 0; font-size: 15px; color: #D9D1C4">{{ s.time }}</p>
+        <p style="margin: 0; font-size: 13px; color: #B9B0A3; letter-spacing: 0.04em">{{ s.tags }}</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: auto; padding-top: 16px">
+          <a href="{{ s.tix }}" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #DEAC00; color: #0F0E0D; font-weight: 600; font-size: 15px; text-decoration: none">{{ s.cta }}</a>
+          <a href="Show.dc.html" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 999px; border: 1px solid rgba(242,236,225,0.35); color: #F2ECE1; font-size: 15px; text-decoration: none">Mais informações</a>
+        </div>
+      </div>
+    </article>
+  </sc-for>
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; margin-top: 48px">
+    <a href="#" style="font-weight: 600; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center">Arquivo de shows passados →</a>
+    <a href="AoVivo.dc.html" style="font-weight: 600; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center">Perdeu algum? Assista no Ao vivo →</a>
+  </div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3000}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { f: 'todos' }; }
+  renderVals() {
+    const T = 'Garanta seu lugar';
+    const all = [
+      { img: '/_blob/f6747a57560804190582e594abab61d3', wd: 'Segunda', dd: '23', mm: 'nov', title: 'Big Band Cefart', sub: 'A Escola do Jazz', time: 'Casa abre 19h · 1º set 20h · 2º set 21h30', tags: 'Big Band · Jazz · Música instrumental brasileira', c: ['bigband', 'escola', 'jazz', 'instrumental'], tix: 'https://bileto.sympla.com.br/event/129234', cta: T },
+      { img: '/_blob/8900bc2baa41990f30a6288ad5030825', wd: 'Terça', dd: '24', mm: 'nov', title: 'Vinicius Mendes Quarteto — O Jazz no Clube da Esquina', sub: 'Participações especiais de Rodrigo Borges, Felipe Fantoni e Pingo Ballona', time: 'Casa abre 19h · 1º set 20h · 2º set 21h30', tags: 'Clube da Esquina · Música instrumental brasileira', c: ['minas', 'instrumental'], tix: 'https://bileto.sympla.com.br/event/129236', cta: T },
+      { img: '/_blob/c03abac06590c49f818378bda5f7c5fa', wd: 'Quarta', dd: '25', mm: 'nov', title: 'Magno Alexandre Quarteto: Standards de Jazz', sub: 'Jazz e Vinhos, rolha livre', time: 'Casa abre 19h · 1º set 20h · 2º set 21h30', tags: 'Jazz', c: ['jazz'], tix: 'https://bileto.sympla.com.br/event/129239', cta: T },
+      { img: '/_blob/d7a22f5f65e837530984c6433c410046', wd: 'Quinta', dd: '26', mm: 'nov', title: 'Amy Winehouse por Izza Quarteto', sub: '', time: 'Casa abre 19h · 1º set 20h30 · 2º set 22h', tags: 'Jazz · Pop · R&B · Vocal', c: ['jazz', 'vocal'], tix: 'https://bileto.sympla.com.br/event/129241', cta: T },
+      { img: '/_blob/4a3cf436ff55621c4b1f3d86c9bf27fe', wd: 'Sexta', dd: '27', mm: 'nov', title: 'Eneias Xavier Quarteto toca Pat Metheny / Lyle Mays Group', sub: '', time: 'Casa abre 19h · 1º set 21h · 2º set 22h30', tags: 'Jazz contemporâneo · Música instrumental', c: ['jazz', 'instrumental'], tix: 'https://bileto.sympla.com.br/event/129564', cta: T },
+      { img: '/_blob/c6cdfd5eb82abf0bf3921e57574b98f4', wd: 'Sábado', dd: '28', mm: 'nov', title: 'A Escola do Jazz com a Master Escola de Música', sub: 'Apresentação de alunos', time: '13h30 às 17h30', tags: 'Educativo · Escola de música', c: ['escola'], tix: 'https://www.instagram.com/master.escola/', cta: 'Ingressos na Master Escola' },
+      { img: '/_blob/cef6409629742eefd0dda8f406dbb3e2', wd: 'Sábado', dd: '28', mm: 'nov', title: 'Marcelo Magalhães Trio (RJ)', sub: 'Participação especial de Juarez Moreira', time: 'Casa abre 19h · 1º set 21h · 2º set 22h30', tags: 'Jazz · Swing', c: ['jazz'], tix: 'https://bileto.sympla.com.br/event/129243', cta: T },
+      { img: '/_blob/7bfced4b0d9b1b701b78be1a4070c2dc', wd: 'Terça', dd: '01', mm: 'dez', title: 'Lançamento da Megaro Music', sub: 'Sérgio Danilo Quarteto (1º set) e Bárbara Barcellos Quinteto (2º set)', time: 'Casa abre 19h · 1º show 20h · 2º show 21h15', tags: 'Choro · Jazz · Música mineira', c: ['minas', 'instrumental'], tix: 'https://bileto.sympla.com.br/event/129636', cta: T },
+      { img: '/_blob/e3da70f0334c2a1d6ebf504fc154cda4', wd: 'Quarta', dd: '02', mm: 'dez', title: 'Carolina Emília canta Toninho Horta', sub: 'Jazz e Vinhos, rolha livre', time: 'Casa abre 19h · 1º set 20h · 2º set 21h30', tags: 'MPB · Vocal', c: ['vocal', 'minas'], tix: 'https://bileto.sympla.com.br/event/129793', cta: T },
+      { img: '/_blob/3dcb2832bcca404731b9def99a86f9aa', wd: 'Quinta', dd: '03', mm: 'dez', title: 'O Clube — A música do Clube da Esquina', sub: 'Banda residente', time: 'Casa abre 19h · 1º set 20h30 · 2º set 22h', tags: 'Clube da Esquina · Música instrumental mineira', c: ['minas', 'instrumental'], tix: 'https://bileto.sympla.com.br/event/129642', cta: T },
+      { img: '/_blob/32efa51db4a055127e4e808ac39f3ffe', wd: 'Sexta', dd: '04', mm: 'dez', title: 'Luisa Mitre Quinteto', sub: '', time: 'Casa abre 19h · 1º set 21h · 2º set 22h30', tags: 'Música instrumental brasileira', c: ['instrumental'], tix: 'https://bileto.sympla.com.br/event/129644', cta: T },
+      { img: '/_blob/1de0a86dc7ae524c3ca3cb876e96fe76', wd: 'Sábado', dd: '05', mm: 'dez', title: 'A Escola do Jazz com a Master Escola de Música', sub: 'Apresentação de alunos', time: '13h30 às 17h30', tags: 'Educativo · Escola de música', c: ['escola'], tix: 'https://www.instagram.com/master.escola/', cta: 'Ingressos na Master Escola' },
+      { img: '/_blob/5d974892b49d545c1f37b33c2ed7bdcd', wd: 'Sábado', dd: '05', mm: 'dez', title: 'Tributo a Sade', sub: 'Por Luisa Borges Sexteto', time: 'Casa abre 19h · 1º set 21h · 2º set 22h30', tags: 'Pop · Vocal', c: ['vocal'], tix: 'https://bileto.sympla.com.br/event/126081', cta: T },
+      { img: '/_blob/a438959d359a17765b2c3a96a5fd5f77', wd: 'Terça', dd: '08', mm: 'dez', title: 'Happy Feet Jazz Band', sub: 'Banda residente', time: 'Casa abre 19h · 1º set 20h · 2º set 21h30', tags: 'Swing · Jazz tradicional · Vocal', c: ['jazz', 'vocal'], tix: 'https://bileto.sympla.com.br/event/130002', cta: T }
+    ];
+    const f = this.state.f;
+    const shows = f === 'todos' ? all : all.filter(s => s.c.indexOf(f) >= 0);
+    const opts = [['todos', 'Todos'], ['jazz', 'Jazz'], ['instrumental', 'Instrumental brasileira'], ['minas', 'Música de Minas'], ['vocal', 'Vocal'], ['bigband', 'Big Band'], ['escola', 'Escola do Jazz']];
+    const base = 'min-height: 44px; padding: 0 20px; border-radius: 999px; font-family: inherit; font-size: 14px; cursor: pointer; ';
+    return {
+      shows,
+      countLabel: shows.length + (shows.length === 1 ? ' show' : ' shows'),
+      chips: opts.map(([k, label]) => ({
+        label,
+        pressed: k === f ? 'true' : 'false',
+        style: base + (k === f ? 'background: #EFADFF; color: #0F0E0D; border: 1px solid #F2ECE1; font-weight: 600;' : 'background: transparent; color: #F2ECE1; border: 1px solid rgba(242,236,225,0.3); font-weight: 500;'),
+        pick: () => this.setState({ f: k })
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

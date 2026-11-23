@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Cardápio e bar — Clube de Jazz</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>@font-face{font-family:"Sharp Grotesk";src:url(/_blob/ab935f9fdb2c84faf4af7ccd4481f5bc) format("opentype");font-weight:100 900;font-style:normal}</style>
+<style>
+body{margin:0;background:#0F0E0D}
+a{color:#DEAC00}a:hover{color:#F0C53A}
+</style>
+</helmet>
+<div style="background: #0F0E0D; color: #F2ECE1; font-family: Inter, system-ui, sans-serif; min-height: 100vh">
+<dc-import name="Nav" active="cardapio" hint-size="100%,88px"></dc-import>
+
+<section style="max-width: 1360px; margin: 0 auto; padding: 96px 40px 48px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-end; justify-content: space-between">
+  <div style="flex: 1 1 640px; min-width: 0">
+    <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #DEAC00; font-weight: 600">Cardápio e bar</p>
+    <h1 style="margin: 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-weight: 900; font-size: 80px; line-height: 0.95">Entre um set e outro</h1>
+  </div>
+  <p style="flex: 1 1 320px; margin: 0; font-size: 17px; line-height: 1.6; color: #D9D1C4">Tira-gostos e porções, com opções veganas e vegetarianas, pratos e sobremesas, coquetéis autorais batizados com nomes do jazz e uma carta de vinhos de Minas ao Velho Mundo.</p>
+</section>
+
+<section style="max-width: 1360px; margin: 0 auto; padding: 0 40px; box-sizing: border-box">
+  <div role="tablist" aria-label="Cardápio" style="display: flex; gap: 8px; flex-wrap: wrap; border-bottom: 1px solid rgba(242,236,225,0.12); padding-bottom: 24px">
+    <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="2">
+      <button type="button" role="tab" aria-selected="{{ t.sel }}" onClick="{{ t.pick }}" style="{{ t.style }}">{{ t.label }}</button>
+    </sc-for>
+  </div>
+</section>
+
+<section style="max-width: 1360px; margin: 0 auto; padding: 48px 40px 112px; box-sizing: border-box">
+  <sc-for list="{{ groups }}" as="g" hint-placeholder-count="4">
+    <div style="margin-bottom: 64px">
+      <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 16px; margin-bottom: 8px">
+        <h2 style="margin: 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-weight: 900; font-size: 38px">{{ g.title }}</h2>
+        <p style="margin: 0; color: #B9B0A3; font-size: 14px">{{ g.note }}</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(480px, 1fr)); gap: 0 64px">
+        <sc-for list="{{ g.items }}" as="i" hint-placeholder-count="6">
+          <div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
+            <div style="min-width: 0">
+              <p style="margin: 0; font-size: 17px; font-weight: 600">{{ i.n }} <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px">{{ i.t }}</span></p>
+              <p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">{{ i.d }}</p>
+            </div>
+            <p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">{{ i.p }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </sc-for>
+  <p style="margin: 0; font-size: 13px; color: #B9B0A3">Seleção do cardápio atual do site. A carta completa fica disponível na casa.</p>
+</section>
+
+<dc-import name="Footer" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3400}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { tab: 'cozinha' }; }
+  renderVals() {
+    const V = 'Vegetariano', VG = 'Vegano';
+    const cozinha = [
+      { title: 'Tira-gostos e porções', note: '', items: [
+        { n: 'Arancini', t: V, d: 'Bolinho de risoto recheado com queijo, molho de mel trufado · 5 unidades', p: 'R$ 45' },
+        { n: 'Batata frita com molho de amendoim picante', t: VG, d: '', p: 'R$ 30' },
+        { n: 'Bifes à Lisboeta com batatas chips', t: '', d: '300 g de filé mignon com presunto cru no palito · 2 pessoas (R$ 75) ou 4 pessoas', p: 'R$ 130' },
+        { n: 'Bolinho de Bacalhau Espiritual', t: '', d: '4 unidades', p: 'R$ 45' },
+        { n: 'Bruschettas de tomatinhos grape', t: V, d: 'Com azeite balsâmico · 4 unidades', p: 'R$ 30' },
+        { n: 'Bruschettas do Chefe', t: '', d: 'Gorgonzola, figo fresco e presunto parma · 5 unidades', p: 'R$ 49' },
+        { n: 'Burrata', t: V, d: 'Ao pesto de manjericão, compota de tomate e pão rústico tostado', p: 'R$ 80' },
+        { n: 'Carne de panela belga (Vlaamse Kardonade)', t: '', d: 'Músculo cozido na cerveja escura com ameixas pretas e pão · 2 pessoas (R$ 50) ou 4 pessoas', p: 'R$ 72' },
+        { n: 'Carne seca e mandioca acebolada', t: '', d: 'Na manteiga de garrafa, com pimenta biquinho', p: 'R$ 52' },
+        { n: 'Carpaccio clássico', t: '', d: 'Lagarto, molho de alcaparras, parmesão e rúcula, com torradas', p: 'R$ 50' },
+        { n: 'Ceviche de tilápia com manga', t: '', d: 'Cebola roxa, dedo-de-moça, coentro e limão, com torradas', p: 'R$ 40' },
+        { n: 'Croquete de costela', t: '', d: 'Com aioli de ervas · 4 unidades', p: 'R$ 45' },
+        { n: 'Falafel, homus e salada', t: VG, d: 'Grão-de-bico, tahine, tomate e pepino, com pão', p: 'R$ 45' },
+        { n: 'Filezinho curado', t: '', d: 'Com pesto de ervas e tomatinhos confitados', p: 'R$ 55' },
+        { n: 'Mini-pastéis de camarão com catupiry', t: '', d: '3 unidades', p: 'R$ 38' },
+        { n: 'Pastel aberto (Flammkuchen)', t: V, d: 'Cogumelos, aspargos, queijo e tartufata · 4 unidades', p: 'R$ 35' },
+        { n: 'Snack do dia', t: '', d: '', p: 'R$ 22' }
+      ] },
+      { title: 'Sanduíches e pratos', note: '', items: [
+        { n: 'Prego de carne', t: '', d: 'O famoso pão com bife: filé de 180 g no pão de sal', p: 'R$ 67' },
+        { n: 'Sanduíche Caprese', t: VG, d: 'Panhoca, queijo de castanha da casa, tomatinhos, rúcula e pesto', p: 'R$ 43' },
+        { n: 'Arroz de costela', t: '', d: 'Costela braseada por 8 horas, cheiro-verde e tomate confit', p: 'R$ 55' },
+        { n: 'Fettuccine com iscas de filé', t: '', d: 'Ao pomodoro com queijo de búfala', p: 'R$ 82' },
+        { n: 'Tilápia grelhada', t: '', d: 'Molho de laranja, purê de cenoura e folhas', p: 'R$ 52' }
+      ] },
+      { title: 'Sobremesas', note: '', items: [
+        { n: 'Petit gâteau', t: '', d: 'Com sorvete de creme', p: 'R$ 40' },
+        { n: 'Tiramisù', t: '', d: 'Mascarpone, café, biscoito champagne e cacau', p: 'R$ 35' },
+        { n: 'Sorvete de creme', t: '', d: '2 bolas', p: 'R$ 18' }
+      ] }
+    ];
+    const bar = [
+      { title: 'Coquetéis autorais', note: 'Batizados com nomes do jazz', items: [
+        { n: 'Ella Fitzgerald', t: '', d: 'Gin London Dry, tônica, bitter aromático, limão, demerara e espuma de gengibre', p: 'R$ 45' },
+        { n: 'Miles', t: '', d: 'Jameson, Ramazzotti Rosato, vinho tinto e limão', p: 'R$ 47' },
+        { n: 'Speakeasy', t: '', d: 'Bulleit bourbon, Punt e Mes, limão, orgeat e chocolate meio amargo', p: 'R$ 52' },
+        { n: 'Aretha', t: '', d: 'Vodka, manga, limão, geleia de pimenta e espuma de manga', p: 'R$ 40' },
+        { n: 'Feeling Good', t: '', d: 'Captain Morgan e Bacardi Ouro, manga, mel e limão', p: 'R$ 40' },
+        { n: 'Tom Jobim Collins', t: '', d: 'Cachaça, Ramazzotti Rosato, limão, xarope, água com gás e bitter', p: 'R$ 35' },
+        { n: 'Al Capone Sour', t: '', d: 'Fernet Branca, bourbon, limão e demerara', p: 'R$ 40' },
+        { n: "C'est la Vie", t: '', d: 'Aperol, Lillet Blanc, vermute dry, gin, orgeat e limão', p: 'R$ 38' },
+        { n: 'Cynatra', t: '', d: 'Cynar, triple sec, romã e limão', p: 'R$ 38' }
+      ] },
+      { title: 'Sem álcool', note: 'Autorais', items: [
+        { n: 'Diana Krall', t: '', d: 'Hibisco, tangerina, limão e espuma de tangerina', p: 'R$ 35' },
+        { n: 'Moramora', t: '', d: 'Amora, morango e xarope de gengibre gaseificado', p: 'R$ 30' },
+        { n: 'Manjerina', t: '', d: 'Tangerina, gengibre, chá preto, água com gás e manjericão', p: 'R$ 25' },
+        { n: 'Pink Lemonade', t: '', d: 'Cranberry, limão e xarope de açúcar', p: 'R$ 25' },
+        { n: 'Mojito sem álcool', t: '', d: '', p: 'R$ 25' },
+        { n: 'Soda italiana', t: '', d: 'Morango, manga ou refrigerante artesanal de pimentão', p: 'R$ 25' }
+      ] },
+      { title: 'Clássicos', note: '', items: [
+        { n: 'Negroni', t: '', d: 'Gin, Campari e Punt e Mes', p: 'R$ 45' },
+        { n: 'Old Fashioned', t: '', d: 'Bourbon, açúcar e bitter aromático', p: 'R$ 45' },
+        { n: 'Manhattan', t: '', d: 'Bourbon, Punt e Mes e bitter', p: 'R$ 45' },
+        { n: 'Boulevardier', t: '', d: 'Bourbon, Campari e Punt e Mes', p: 'R$ 48' },
+        { n: 'Penicillin', t: '', d: 'Scotch, mel com gengibre, limão e bitter', p: 'R$ 45' },
+        { n: 'Dry Martini', t: '', d: 'Gin, vermute seco e azeitonas', p: 'R$ 35' },
+        { n: 'Aperol Spritz', t: '', d: '', p: 'R$ 45' },
+        { n: 'Margarita', t: '', d: '', p: 'R$ 45' },
+        { n: 'Gin tônica', t: '', d: '', p: 'R$ 35' },
+        { n: 'Caipirinha', t: '', d: '', p: 'R$ 25' }
+      ] },
+      { title: 'Vinhos e espumantes', note: 'Taça de 150 ml · garrafa de 750 ml', items: [
+        { n: '3 Tons Blend', t: 'Minas', d: 'Andradas (MG) · Merlot, Syrah e Cabernet Franc · Casa Geraldo', p: 'R$ 36 · R$ 170' },
+        { n: 'Maria Maria Kika Syrah', t: 'Minas', d: 'Boa Esperança (MG) · 2025', p: 'R$ 260' },
+        { n: 'Château Tassin Bordeaux', t: '', d: 'Bordeaux, França · 2023', p: 'R$ 268' },
+        { n: 'La Grive Musicienne Pinot Noir', t: '', d: 'Languedoc-Roussillon, França · 2024', p: 'R$ 180' },
+        { n: 'Corvos de Lisboa Blend', t: '', d: 'Lisboa, Portugal · 2022 · Casa Santos Lima', p: 'R$ 210' },
+        { n: 'Fonte Sagrada Vinho Verde', t: '', d: 'Portugal · 2024', p: 'R$ 170' },
+        { n: 'Prófugo Cabernet Sauvignon', t: '', d: 'Mendoza, Argentina · 2024', p: 'R$ 30 · R$ 145' },
+        { n: 'Vigia Superior Chardonnay', t: '', d: 'Chile · 2023', p: 'R$ 30 · R$ 138' },
+        { n: 'Siempre Tengo un Plan B Rosé', t: '', d: 'Mendoza · Malbec e Pinot Noir · 2025', p: 'R$ 30 · R$ 145' },
+        { n: 'Alud Brut', t: 'Espumante', d: 'Badajoz, Espanha · método Charmat', p: 'R$ 30 · R$ 135' }
+      ] },
+      { title: 'Cervejas, whiskies e bourbons', note: '', items: [
+        { n: 'Chopp Heineken', t: '', d: '300 ml (R$ 16,90) ou 500 ml', p: 'R$ 22,90' },
+        { n: 'Baden Baden Golden ou IPA', t: '', d: '600 ml', p: 'R$ 35' },
+        { n: 'Lagunitas IPA · Blue Moon', t: '', d: '355 ml', p: 'R$ 25' },
+        { n: 'Heineken, Ultimate ou Zero', t: '', d: '330 ml', p: 'R$ 20' },
+        { n: 'Woodford Reserve · Maker’s Mark', t: 'Bourbon', d: 'Dose de 50 ml', p: 'R$ 46' },
+        { n: 'The Glenlivet Founders Reserve', t: 'Single malt', d: 'Dose de 50 ml', p: 'R$ 75' },
+        { n: 'Ballantine’s 17 anos', t: '', d: 'Dose de 50 ml', p: 'R$ 75' },
+        { n: 'Johnnie Walker Black Label', t: '', d: 'Dose de 50 ml', p: 'R$ 35' }
+      ] }
+    ];
+    const tab = this.state.tab;
+    const base = 'min-height: 48px; padding: 0 28px; border-radius: 999px; font-family: inherit; font-size: 16px; cursor: pointer; ';
+    return {
+      groups: tab === 'cozinha' ? cozinha : bar,
+      tabs: [['cozinha', 'Cozinha'], ['bar', 'Bar · coquetéis, vinhos e cervejas']].map(([k, label]) => ({
+        label, sel: k === tab ? 'true' : 'false',
+        style: base + (k === tab ? 'background: #EFADFF; color: #0F0E0D; border: 1px solid #F2ECE1; font-weight: 600;' : 'background: transparent; color: #F2ECE1; border: 1px solid rgba(242,236,225,0.3); font-weight: 500;'),
+        pick: () => this.setState({ tab: k })
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

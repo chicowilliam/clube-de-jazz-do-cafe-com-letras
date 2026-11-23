@@ -1,0 +1,563 @@
+- generic [ref=f1e2]:
+  - link "Pular para o conteúdo" [ref=f1e3] [cursor=pointer]:
+    - /url: "#conteudo"
+  - banner [ref=f1e4]:
+    - generic [ref=f1e5]:
+      - link "Clube de Jazz do Café com Letras — início" [ref=f1e7] [cursor=pointer]:
+        - /url: /
+        - img "Clube de Jazz do Café com Letras" [ref=f1e8]
+      - navigation "Principal" [ref=f1e9]:
+        - link "Agenda" [ref=f1e10] [cursor=pointer]:
+          - /url: /agenda/
+        - link "Ao vivo" [ref=f1e11] [cursor=pointer]:
+          - /url: /ao-vivo/
+        - link "Escola do Jazz" [ref=f1e12] [cursor=pointer]:
+          - /url: /escola-do-jazz/
+        - link "Festivais" [ref=f1e13] [cursor=pointer]:
+          - /url: /festivais/
+        - link "Eventos" [ref=f1e14] [cursor=pointer]:
+          - /url: /eventos/
+        - link "Cardápio" [ref=f1e15] [cursor=pointer]:
+          - /url: /cardapio/
+        - link "O Clube" [ref=f1e16] [cursor=pointer]:
+          - /url: /o-clube/
+        - link "Amigos" [ref=f1e17] [cursor=pointer]:
+          - /url: /o-clube/#amigos
+        - link "Ingressos" [ref=f1e18] [cursor=pointer]:
+          - /url: /agenda/
+        - link "English version" [ref=f1e19] [cursor=pointer]:
+          - /url: "#"
+          - text: EN
+  - main [ref=f1e20]:
+    - generic [ref=f1e21]:
+      - generic [ref=f1e22]:
+        - paragraph [ref=f1e23]: Cardápio e bar
+        - heading "Entre um set e outro" [level=1] [ref=f1e24]
+      - paragraph [ref=f1e25]: Tira-gostos e porções, com opções veganas e vegetarianas, pratos e sobremesas, coquetéis autorais batizados com nomes do jazz e uma carta de vinhos de Minas ao Velho Mundo.
+    - tablist "Cardápio" [ref=f1e27]:
+      - tab "Cozinha" [ref=f1e28] [cursor=pointer]
+      - tab "Bar · coquetéis, vinhos e cervejas" [selected] [ref=f1e29] [cursor=pointer]
+    - tabpanel "Bar · coquetéis, vinhos e cervejas" [ref=f1e30]:
+      - generic [ref=f1e31]:
+        - generic [ref=f1e32]:
+          - heading "Coquetéis autorais" [level=2] [ref=f1e33]
+          - paragraph [ref=f1e34]: Batizados com nomes do jazz
+        - generic [ref=f1e35]:
+          - generic [ref=f1e36]:
+            - generic [ref=f1e37]:
+              - paragraph [ref=f1e38]: Ella Fitzgerald
+              - paragraph [ref=f1e39]: Gin London Dry, tônica, bitter aromático, limão, demerara e espuma de gengibre
+            - paragraph [ref=f1e40]: R$ 45
+          - generic [ref=f1e41]:
+            - generic [ref=f1e42]:
+              - paragraph [ref=f1e43]: Miles
+              - paragraph [ref=f1e44]: Jameson, Ramazzotti Rosato, vinho tinto e limão
+            - paragraph [ref=f1e45]: R$ 47
+          - generic [ref=f1e46]:
+            - generic [ref=f1e47]:
+              - paragraph [ref=f1e48]: Speakeasy
+              - paragraph [ref=f1e49]: Bulleit bourbon, Punt e Mes, limão, orgeat e chocolate meio amargo
+            - paragraph [ref=f1e50]: R$ 52
+          - generic [ref=f1e51]:
+            - generic [ref=f1e52]:
+              - paragraph [ref=f1e53]: Aretha
+              - paragraph [ref=f1e54]: Vodka, manga, limão, geleia de pimenta e espuma de manga
+            - paragraph [ref=f1e55]: R$ 40
+          - generic [ref=f1e56]:
+            - generic [ref=f1e57]:
+              - paragraph [ref=f1e58]: Feeling Good
+              - paragraph [ref=f1e59]: Captain Morgan e Bacardi Ouro, manga, mel e limão
+            - paragraph [ref=f1e60]: R$ 40
+          - generic [ref=f1e61]:
+            - generic [ref=f1e62]:
+              - paragraph [ref=f1e63]: Tom Jobim Collins
+              - paragraph [ref=f1e64]: Cachaça, Ramazzotti Rosato, limão, xarope, água com gás e bitter
+            - paragraph [ref=f1e65]: R$ 35
+          - generic [ref=f1e66]:
+            - generic [ref=f1e67]:
+              - paragraph [ref=f1e68]: Al Capone Sour
+              - paragraph [ref=f1e69]: Fernet Branca, bourbon, limão e demerara
+            - paragraph [ref=f1e70]: R$ 40
+          - generic [ref=f1e71]:
+            - generic [ref=f1e72]:
+              - paragraph [ref=f1e73]: C'est la Vie
+              - paragraph [ref=f1e74]: Aperol, Lillet Blanc, vermute dry, gin, orgeat e limão
+            - paragraph [ref=f1e75]: R$ 38
+          - generic [ref=f1e76]:
+            - generic [ref=f1e77]:
+              - paragraph [ref=f1e78]: Cynatra
+              - paragraph [ref=f1e79]: Cynar, triple sec, romã e limão
+            - paragraph [ref=f1e80]: R$ 38
+      - generic [ref=f1e81]:
+        - generic [ref=f1e82]:
+          - heading "Sem álcool" [level=2] [ref=f1e83]
+          - paragraph [ref=f1e84]: Autorais
+        - generic [ref=f1e85]:
+          - generic [ref=f1e86]:
+            - generic [ref=f1e87]:
+              - paragraph [ref=f1e88]: Diana Krall
+              - paragraph [ref=f1e89]: Hibisco, tangerina, limão e espuma de tangerina
+            - paragraph [ref=f1e90]: R$ 35
+          - generic [ref=f1e91]:
+            - generic [ref=f1e92]:
+              - paragraph [ref=f1e93]: Moramora
+              - paragraph [ref=f1e94]: Amora, morango e xarope de gengibre gaseificado
+            - paragraph [ref=f1e95]: R$ 30
+          - generic [ref=f1e96]:
+            - generic [ref=f1e97]:
+              - paragraph [ref=f1e98]: Manjerina
+              - paragraph [ref=f1e99]: Tangerina, gengibre, chá preto, água com gás e manjericão
+            - paragraph [ref=f1e100]: R$ 25
+          - generic [ref=f1e101]:
+            - generic [ref=f1e102]:
+              - paragraph [ref=f1e103]: Pink Lemonade
+              - paragraph [ref=f1e104]: Cranberry, limão e xarope de açúcar
+            - paragraph [ref=f1e105]: R$ 25
+          - generic [ref=f1e106]:
+            - generic [ref=f1e107]:
+              - paragraph [ref=f1e108]: Mojito sem álcool
+              - paragraph [ref=f1e109]: Água gaseificada, xarope de açúcar, limão e hortelã
+            - paragraph [ref=f1e110]: R$ 25
+          - generic [ref=f1e111]:
+            - generic [ref=f1e112]:
+              - paragraph [ref=f1e113]: Soda italiana
+              - paragraph [ref=f1e114]: Morango, manga ou refrigerante artesanal de pimentão
+            - paragraph [ref=f1e115]: R$ 25
+      - generic [ref=f1e116]:
+        - generic [ref=f1e117]:
+          - heading "Clássicos" [level=2] [ref=f1e118]
+          - paragraph
+        - generic [ref=f1e119]:
+          - generic [ref=f1e120]:
+            - generic [ref=f1e121]:
+              - paragraph [ref=f1e122]: Negroni
+              - paragraph [ref=f1e123]: Gin, Campari e Punt e Mes
+            - paragraph [ref=f1e124]: R$ 45
+          - generic [ref=f1e125]:
+            - generic [ref=f1e126]:
+              - paragraph [ref=f1e127]: Old Fashioned
+              - paragraph [ref=f1e128]: Bourbon, açúcar e bitter aromático
+            - paragraph [ref=f1e129]: R$ 45
+          - generic [ref=f1e130]:
+            - generic [ref=f1e131]:
+              - paragraph [ref=f1e132]: Manhattan
+              - paragraph [ref=f1e133]: Bourbon, Punt e Mes e bitter
+            - paragraph [ref=f1e134]: R$ 45
+          - generic [ref=f1e135]:
+            - generic [ref=f1e136]:
+              - paragraph [ref=f1e137]: Boulevardier
+              - paragraph [ref=f1e138]: Bourbon, Campari e Punt e Mes
+            - paragraph [ref=f1e139]: R$ 48
+          - generic [ref=f1e140]:
+            - generic [ref=f1e141]:
+              - paragraph [ref=f1e142]: Penicillin
+              - paragraph [ref=f1e143]: Scotch, mel com gengibre, limão e bitter
+            - paragraph [ref=f1e144]: R$ 45
+          - generic [ref=f1e145]:
+            - generic [ref=f1e146]:
+              - paragraph [ref=f1e147]: Dry Martini
+              - paragraph [ref=f1e148]: Gin, vermute seco e azeitonas
+            - paragraph [ref=f1e149]: R$ 35
+          - generic [ref=f1e150]:
+            - generic [ref=f1e151]:
+              - paragraph [ref=f1e152]: Aperol Spritz
+              - paragraph [ref=f1e153]: Aperol, água tônica e espumante
+            - paragraph [ref=f1e154]: R$ 45
+          - generic [ref=f1e155]:
+            - generic [ref=f1e156]:
+              - paragraph [ref=f1e157]: Margarita
+              - paragraph [ref=f1e158]: Tequila, triple sec, limão e borda de sal
+            - paragraph [ref=f1e159]: R$ 45
+          - generic [ref=f1e160]:
+            - generic [ref=f1e161]:
+              - paragraph [ref=f1e162]: Gin tônica
+              - paragraph [ref=f1e163]: Gin London Dry, água tônica e limão
+            - paragraph [ref=f1e164]: R$ 35
+          - generic [ref=f1e165]:
+            - generic [ref=f1e166]:
+              - paragraph [ref=f1e167]: Caipirinha
+              - paragraph [ref=f1e168]: Cachaça, limão e açúcar
+            - paragraph [ref=f1e169]: R$ 25
+          - generic [ref=f1e170]:
+            - generic [ref=f1e171]:
+              - paragraph [ref=f1e172]: Alexander
+              - paragraph [ref=f1e173]: Conhaque, licor de cacau, creme de leite e canela
+            - paragraph [ref=f1e174]: R$ 30
+          - generic [ref=f1e175]:
+            - generic [ref=f1e176]:
+              - paragraph [ref=f1e177]: Bloody Mary
+              - paragraph [ref=f1e178]: Vodka Ketel One, suco de tomate, pimenta tabasco, molho inglês e limão
+            - paragraph [ref=f1e179]: R$ 32
+          - generic [ref=f1e180]:
+            - generic [ref=f1e181]:
+              - paragraph [ref=f1e182]: Cosmopolitan
+              - paragraph [ref=f1e183]: Vodka, cherry brandy e triple sec
+            - paragraph [ref=f1e184]: R$ 25
+          - generic [ref=f1e185]:
+            - generic [ref=f1e186]:
+              - paragraph [ref=f1e187]: Daiquiri
+              - paragraph [ref=f1e188]: Rum carta branca, xarope demerara e limão
+            - paragraph [ref=f1e189]: R$ 25
+          - generic [ref=f1e190]:
+            - generic [ref=f1e191]:
+              - paragraph [ref=f1e192]: Fanciulli
+              - paragraph [ref=f1e193]: Bourbon, vermute rosso Punt e Mes e Fernet Blanc
+            - paragraph [ref=f1e194]: R$ 48
+          - generic [ref=f1e195]:
+            - generic [ref=f1e196]:
+              - paragraph [ref=f1e197]: Fitzgerald
+              - paragraph [ref=f1e198]: Gin London Dry, xarope demerara, limão e bitter aromático
+            - paragraph [ref=f1e199]: R$ 35
+          - generic [ref=f1e200]:
+            - generic [ref=f1e201]:
+              - paragraph [ref=f1e202]: Hanky Panky
+              - paragraph [ref=f1e203]: Gin London Dry, vermute rosso Punt e Mes e Fernet Blanc
+            - paragraph [ref=f1e204]: R$ 30
+          - generic [ref=f1e205]:
+            - generic [ref=f1e206]:
+              - paragraph [ref=f1e207]: Mark Twain
+              - paragraph [ref=f1e208]: Whiskey Jameson, xarope demerara, limão e bitter aromático
+            - paragraph [ref=f1e209]: R$ 40
+          - generic [ref=f1e210]:
+            - generic [ref=f1e211]:
+              - paragraph [ref=f1e212]: Mint Julep
+              - paragraph [ref=f1e213]: Bourbon, água com gás, xarope demerara, limão e hortelã
+            - paragraph [ref=f1e214]: R$ 32
+          - generic [ref=f1e215]:
+            - generic [ref=f1e216]:
+              - paragraph [ref=f1e217]: Mojito
+              - paragraph [ref=f1e218]: Rum carta branca, água com gás, xarope, hortelã e limão
+            - paragraph [ref=f1e219]: R$ 25
+          - generic [ref=f1e220]:
+            - generic [ref=f1e221]:
+              - paragraph [ref=f1e222]: Rob Roy
+              - paragraph [ref=f1e223]: Blended Scotch whisky, vermute Punt e Mes e bitter aromático
+            - paragraph [ref=f1e224]: R$ 45
+          - generic [ref=f1e225]:
+            - generic [ref=f1e226]:
+              - paragraph [ref=f1e227]: Tom Collins
+              - paragraph [ref=f1e228]: Gin London Dry, xarope, água com gás e limão
+            - paragraph [ref=f1e229]: R$ 28
+      - generic [ref=f1e230]:
+        - generic [ref=f1e231]:
+          - heading "Vinhos e espumantes" [level=2] [ref=f1e232]
+          - paragraph [ref=f1e233]: Taça de 150 ml · garrafa de 750 ml
+        - generic [ref=f1e234]:
+          - generic [ref=f1e235]:
+            - generic [ref=f1e236]:
+              - paragraph [ref=f1e237]: 3 Tons Blend Minas
+              - paragraph [ref=f1e238]: Andradas (MG) · Merlot, Syrah e Cabernet Franc · Casa Geraldo
+            - paragraph [ref=f1e239]: R$ 36 · R$ 170
+          - generic [ref=f1e240]:
+            - generic [ref=f1e241]:
+              - paragraph [ref=f1e242]: Maria Maria Kika Syrah Minas
+              - paragraph [ref=f1e243]: Boa Esperança (MG) · 2025
+            - paragraph [ref=f1e244]: R$ 260
+          - generic [ref=f1e245]:
+            - generic [ref=f1e246]:
+              - paragraph [ref=f1e247]: Château Tassin Bordeaux
+              - paragraph [ref=f1e248]: Bordeaux, França · 2023
+            - paragraph [ref=f1e249]: R$ 268
+          - generic [ref=f1e250]:
+            - generic [ref=f1e251]:
+              - paragraph [ref=f1e252]: La Grive Musicienne Pinot Noir
+              - paragraph [ref=f1e253]: Languedoc-Roussillon, França · 2024
+            - paragraph [ref=f1e254]: R$ 180
+          - generic [ref=f1e255]:
+            - generic [ref=f1e256]:
+              - paragraph [ref=f1e257]: Corvos de Lisboa Blend
+              - paragraph [ref=f1e258]: Lisboa, Portugal · 2022 · Casa Santos Lima
+            - paragraph [ref=f1e259]: R$ 210
+          - generic [ref=f1e260]:
+            - generic [ref=f1e261]:
+              - paragraph [ref=f1e262]: Fonte Sagrada Vinho Verde
+              - paragraph [ref=f1e263]: Portugal · 2024
+            - paragraph [ref=f1e264]: R$ 170
+          - generic [ref=f1e265]:
+            - generic [ref=f1e266]:
+              - paragraph [ref=f1e267]: Prófugo Cabernet Sauvignon
+              - paragraph [ref=f1e268]: Mendoza, Argentina · 2024
+            - paragraph [ref=f1e269]: R$ 30 · R$ 145
+          - generic [ref=f1e270]:
+            - generic [ref=f1e271]:
+              - paragraph [ref=f1e272]: Vigia Superior Chardonnay
+              - paragraph [ref=f1e273]: Chile · 2023
+            - paragraph [ref=f1e274]: R$ 30 · R$ 138
+          - generic [ref=f1e275]:
+            - generic [ref=f1e276]:
+              - paragraph [ref=f1e277]: Siempre Tengo un Plan B Rosé
+              - paragraph [ref=f1e278]: Mendoza · Malbec e Pinot Noir · 2025
+            - paragraph [ref=f1e279]: R$ 30 · R$ 145
+          - generic [ref=f1e280]:
+            - generic [ref=f1e281]:
+              - paragraph [ref=f1e282]: Alud Brut Espumante
+              - paragraph [ref=f1e283]: Badajoz, Espanha · método Charmat
+            - paragraph [ref=f1e284]: R$ 30 · R$ 135
+          - generic [ref=f1e285]:
+            - generic [ref=f1e286]:
+              - paragraph [ref=f1e287]: Rex Bibendi Brut Espumante
+              - paragraph [ref=f1e288]: Serra Gaúcha (RS) · Chardonnay e Pinot Noir · método Charmat
+            - paragraph [ref=f1e289]: R$ 125
+          - generic [ref=f1e290]:
+            - generic [ref=f1e291]:
+              - paragraph [ref=f1e292]: Alud Brut Rosé Espumante
+              - paragraph [ref=f1e293]: Badajoz, Espanha · Tempranillo · método Charmat
+            - paragraph [ref=f1e294]: R$ 125
+          - generic [ref=f1e295]:
+            - generic [ref=f1e296]:
+              - paragraph [ref=f1e297]: Prófugo Sauvignon Blanc
+              - paragraph [ref=f1e298]: Mendoza, Argentina · 2022 · Agrovit
+            - paragraph [ref=f1e299]: R$ 30 · R$ 145
+          - generic [ref=f1e300]:
+            - generic [ref=f1e301]:
+              - paragraph [ref=f1e302]: Feudo dei Venti Pinot Grigio D.O.C.
+              - paragraph [ref=f1e303]: Vêneto, Itália · 2021 · Cantine Minini
+            - paragraph [ref=f1e304]: R$ 180
+          - generic [ref=f1e305]:
+            - generic [ref=f1e306]:
+              - paragraph [ref=f1e307]: Vigia Superior Rosé Merlot
+              - paragraph [ref=f1e308]: Santiago, Chile · 2023
+            - paragraph [ref=f1e309]: R$ 138
+          - generic [ref=f1e310]:
+            - generic [ref=f1e311]:
+              - paragraph [ref=f1e312]: Yeah Carménère
+              - paragraph [ref=f1e313]: D.O. Valle Central, Chile · 2024
+            - paragraph [ref=f1e314]: R$ 138
+          - generic [ref=f1e315]:
+            - generic [ref=f1e316]:
+              - paragraph [ref=f1e317]: Terre Forti Sangiovese Romagna D.O.C.
+              - paragraph [ref=f1e318]: Emilia-Romagna, Itália · 2023 · Caviro
+            - paragraph [ref=f1e319]: R$ 180
+          - generic [ref=f1e320]:
+            - generic [ref=f1e321]:
+              - paragraph [ref=f1e322]: Terre Forti Montepulciano d'Abruzzo D.O.C.
+              - paragraph [ref=f1e323]: Abruzzo, Itália · 2023 · Caviro
+            - paragraph [ref=f1e324]: R$ 180
+          - generic [ref=f1e325]:
+            - generic [ref=f1e326]:
+              - paragraph [ref=f1e327]: Marqués de Tejares Blend
+              - paragraph [ref=f1e328]: Albacete, Espanha · Cabernet Sauvignon, Merlot e Tempranillo · 2021
+            - paragraph [ref=f1e329]: R$ 180
+      - generic [ref=f1e330]:
+        - generic [ref=f1e331]:
+          - heading "Cervejas, whiskies e bourbons" [level=2] [ref=f1e332]
+          - paragraph
+        - generic [ref=f1e333]:
+          - generic [ref=f1e334]:
+            - generic [ref=f1e335]:
+              - paragraph [ref=f1e336]: Chopp Heineken
+              - paragraph [ref=f1e337]: 300 ml (R$ 16,90) ou 500 ml
+            - paragraph [ref=f1e338]: R$ 22,90
+          - generic [ref=f1e339]:
+            - generic [ref=f1e340]:
+              - paragraph [ref=f1e341]: Baden Baden Golden ou IPA
+              - paragraph [ref=f1e342]: 600 ml
+            - paragraph [ref=f1e343]: R$ 35
+          - generic [ref=f1e344]:
+            - generic [ref=f1e345]:
+              - paragraph [ref=f1e346]: Lagunitas IPA · Blue Moon
+              - paragraph [ref=f1e347]: 355 ml
+            - paragraph [ref=f1e348]: R$ 25
+          - generic [ref=f1e349]:
+            - generic [ref=f1e350]:
+              - paragraph [ref=f1e351]: Heineken, Ultimate ou Zero
+              - paragraph [ref=f1e352]: 330 ml
+            - paragraph [ref=f1e353]: R$ 20
+          - generic [ref=f1e354]:
+            - generic [ref=f1e355]:
+              - paragraph [ref=f1e356]: Woodford Reserve · Maker’s Mark Bourbon
+              - paragraph [ref=f1e357]: Dose de 50 ml
+            - paragraph [ref=f1e358]: R$ 46
+          - generic [ref=f1e359]:
+            - generic [ref=f1e360]:
+              - paragraph [ref=f1e361]: The Glenlivet Founders Reserve Single malt
+              - paragraph [ref=f1e362]: Dose de 50 ml
+            - paragraph [ref=f1e363]: R$ 75
+          - generic [ref=f1e364]:
+            - generic [ref=f1e365]:
+              - paragraph [ref=f1e366]: Ballantine’s 17 anos
+              - paragraph [ref=f1e367]: Dose de 50 ml
+            - paragraph [ref=f1e368]: R$ 75
+          - generic [ref=f1e369]:
+            - generic [ref=f1e370]:
+              - paragraph [ref=f1e371]: Johnnie Walker Black Label
+              - paragraph [ref=f1e372]: Dose de 50 ml
+            - paragraph [ref=f1e373]: R$ 35
+          - generic [ref=f1e374]:
+            - generic [ref=f1e375]:
+              - paragraph [ref=f1e376]: Praya sem glúten
+              - paragraph [ref=f1e377]: Lager · 355 ml
+            - paragraph [ref=f1e378]: R$ 18
+          - generic [ref=f1e379]:
+            - generic [ref=f1e380]:
+              - paragraph [ref=f1e381]: Jack Daniel’s Old No. 7 Bourbon
+              - paragraph [ref=f1e382]: Dose de 50 ml
+            - paragraph [ref=f1e383]: R$ 26
+          - generic [ref=f1e384]:
+            - generic [ref=f1e385]:
+              - paragraph [ref=f1e386]: Gentleman Jack Bourbon
+              - paragraph [ref=f1e387]: Dose de 50 ml
+            - paragraph [ref=f1e388]: R$ 42
+          - generic [ref=f1e389]:
+            - generic [ref=f1e390]:
+              - paragraph [ref=f1e391]: Bulleit Bourbon Bourbon
+              - paragraph [ref=f1e392]: Dose de 50 ml
+            - paragraph [ref=f1e393]: R$ 35
+          - generic [ref=f1e394]:
+            - generic [ref=f1e395]:
+              - paragraph [ref=f1e396]: Chivas Regal 12 anos
+              - paragraph [ref=f1e397]: Dose de 50 ml
+            - paragraph [ref=f1e398]: R$ 35
+          - generic [ref=f1e399]:
+            - generic [ref=f1e400]:
+              - paragraph [ref=f1e401]: Ballantine’s Finest
+              - paragraph [ref=f1e402]: Dose de 50 ml
+            - paragraph [ref=f1e403]: R$ 22
+          - generic [ref=f1e404]:
+            - generic [ref=f1e405]:
+              - paragraph [ref=f1e406]: Johnnie Walker Red Label
+              - paragraph [ref=f1e407]: Dose de 50 ml
+            - paragraph [ref=f1e408]: R$ 22
+          - generic [ref=f1e409]:
+            - generic [ref=f1e410]:
+              - paragraph [ref=f1e411]: Jameson · Jameson Caskmates IPA
+              - paragraph [ref=f1e412]: Irlanda · dose de 50 ml
+            - paragraph [ref=f1e413]: R$ 22
+      - generic [ref=f1e414]:
+        - generic [ref=f1e415]:
+          - heading "Destilados e licores" [level=2] [ref=f1e416]
+          - paragraph [ref=f1e417]: Doses de 50 ml
+        - generic [ref=f1e418]:
+          - generic [ref=f1e419]:
+            - generic [ref=f1e420]:
+              - paragraph [ref=f1e421]: Cachaça branca
+              - paragraph
+            - paragraph [ref=f1e422]: R$ 16
+          - generic [ref=f1e423]:
+            - generic [ref=f1e424]:
+              - paragraph [ref=f1e425]: Cachaça Vale Verde
+              - paragraph
+            - paragraph [ref=f1e426]: R$ 19
+          - generic [ref=f1e427]:
+            - generic [ref=f1e428]:
+              - paragraph [ref=f1e429]: Campari
+              - paragraph
+            - paragraph [ref=f1e430]: R$ 19
+          - generic [ref=f1e431]:
+            - generic [ref=f1e432]:
+              - paragraph [ref=f1e433]: Vodka Absolut
+              - paragraph
+            - paragraph [ref=f1e434]: R$ 25
+          - generic [ref=f1e435]:
+            - generic [ref=f1e436]:
+              - paragraph [ref=f1e437]: Gin Beefeater
+              - paragraph
+            - paragraph [ref=f1e438]: R$ 26
+          - generic [ref=f1e439]:
+            - generic [ref=f1e440]:
+              - paragraph [ref=f1e441]: Licor 43
+              - paragraph
+            - paragraph [ref=f1e442]: R$ 36
+          - generic [ref=f1e443]:
+            - generic [ref=f1e444]:
+              - paragraph [ref=f1e445]: Baileys
+              - paragraph [ref=f1e446]: Licor de chocolate e baunilha
+            - paragraph [ref=f1e447]: R$ 46
+      - generic [ref=f1e448]:
+        - generic [ref=f1e449]:
+          - heading "Cafés, águas e sucos" [level=2] [ref=f1e450]
+          - paragraph
+        - generic [ref=f1e451]:
+          - generic [ref=f1e452]:
+            - generic [ref=f1e453]:
+              - paragraph [ref=f1e454]: Café coado na V60
+              - paragraph [ref=f1e455]: 200 ml
+            - paragraph [ref=f1e456]: R$ 12
+          - generic [ref=f1e457]:
+            - generic [ref=f1e458]:
+              - paragraph [ref=f1e459]: Chá de hortelã
+              - paragraph
+            - paragraph [ref=f1e460]: R$ 8
+          - generic [ref=f1e461]:
+            - generic [ref=f1e462]:
+              - paragraph [ref=f1e463]: Chá de gengibre, limão e mel
+              - paragraph
+            - paragraph [ref=f1e464]: R$ 9
+          - generic [ref=f1e465]:
+            - generic [ref=f1e466]:
+              - paragraph [ref=f1e467]: Água Mamba Water
+              - paragraph [ref=f1e468]: 350 ml · com ou sem gás
+            - paragraph [ref=f1e469]: R$ 8
+          - generic [ref=f1e470]:
+            - generic [ref=f1e471]:
+              - paragraph [ref=f1e472]: Água Ingá
+              - paragraph [ref=f1e473]: 300 ml · com ou sem gás
+            - paragraph [ref=f1e474]: R$ 8
+          - generic [ref=f1e475]:
+            - generic [ref=f1e476]:
+              - paragraph [ref=f1e477]: Água tônica
+              - paragraph [ref=f1e478]: Lata 350 ml
+            - paragraph [ref=f1e479]: R$ 9,60
+          - generic [ref=f1e480]:
+            - generic [ref=f1e481]:
+              - paragraph [ref=f1e482]: Refrigerante
+              - paragraph [ref=f1e483]: Lata 350 ml · Coca-Cola, Coca-Cola Zero, Guaraná Antarctica, Guaraná Antarctica Zero
+            - paragraph [ref=f1e484]: R$ 9,60
+          - generic [ref=f1e485]:
+            - generic [ref=f1e486]:
+              - paragraph [ref=f1e487]: Red Bull
+              - paragraph [ref=f1e488]: 250 ml
+            - paragraph [ref=f1e489]: R$ 23,50
+          - generic [ref=f1e490]:
+            - generic [ref=f1e491]:
+              - paragraph [ref=f1e492]: Suco natural de laranja
+              - paragraph [ref=f1e493]: 300 ml
+            - paragraph [ref=f1e494]: R$ 18,20
+      - paragraph [ref=f1e495]: A carta completa fica disponível na casa.
+  - contentinfo [ref=f1e496]:
+    - generic [ref=f1e497]:
+      - generic [ref=f1e498]:
+        - generic [ref=f1e499]:
+          - img "Clube de Jazz do Café com Letras" [ref=f1e500]
+          - paragraph [ref=f1e501]: A programação da semana, toda segunda, no seu e-mail
+          - generic [ref=f1e502]:
+            - generic [ref=f1e503]: Seu e-mail
+            - textbox "Seu e-mail" [ref=f1e504]
+            - button "Assinar a newsletter" [ref=f1e505]
+            - textbox [aria-hidden] [ref=f1e506]
+          - status [ref=f1e507]
+        - generic [ref=f1e508]:
+          - generic [ref=f1e509]:
+            - paragraph [ref=f1e510]: Visite
+            - paragraph [ref=f1e511]: Rua Antônio de Albuquerque, 47Savassi · Belo Horizonte · MGCEP 30112-010Terça a sábado, a partir das 19h
+          - generic [ref=f1e512]:
+            - paragraph [ref=f1e513]: Fale com o Clube
+            - paragraph [ref=f1e514]:
+              - text: (31) 98424-4285
+              - link "contato@clubedejazzdocafe.com" [ref=f1e515] [cursor=pointer]:
+                - /url: mailto:contato@clubedejazzdocafe.com
+              - text: "Curadoria:"
+              - link "curadoria@clubedejazzdocafe.com" [ref=f1e516] [cursor=pointer]:
+                - /url: mailto:curadoria@clubedejazzdocafe.com
+          - generic [ref=f1e517]:
+            - paragraph [ref=f1e518]: Acompanhe
+            - generic [ref=f1e519]:
+              - link "YouTube · ao vivo" [ref=f1e520] [cursor=pointer]:
+                - /url: https://www.youtube.com/channel/UCuiCi2BOYnrZ3ITCsRHIjtg
+              - link "Instagram" [ref=f1e521] [cursor=pointer]:
+                - /url: https://www.instagram.com/clubedejazzdocafe/
+              - link "Facebook" [ref=f1e522] [cursor=pointer]:
+                - /url: https://facebook.com/clubedejazzdocafe
+      - generic [ref=f1e523]:
+        - generic [ref=f1e524]:
+          - paragraph [ref=f1e525]: "Realização: Instituto Cidades Criativas"
+          - paragraph [ref=f1e526]: Clube de Jazz do Café com Letras · Belo Horizonte
+        - generic [ref=f1e527]:
+          - paragraph [ref=f1e528]: Patrocínio
+          - generic [ref=f1e529]:
+            - link "CaptaMed":
+              - /url: https://captamed.com.br
+              - img "CaptaMed"
+            - link "Grupo MIP":
+              - /url: https://mipengenharia.com.br
+              - img "Grupo MIP"

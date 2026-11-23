@@ -1,0 +1,4 @@
+{
+ "on": "display: inline-flex; align-items: center; min-height: 44px; padding: 0 9px; font-size: 15px; text-decoration: none; border-radius: 6px; color: #F2ECE1; font-weight: 600; text-decoration: underline; text-underline-offset: 8px; text-decoration-color: #DEAC00;",
+ "off": "display: inline-flex; align-items: center; min-height: 44px; padding: 0 9px; font-size: 15px; text-decoration: none; border-radius: 6px; color: #D9D1C4; font-weight: 500;"
+}

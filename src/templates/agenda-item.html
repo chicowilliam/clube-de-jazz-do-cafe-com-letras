@@ -1,0 +1,18 @@
+<article data-cats="{{cats}}" style="display: flex; flex-wrap: wrap; gap: 40px; padding: 40px 0; border-bottom: 1px solid rgba(242,236,225,0.12); align-items: stretch">
+<div style="flex: 0 0 140px">
+<p style="margin: 0; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #DEAC00; font-weight: 600">{{weekday}}</p>
+<p style="margin: 6px 0 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-size: clamp(28px, 3.89vw, 56px); line-height: 0.9">{{dd}}</p>
+<p style="margin: 6px 0 0; font-size: 14px; color: #B9B0A3; text-transform: uppercase; letter-spacing: 0.12em">{{mon}}</p>
+</div>
+<a href="{{url}}" style="flex: 0 1 360px; min-width: 260px; display: block"><img alt="{{title_attr}}" decoding="async" loading="lazy" src="{{image}}" style="width: 100%; aspect-ratio: 600 / 510; object-fit: cover; border-radius: 10px; display: block; background: #2A2622"/></a>
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-weight: 900; font-size: 38px; line-height: 1.02">{{title}}</h2>
+<p style="margin: 0; font-size: 17px; color: #EFADFF; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 400; line-height: 1.4">{{sub}}</p>
+<p style="margin: 4px 0 0; font-size: 15px; color: #D9D1C4">{{times_long}}</p>
+<p style="margin: 0; font-size: 13px; color: #B9B0A3; letter-spacing: 0.04em">{{tags}}</p>
+<div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: auto; padding-top: 16px">
+<a href="{{tickets_url}}" rel="noopener" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #DEAC00; color: #0F0E0D; font-weight: 600; font-size: 15px; text-decoration: none" target="_blank">{{tickets_label}}</a>
+<a href="{{url}}" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 999px; border: 1px solid rgba(242,236,225,0.35); color: #F2ECE1; font-size: 15px; text-decoration: none">Mais informações</a>
+</div>
+</div>
+</article>

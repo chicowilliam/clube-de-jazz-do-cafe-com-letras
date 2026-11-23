@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Menu do site</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>@font-face{font-family:"Sharp Grotesk";src:url(/_blob/ab935f9fdb2c84faf4af7ccd4481f5bc) format("opentype");font-weight:100 900;font-style:normal}</style>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<header style="background: #0F0E0D; color: #F2ECE1; font-family: Inter, system-ui, sans-serif; border-bottom: 1px solid rgba(242,236,225,0.1)">
+  <div style="max-width: 1360px; margin: 0 auto; padding: 16px 40px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 20px">
+    <div style="{{ leftStyle }}">
+      <a href="Main.dc.html" aria-label="Clube de Jazz do Café com Letras — início" style="display: flex; align-items: center; min-height: 44px"><img src="/_blob/d83e6486ebe6ae6d0cb2794835110dd5" alt="Clube de Jazz do Café com Letras" style="height: 56px; width: auto; display: block"></a>
+    </div>
+    <nav aria-label="Principal" style="flex: 0 1 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px 2px">
+      <sc-for list="{{ links }}" as="l" hint-placeholder-count="8">
+        <a href="{{ l.href }}" style="{{ l.style }}">{{ l.label }}</a>
+      </sc-for>
+      <a href="Agenda.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; margin-left: 10px; border-radius: 999px; background: #DEAC00; color: #0F0E0D; font-weight: 600; font-size: 14px; text-decoration: none">Ingressos</a>
+      <a href="#" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 10px; color: #B9B0A3; font-size: 13px; text-decoration: none" aria-label="English version">EN</a>
+    </nav>
+    <div style="{{ rightStyle }}">
+      <sc-if value="{{ sponsors }}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column; align-items: stretch">
+          <p style="margin: 0; padding-bottom: 6px; border-bottom: 2px solid #F2ECE1; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #F2ECE1; font-weight: 700">Patrocínio</p>
+          <div style="display: flex; align-items: center; gap: 28px; padding-top: 10px">
+            <img src="/_blob/1dbe7639128fd02b2dc272dff7914b4c" alt="CaptaMed" style="height: 36px; width: auto; display: block">
+            <img src="/_blob/9eee0ffa374c6022b01d9b5d8fd5f0c6" alt="Grupo MIP" style="height: 42px; width: auto; display: block">
+          </div>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"sponsors":{"editor":"boolean","default":false},"active":{"editor":"enum","options":["home","agenda","aovivo","escola","festivais","eventos","cardapio","clube"],"default":"home"},"$preview":{"width":1440,"height":96}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const active = this.props.active ?? 'home';
+    const base = 'display: inline-flex; align-items: center; min-height: 44px; padding: 0 9px; font-size: 15px; text-decoration: none; border-radius: 6px; ';
+    const items = [
+      ['agenda', 'Agenda', 'Agenda.dc.html'],
+      ['aovivo', 'Ao vivo', 'AoVivo.dc.html'],
+      ['escola', 'Escola do Jazz', 'Escola.dc.html'],
+      ['festivais', 'Festivais', 'Festivais.dc.html'],
+      ['eventos', 'Eventos', 'Eventos.dc.html'],
+      ['cardapio', 'Cardápio', 'Cardapio.dc.html'],
+      ['clube', 'O Clube', 'OClube.dc.html'],
+      ['amigos', 'Amigos', 'OClube.dc.html#amigos']
+    ];
+    const sp = this.props.sponsors;
+    return {
+      sponsors: sp === true || sp === 'true',
+      leftStyle: (sp === true || sp === 'true') ? 'flex: 0 0 auto; display: flex; align-items: center; margin-right: 28px' : 'flex: 1 1 180px; display: flex; align-items: center',
+      rightStyle: (sp === true || sp === 'true') ? 'flex: 0 0 auto; display: flex; justify-content: flex-end; margin-left: auto' : 'flex: 1 1 180px; display: flex; justify-content: flex-end',
+      links: items.map(([k, label, href]) => ({
+        label, href,
+        style: base + (k === active ? 'color: #F2ECE1; font-weight: 600; text-decoration: underline; text-underline-offset: 8px; text-decoration-color: #DEAC00;' : 'color: #D9D1C4; font-weight: 500;')
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

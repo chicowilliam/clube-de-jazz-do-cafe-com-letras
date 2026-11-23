@@ -1,0 +1,18 @@
+# Redirecionamentos das URLs do site antigo (clubedejazzdocafe.com) para as novas.
+# Formato: origem  destino  código   (https://developers.cloudflare.com/pages/configuration/redirects/)
+# Observação: o Cloudflare Pages não diferencia parâmetros de query (ex.: /show/?id=1310);
+# todas as páginas antigas de show vão para a agenda.
+/home          /                 301
+/home/         /                 301
+/shows         /agenda/          301
+/shows/        /agenda/          301
+/show          /agenda/          301
+/show/         /agenda/          301
+/old           /agenda/          301
+/old/          /agenda/          301
+/club          /o-clube/         301
+/club/         /o-clube/         301
+/amigos        /o-clube/#amigos  301
+/amigos/       /o-clube/#amigos  301
+/menu          /cardapio/        301
+/menu/         /cardapio/        301

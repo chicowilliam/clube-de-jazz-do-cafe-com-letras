@@ -1,0 +1,17 @@
+{
+  "name": "clube-de-jazz-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site do Clube de Jazz do Café com Letras (Savassi, BH) — site estático para Cloudflare Pages.",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs",
+    "preview": "node scripts/serve.mjs",
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs",
+    "pages:dev": "npx wrangler pages dev dist",
+    "test": "node scripts/build.mjs && node scripts/check.mjs"
+  },
+  "license": "UNLICENSED"
+}

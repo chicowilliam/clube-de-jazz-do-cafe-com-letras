@@ -1,0 +1,314 @@
+- generic [ref=e2]:
+  - link "Pular para o conteúdo" [ref=e3] [cursor=pointer]:
+    - /url: "#conteudo"
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - link "Clube de Jazz do Café com Letras — início" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img "Clube de Jazz do Café com Letras" [ref=e8]
+      - navigation "Principal" [ref=e9]:
+        - link "Agenda" [ref=e10] [cursor=pointer]:
+          - /url: /agenda/
+        - link "Ao vivo" [ref=e11] [cursor=pointer]:
+          - /url: /ao-vivo/
+        - link "Escola do Jazz" [ref=e12] [cursor=pointer]:
+          - /url: /escola-do-jazz/
+        - link "Festivais" [ref=e13] [cursor=pointer]:
+          - /url: /festivais/
+        - link "Eventos" [ref=e14] [cursor=pointer]:
+          - /url: /eventos/
+        - link "Cardápio" [ref=e15] [cursor=pointer]:
+          - /url: /cardapio/
+        - link "O Clube" [ref=e16] [cursor=pointer]:
+          - /url: /o-clube/
+        - link "Amigos" [ref=e17] [cursor=pointer]:
+          - /url: /o-clube/#amigos
+        - link "Ingressos" [ref=e18] [cursor=pointer]:
+          - /url: /agenda/
+        - link "English version" [ref=e19] [cursor=pointer]:
+          - /url: "#"
+          - text: EN
+      - generic [ref=e21]:
+        - paragraph [ref=e22]: Patrocínio
+        - generic [ref=e23]:
+          - link [ref=e24] [cursor=pointer]:
+            - /url: https://captamed.com.br
+            - img "CaptaMed" [ref=e25]
+          - link [ref=e26] [cursor=pointer]:
+            - /url: https://mipengenharia.com.br
+            - img "Grupo MIP" [ref=e27]
+  - main [ref=e28]:
+    - region "Destaque" [ref=e29]:
+      - img "O palco do Clube de Jazz, com estantes de livros ao fundo" [ref=e30]
+      - img "Cantora sob luzes violeta no palco do Clube" [ref=e31]
+      - img "Violonista no palco do Clube" [ref=e32]
+      - img "Duas pianistas no Clube" [ref=e33]
+      - img "O salão do Clube com plateia e piano de cauda" [ref=e34]
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - generic [ref=e38]:
+            - paragraph [ref=e39]: Savassi · Belo Horizonte · desde 2022
+            - heading "Jazz de perto" [level=1] [ref=e40]
+            - paragraph [ref=e41]: Clube de Jazz do Café com Letras
+            - paragraph [ref=e42]: Dois sets por noite, de terça a sábado, numa sala feita para ouvir. Do standard à música de Minas.
+          - generic [ref=e43]:
+            - paragraph [ref=e44]: Hoje no Clube · Segunda, 23/11
+            - heading "Big Band Cefart" [level=2] [ref=e45]
+            - paragraph [ref=e46]: Escola do Jazz
+            - paragraph [ref=e47]: Casa abre 19h · 1º set 20h · 2º set 21h30
+            - generic [ref=e48]:
+              - link "Garanta seu lugar" [ref=e49] [cursor=pointer]:
+                - /url: https://bileto.sympla.com.br/event/129234
+              - link "Sobre o show" [ref=e50] [cursor=pointer]:
+                - /url: /shows/2026-11-23-big-band-cefart/
+        - generic [ref=e51]:
+          - group "Fotos" [ref=e52]:
+            - button "Foto 1" [pressed] [ref=e53] [cursor=pointer]
+            - button "Foto 2" [ref=e55] [cursor=pointer]
+            - button "Foto 3" [ref=e57] [cursor=pointer]
+            - button "Foto 4" [ref=e59] [cursor=pointer]
+            - button "Foto 5" [ref=e61] [cursor=pointer]
+          - paragraph [ref=e63]: Jimmy Duchowny Trio e Alma Thomas no Clube · Savassi Festival 2024 · foto Flávio Charchar
+    - generic [ref=e64]:
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - paragraph [ref=e67]: Agenda
+          - heading "Esta semana no Clube" [level=2] [ref=e68]
+        - link "Ver a agenda completa →" [ref=e69] [cursor=pointer]:
+          - /url: /agenda/
+      - generic [ref=e70]:
+        - article [ref=e71]:
+          - img "Big Band Cefart" [ref=e72]
+          - generic [ref=e73]:
+            - paragraph [ref=e74]: Segunda, 23/11
+            - heading "Big Band Cefart" [level=3] [ref=e75]
+            - paragraph [ref=e76]: Escola do Jazz
+            - paragraph [ref=e77]: 1º set 20h · 2º set 21h30
+            - generic [ref=e78]:
+              - link "Garanta seu lugar" [ref=e79] [cursor=pointer]:
+                - /url: https://bileto.sympla.com.br/event/129234
+              - link "Mais informações" [ref=e80] [cursor=pointer]:
+                - /url: /shows/2026-11-23-big-band-cefart/
+        - article [ref=e81]:
+          - img "Vinicius Mendes Quarteto - O Jazz no Clube da Esquina" [ref=e82]
+          - generic [ref=e83]:
+            - paragraph [ref=e84]: Terça, 24/11
+            - heading "Vinicius Mendes Quarteto" [level=3] [ref=e85]
+            - paragraph [ref=e86]: O Jazz no Clube da Esquina · Participações especiais de Rodrigo Borges, Felipe Fantoni e Pingo Ballona
+            - paragraph [ref=e87]: 1º set 20h · 2º set 21h30
+            - generic [ref=e88]:
+              - link "Garanta seu lugar" [ref=e89] [cursor=pointer]:
+                - /url: https://bileto.sympla.com.br/event/129236
+              - link "Mais informações" [ref=e90] [cursor=pointer]:
+                - /url: /shows/2026-11-24-vinicius-mendes-quarteto-o-jazz-no-clube-da-esquina/
+        - article [ref=e91]:
+          - 'img "Magno Alexandre Quarteto: Standards de Jazz" [ref=e92]'
+          - generic [ref=e93]:
+            - paragraph [ref=e94]: Quarta, 25/11
+            - heading "Magno Alexandre Quarteto" [level=3] [ref=e95]
+            - paragraph [ref=e96]: Standards de Jazz · Jazz e Vinhos - Rolha Free
+            - paragraph [ref=e97]: 1º set 20h · 2º set 21h30
+            - generic [ref=e98]:
+              - link "Garanta o seu lugar" [ref=e99] [cursor=pointer]:
+                - /url: https://bileto.sympla.com.br/event/129239
+              - link "Mais informações" [ref=e100] [cursor=pointer]:
+                - /url: /shows/2026-11-25-magno-alexandre-quarteto-standards-de-jazz/
+        - article [ref=e101]:
+          - img "Amy Winehouse por Izza Quarteto" [ref=e102]
+          - generic [ref=e103]:
+            - paragraph [ref=e104]: Quinta, 26/11
+            - heading "Amy Winehouse por Izza Quarteto" [level=3] [ref=e105]
+            - paragraph
+            - paragraph [ref=e106]: 1º set 20h30 · 2º set 22h
+            - generic [ref=e107]:
+              - link "Garanta seu lugar" [ref=e108] [cursor=pointer]:
+                - /url: https://bileto.sympla.com.br/event/129241
+              - link "Mais informações" [ref=e109] [cursor=pointer]:
+                - /url: /shows/2026-11-26-amy-winehouse-por-izza-quarteto/
+        - article [ref=e110]:
+          - img "Eneias Xavier Quarteto toca Pat Metheny/Lyle Mays group" [ref=e111]
+          - generic [ref=e112]:
+            - paragraph [ref=e113]: Sexta, 27/11
+            - heading "Eneias Xavier Quarteto toca Pat Metheny/Lyle Mays group" [level=3] [ref=e114]
+            - paragraph
+            - paragraph [ref=e115]: 1º set 21h · 2º set 22h30
+            - generic [ref=e116]:
+              - link "Garanta seu lugar" [ref=e117] [cursor=pointer]:
+                - /url: https://bileto.sympla.com.br/event/129564
+              - link "Mais informações" [ref=e118] [cursor=pointer]:
+                - /url: /shows/2026-11-27-eneias-xavier-quarteto-toca-pat-metheny-lyle-mays-group/
+        - article [ref=e119]:
+          - img "Escola do Jazz" [ref=e120]
+          - generic [ref=e121]:
+            - paragraph [ref=e122]: Sábado, 28/11
+            - heading "Escola do Jazz" [level=3] [ref=e123]
+            - paragraph [ref=e124]: com a Master Escola de Música
+            - paragraph [ref=e125]: 13h30 às 17h30
+            - generic [ref=e126]:
+              - link "Ingressos na Master Escola" [ref=e127] [cursor=pointer]:
+                - /url: https://www.instagram.com/master.escola/
+              - link "Mais informações" [ref=e128] [cursor=pointer]:
+                - /url: /shows/2026-11-28-escola-do-jazz/
+    - generic [ref=e130]:
+      - generic [ref=e131]:
+        - paragraph [ref=e132]: A Escola do Jazz
+        - heading "O palco também é sala de aula" [level=2] [ref=e133]
+        - paragraph [ref=e134]: Apresentações de escolas de música, masterclasses e ensaios abertos e gratuitos. Um lugar para formar músicos, diretores de palco, produtores culturais e público.
+        - link "Conheça a Escola do Jazz" [ref=e136] [cursor=pointer]:
+          - /url: /escola-do-jazz/
+      - generic [ref=e137]:
+        - paragraph [ref=e138]: Próximas atividades
+        - generic [ref=e139]:
+          - paragraph [ref=e140]: 23/11
+          - generic [ref=e141]:
+            - paragraph [ref=e142]: Big Band Cefart
+            - paragraph [ref=e143]: Segunda · 20h
+        - generic [ref=e144]:
+          - paragraph [ref=e145]: 28/11
+          - generic [ref=e146]:
+            - paragraph [ref=e147]: Master Escola de Música
+            - paragraph [ref=e148]: Sábado · 13h30 às 17h30
+        - generic [ref=e149]:
+          - paragraph [ref=e150]: 05/12
+          - generic [ref=e151]:
+            - paragraph [ref=e152]: Master Escola de Música
+            - paragraph [ref=e153]: Sábado · 13h30 às 17h30
+        - generic [ref=e154]:
+          - paragraph [ref=e155]: "Em 2027: ensaios abertos"
+          - paragraph [ref=e156]: Gratuitos, durante a passagem de som. Calendário em breve.
+    - generic [ref=e157]:
+      - generic [ref=e158]:
+        - generic [ref=e159]:
+          - paragraph [ref=e160]: Ao vivo no Clube
+          - heading "Todo show, transmitido ao vivo" [level=2] [ref=e161]
+          - paragraph [ref=e162]: 990 vídeos e 5,82 mil inscritos no nosso canal. Os shows do Clube, filmados noite a noite, para assistir quando quiser.
+        - link "Explorar o acervo →" [ref=e163] [cursor=pointer]:
+          - /url: /ao-vivo/
+      - generic [ref=e164]:
+        - link [ref=e165] [cursor=pointer]:
+          - /url: https://www.youtube.com/watch?v=diKjoeDioiU
+          - paragraph [ref=e170]: Kind of Blue de Miles Davis na íntegra · Klesley Brandão Sexteto
+          - paragraph [ref=e171]: 14/11/2026 · 1.086 visualizações
+        - link [ref=e172] [cursor=pointer]:
+          - /url: https://www.youtube.com/watch?v=qcahzYH7QRU
+          - paragraph [ref=e177]: "Maíra Manga canta Chico Buarque: voz e violão"
+          - paragraph [ref=e178]: 21/11/2026 · 1.082 visualizações
+        - link [ref=e179] [cursor=pointer]:
+          - /url: https://www.youtube.com/watch?v=HKBi-_xHxGU
+          - paragraph [ref=e184]: "Juarez Moreira Trio: o violão mineiro entre o jazz e a bossa"
+          - paragraph [ref=e185]: 12/11/2026 · 856 visualizações
+        - link [ref=e186] [cursor=pointer]:
+          - /url: https://www.youtube.com/watch?v=K-8sfacVNvI
+          - paragraph [ref=e191]: "Avec Trio: piano, contrabaixo e bateria em composições autorais"
+          - paragraph [ref=e192]: 18/11/2026 · 710 visualizações
+    - generic [ref=e195]:
+      - paragraph [ref=e196]: Festivais 2027
+      - heading "Formatos que só o Clube faz" [level=2] [ref=e197]
+      - generic [ref=e198]:
+        - link [ref=e199] [cursor=pointer]:
+          - /url: /festivais/
+          - paragraph [ref=e200]: Estreia · 14 a 16 de maio
+          - generic [ref=e201]:
+            - heading "Só Bigs" [level=3] [ref=e202]
+            - paragraph [ref=e203]: Festival de Big Bands. No Clube e na Praça Célio Balona.
+        - link [ref=e204] [cursor=pointer]:
+          - /url: /festivais/
+          - paragraph [ref=e205]: 2ª edição · 13 a 17 de julho
+          - generic [ref=e206]:
+            - heading "Piano Duo" [level=3] [ref=e207]
+            - paragraph [ref=e208]: Festival de Duos de Pianos, na semana dos 5 anos do Clube.
+      - generic [ref=e209]:
+        - paragraph [ref=e210]: Tem um festival? O Clube recebe festivais parceiros, como o Savassi Festival, com palco, equipe técnica e transmissão ao vivo.
+        - link "Realize seu festival no Clube" [ref=e211] [cursor=pointer]:
+          - /url: /festivais/
+    - generic [ref=e212]:
+      - generic [ref=e213]:
+        - img "O salão do Clube, com piano de cauda e plateia" [ref=e214]
+        - generic [ref=e215]:
+          - paragraph [ref=e216]: Eventos e empresas
+          - heading "Seu evento com música ao vivo de verdade" [level=3] [ref=e217]
+          - paragraph [ref=e218]: Lançamentos, confraternizações e encontros de clientes para até 97 pessoas, com curadoria musical, cozinha e bar da casa.
+          - link "Planeje seu evento" [ref=e219] [cursor=pointer]:
+            - /url: /eventos/
+      - generic [ref=e222]:
+        - paragraph [ref=e223]: Amigos do Clube
+        - heading "Quem ama jazz mantém o Clube tocando" [level=3] [ref=e224]
+        - paragraph [ref=e225]: Seis formas de apoiar a programação, a Escola do Jazz, a Nova Onda e os festivais.
+        - paragraph [ref=e226]: Cotas de Amigo do Clube
+        - generic [ref=e227]:
+          - paragraph [ref=e229]: Groove
+          - paragraph [ref=e231]: Swing
+          - paragraph [ref=e233]: Jam Session
+        - paragraph [ref=e234]: Patrocínio de festival
+        - generic [ref=e235]:
+          - generic [ref=e236]:
+            - paragraph [ref=e237]: Só Bigs
+            - paragraph [ref=e238]: 14 a 16 de maio
+          - generic [ref=e239]:
+            - paragraph [ref=e240]: Piano Duo
+            - paragraph [ref=e241]: 13 a 17 de julho
+          - generic [ref=e242]:
+            - paragraph [ref=e243]: Savassi Festival
+            - paragraph [ref=e244]: fim de maio
+        - link "Conheça as seis formas de apoio" [ref=e245] [cursor=pointer]:
+          - /url: /o-clube/#amigos
+    - generic [ref=e247]:
+      - generic [ref=e248]:
+        - heading "Sua noite no Clube" [level=2] [ref=e249]
+        - paragraph [ref=e250]: Rua Antônio de Albuquerque, 47Savassi, Belo Horizonte
+        - link "Cardápio e bar →" [ref=e251] [cursor=pointer]:
+          - /url: /cardapio/
+      - generic [ref=e252]:
+        - paragraph [ref=e253]: Horários
+        - generic [ref=e254]:
+          - generic [ref=e255]: Casa abre
+          - generic [ref=e256]: 19h, terça a sábado
+        - generic [ref=e257]:
+          - generic [ref=e258]: Terça e quarta
+          - generic [ref=e259]: shows às 20h
+        - generic [ref=e260]:
+          - generic [ref=e261]: Quinta
+          - generic [ref=e262]: shows às 20h30
+        - generic [ref=e263]:
+          - generic [ref=e264]: Sexta e sábado
+          - generic [ref=e265]: shows às 21h
+      - generic [ref=e266]:
+        - paragraph [ref=e267]: Como funciona
+        - paragraph [ref=e268]: "Dois sets por noite, um único ingresso. Área interna dedicada à escuta; área externa com som ambiente paga meia. Na varanda não há venda antecipada: é só chegar. Nas quartas, Jazz e Vinhos com rolha livre."
+  - contentinfo [ref=e269]:
+    - generic [ref=e270]:
+      - generic [ref=e271]:
+        - generic [ref=e272]:
+          - img "Clube de Jazz do Café com Letras" [ref=e273]
+          - paragraph [ref=e274]: A programação da semana, toda segunda, no seu e-mail
+          - generic [ref=e275]:
+            - generic [ref=e276]: Seu e-mail
+            - textbox "Seu e-mail" [ref=e277]
+            - button "Assinar a newsletter" [ref=e278]
+            - textbox [aria-hidden] [ref=e279]
+          - status [ref=e280]
+        - generic [ref=e281]:
+          - generic [ref=e282]:
+            - paragraph [ref=e283]: Visite
+            - paragraph [ref=e284]: Rua Antônio de Albuquerque, 47Savassi · Belo Horizonte · MGCEP 30112-010Terça a sábado, a partir das 19h
+          - generic [ref=e285]:
+            - paragraph [ref=e286]: Fale com o Clube
+            - paragraph [ref=e287]:
+              - text: (31) 98424-4285
+              - link "contato@clubedejazzdocafe.com" [ref=e288] [cursor=pointer]:
+                - /url: mailto:contato@clubedejazzdocafe.com
+              - text: "Curadoria:"
+              - link "curadoria@clubedejazzdocafe.com" [ref=e289] [cursor=pointer]:
+                - /url: mailto:curadoria@clubedejazzdocafe.com
+          - generic [ref=e290]:
+            - paragraph [ref=e291]: Acompanhe
+            - generic [ref=e292]:
+              - link "YouTube · ao vivo" [ref=e293] [cursor=pointer]:
+                - /url: https://www.youtube.com/channel/UCuiCi2BOYnrZ3ITCsRHIjtg
+              - link "Instagram" [ref=e294] [cursor=pointer]:
+                - /url: https://www.instagram.com/clubedejazzdocafe/
+              - link "Facebook" [ref=e295] [cursor=pointer]:
+                - /url: https://facebook.com/clubedejazzdocafe
+      - generic [ref=e297]:
+        - paragraph [ref=e298]: "Realização: Instituto Cidades Criativas"
+        - paragraph [ref=e299]: Clube de Jazz do Café com Letras · Belo Horizonte

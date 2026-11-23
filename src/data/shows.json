@@ -1,0 +1,1111 @@
+{
+  "_info": "Programação extraída do site atual (clubedejazzdocafe.com) em 23/11/2026. Releases copiados sem revisão editorial: revisar antes de publicar. Para atualizar a agenda, edite este arquivo e rode npm run build.",
+  "shows": [
+    {
+      "id": 1308,
+      "slug": "2026-11-23-big-band-cefart",
+      "date": "2026-11-23",
+      "weekday": "Segunda",
+      "title": "Big Band Cefart",
+      "subtitle": "Escola do Jazz",
+      "tags": [
+        "Big Band",
+        "Jazz",
+        "Música Instrumental Brasileira"
+      ],
+      "categories": [
+        "bigband",
+        "escola",
+        "jazz",
+        "instrumental"
+      ],
+      "times": [
+        {
+          "label": "Abertura da casa",
+          "value": "19:00"
+        },
+        {
+          "label": "Primeiro Set",
+          "value": "20:00"
+        },
+        {
+          "label": "Segundo Set",
+          "value": "21:30"
+        }
+      ],
+      "prices": [
+        {
+          "label": "Área Interna",
+          "value": "R$20,00"
+        },
+        {
+          "label": "Área Externa",
+          "value": "R$10,00"
+        }
+      ],
+      "tickets_url": "https://bileto.sympla.com.br/event/129234",
+      "tickets_label": "Garanta seu lugar",
+      "youtube": "t9s-vtPxbEE",
+      "image": "/assets/img/shows/1308.jpg",
+      "description": [
+        "A Cefart Big Band, formada por alunos do curso de música do Centro de Formação Artística e Tecnológica da Fundação Clóvis Salgado (Cefart), é uma proposta artístico-pedagógica que busca inspiração nas famosas Orquestras de Jazz americanas, as Big Bands. Com saxofones, trompetes, trombones, piano, contrabaixo, guitarra, bateria e vocais.",
+        "Sob a direção artística e regência de Camilo Christófaro e com a participação dos professores Gustavo Machado e Luis Flávio Aguiar Miranda, a Cefart Big Band apresentará um repertório que inclui sucessos de artistas consagrados como Bruno Mars, João Bosco, Tom Jobim, entre outros.",
+        "Entre as músicas selecionadas para o concerto, destacam-se \"Sweet Caroline\" de Neil Diamond, \"My Favorite Things\" de Richard Rodgers, \"Lamento\" de Pixinguinha, \"All of Me\" de Seymour Simons Gerald, \"Só Danço Samba\" de Tom Jobim e Vinicius de Moraes, e \"Uptown Funk\" de Bruno Mars."
+      ],
+      "formation": [
+        {
+          "name": "Camilo Cordova Christófaro",
+          "role": "Coordenação e Regência"
+        },
+        {
+          "name": "Luís Flávio Aguiar Miranda",
+          "role": "saxofone alto"
+        },
+        {
+          "name": "Gustavo Machado",
+          "role": "trompete"
+        },
+        {
+          "name": "Jonathan Elidio de Matos Gonçalves",
+          "role": "bateria"
+        },
+        {
+          "name": "Lucas Medeiros Soares",
+          "role": "bateria"
+        },
+        {
+          "name": "Leonardo Barzan",
+          "role": "bateria"
+        },
+        {
+          "name": "Catarina Santana",
+          "role": "voz"
+        },
+        {
+          "name": "Nathalia Romana",
+          "role": "voz"
+        },
+        {
+          "name": "Thaís Coimbra",
+          "role": "voz"
+        },
+        {
+          "name": "João Pedro Alves Barbosa",
+          "role": "contrabaixo elétrico"
+        },
+        {
+          "name": "Júlia Schettino",
+          "role": "contrabaixo elétrico"
+        },
+        {
+          "name": "Lucas de Carvalho",
+          "role": "guitarra"
+        },
+        {
+          "name": "Durães",
+          "role": "guitarra"
+        },
+        {
+          "name": "Maxwell Costa",
+          "role": "guitarra"
+        },
+        {
+          "name": "Isaac Pereira",
+          "role": "percussão"
+        },
+        {
+          "name": "Gabriel Santiago",
+          "role": "piano"
+        },
+        {
+          "name": "Sofia Mota",
+          "role": "piano"
+        },
+        {
+          "name": "Alice Braga",
+          "role": "saxofone alto"
+        },
+        {
+          "name": "Tiago Mateus Fernandes",
+          "role": "saxofone alto"
+        },
+        {
+          "name": "Darlei Eustáquio Alves Aguiar",
+          "role": "saxofone tenor"
+        },
+        {
+          "name": "Clarissa Miranda",
+          "role": "trombone"
+        },
+        {
+          "name": "Kauan Prado Martins",
+          "role": "trombone"
+        },
+        {
+          "name": "Jansley Gustavo Resende Ferreira",
+          "role": "trompete"
+        },
+        {
+          "name": "Luiz Carlos Souza do Carmo",
+          "role": "trompete"
+        },
+        {
+          "name": "Renato Fernandes Riguetti",
+          "role": "trompete"
+        }
+      ],
+      "source_url": "https://clubedejazzdocafe.com/show/?id=1308",
+      "escola": true
+    },
+    {
+      "id": 1309,
+      "slug": "2026-11-24-vinicius-mendes-quarteto-o-jazz-no-clube-da-esquina",
+      "date": "2026-11-24",
+      "weekday": "Terça",
+      "title": "Vinicius Mendes Quarteto - O Jazz no Clube da Esquina",
+      "subtitle": "Participações especiais de Rodrigo Borges, Felipe Fantoni e Pingo Ballona",
+      "tags": [
+        "Clube da Esquina",
+        "Música Instrumental Brasileira"
+      ],
+      "categories": [
+        "minas",
+        "instrumental"
+      ],
+      "times": [
+        {
+          "label": "Abertura da casa",
+          "value": "19:00"
+        },
+        {
+          "label": "Primeiro Set",
+          "value": "20:00"
+        },
+        {
+          "label": "Segundo Set",
+          "value": "21:30"
+        }
+      ],
+      "prices": [
+        {
+          "label": "Área Interna",
+          "value": "R$ 30,00"
+        },
+        {
+          "label": "Área Externa",
+          "value": "R$ 15,00"
+        }
+      ],
+      "tickets_url": "https://bileto.sympla.com.br/event/129236",
+      "tickets_label": "Garanta seu lugar",
+      "youtube": "GqAEPwVd8hw",
+      "image": "/assets/img/shows/1309.jpg",
+      "description": [
+        "O Clube da Esquina é um dos movimentos responsáveis por reatar a relação amigável entre o Jazz estadounidense e a música popular brasileira.",
+        "Surgido logo após dois grandes movimentos: a bossa nova e a canção de protesto, o último era radicalmente nacionalista e, nesse sentido, levou muitos artistas a condenarem a estética do jazz como influência na música popular brasileira.",
+        "O Clube da Esquina, por outro lado não só recorreu ao Jazz e a improvisação como recurso estético mas, ao mesmo tempo, modificou consideravelmente o gênero em seu local de nascença, EUA. Milton Nascimento, Naná Vasconcelos, Toninho Horta, todos ovacionados por grandes jazzistas como Herbie Hancock, Wayne Shorter, Pat Metheny e outros.",
+        "Eis o conceito desse show, tocar o repertório instrumental de Clube da Esquina que encantou os jazzistas e influenciou diretamente o jazz."
+      ],
+      "formation": [
+        {
+          "name": "Vinícius Mendes",
+          "role": "saxofone tenor, soprano e flauta"
+        },
+        {
+          "name": "Igor Neves",
+          "role": "piano"
+        },
+        {
+          "name": "Pablo Souza",
+          "role": "baixo acústico"
+        },
+        {
+          "name": "André Limão Queiroz",
+          "role": "bateria"
+        },
+        {
+          "name": "PARTICIPAÇÃO ESPECIAL",
+          "role": ""
+        },
+        {
+          "name": "Rodrigo Borges",
+          "role": "voz e guitarra"
+        },
+        {
+          "name": "Felipe Fantoni",
+          "role": "contrabaixo"
+        },
+        {
+          "name": "Pingo Ballona",
+          "role": "bateria"
+        }
+      ],
+      "source_url": "https://clubedejazzdocafe.com/show/?id=1309",
+      "escola": false
+    },
+    {
+      "id": 1310,
+      "slug": "2026-11-25-magno-alexandre-quarteto-standards-de-jazz",
+      "date": "2026-11-25",
+      "weekday": "Quarta",
+      "title": "Magno Alexandre Quarteto: Standards de Jazz",
+      "subtitle": "Jazz e Vinhos - Rolha Free",
+      "tags": [
+        "Jazz"
+      ],
+      "categories": [
+        "jazz"
+      ],
+      "times": [
+        {
+          "label": "Abertura da casa",
+          "value": "19:00"
+        },
+        {
+          "label": "Primeiro Set",
+          "value": "20:00"
+        },
+        {
+          "label": "Segundo Set",
+          "value": "21:30"
+        }
+      ],
+      "prices": [
+        {
+          "label": "Área Interna",
+          "value": "R$ 40,00"
+        },
+        {
+          "label": "Área Externa",
+          "value": "R$ 20,00"
+        }
+      ],
+      "tickets_url": "https://bileto.sympla.com.br/event/129239",
+      "tickets_label": "Garanta o seu lugar",
+      "youtube": "_QC5sHhGwXo",
+      "image": "/assets/img/shows/1310.jpg",
+      "description": [
+        "Magno Alexandre é guitarrista, compositor e arranjador, natural de Belo Horizonte, com dois álbuns premiados. Em 2005, venceu o Prêmio BDMG Instrumental de melhor álbum com Maracatuaba. Em 2016, lançou seu segundo trabalho autoral, o álbum Marajó, que foi gravado em NY, com a participação do pianista americano Mike Eckroth.",
+        "O guitarrista mineiro apresenta \"standards\" do jazz e da música brasileira. O show promete muita improvisação Inspirada em compositores como Miles Davis e Tom Jobim."
+      ],
+      "formation": [
+        {
+          "name": "Magno Alexandre",
+          "role": "guitarra"
+        },
+        {
+          "name": "Bruno Velozzo",
+          "role": "baixo acústico"
+        },
+        {
+          "name": "Lincoln Cheib",
+          "role": "bateria"
+        },
+        {
+          "name": "Christiano Caldas",
+          "role": "piano"
+        }
+      ],
+      "source_url": "https://clubedejazzdocafe.com/show/?id=1310",
+      "escola": false
+    },
+    {
+      "id": 1311,
+      "slug": "2026-11-26-amy-winehouse-por-izza-quarteto",
+      "date": "2026-11-26",
+      "weekday": "Quinta",
+      "title": "Amy Winehouse por Izza Quarteto",
+      "subtitle": "",
+      "tags": [
+        "Jazz",
+        "Pop",
+        "R&B",
+        "Vocal"
+      ],
+      "categories": [
+        "jazz",
+        "vocal"
+      ],
+      "times": [
+        {
+          "label": "Abertura da casa",
+          "value": "19:00"
+        },
+        {
+          "label": "Primeiro Set",
+          "value": "20:30"
+        },
+        {
+          "label": "Segundo Set",
+          "value": "22:00"
+        }
+      ],
+      "prices": [
+        {
+          "label": "Área Interna",
+          "value": "R$ 40,00"
+        },
+        {
+          "label": "Área Externa",
+          "value": "R$20,00"
+        }
+      ],
+      "tickets_url": "https://bileto.sympla.com.br/event/129241",
+      "tickets_label": "Garanta seu lugar",
+      "youtube": "_fsqldsK5Yw",
+      "image": "/assets/img/shows/1311.jpg",
+      "description": [
+        "Amy Winehouse é lembrada não apenas pela voz poderosa, mas por sua autenticidade crua e por ter criado um estilo único que mesclava soul, jazz, R&B e uma presença cênica arrebatadora. Com apenas dois discos, tornou-se um fenômeno mundial e deixou canções eternas que ainda emocionam e influenciam artistas no mundo inteiro.",
+        "Neste show inédito no Clube, Izza e seu quarteto prestam uma homenagem apaixonada à artista britânica, interpretando alguns dos maiores sucessos da carreira de Amy em versões que mesclam respeito à obra original e a identidade própria da intérprete.",
+        "O repertório passeia por clássicos como “Back to Black”, “Rehab”, “Valerie” e “You Know I’m No Good”, entre outras canções que revelam toda a intensidade e genialidade de Amy. Uma noite feita para quem sente saudade dessa voz inesquecível — e para quem quer reviver, com emoção, a força de sua música ao vivo."
+      ],
+      "formation": [
+        {
+          "name": "Izza",
+          "role": "voz"
+        },
+        {
+          "name": "Emerson Oliveira",
+          "role": "piano"
+        },
+        {
+          "name": "Yan Vasconcelos",
+          "role": "baixo acústico"
+        },
+        {
+          "name": "Lucas Godoy",
+          "role": "bateria"
+        }
+      ],
+      "source_url": "https://clubedejazzdocafe.com/show/?id=1311",
+      "escola": false
+    },
+    {
+      "id": 1318,
+      "slug": "2026-11-27-eneias-xavier-quarteto-toca-pat-metheny-lyle-mays-group",
+      "date": "2026-11-27",
+      "weekday": "Sexta",
+      "title": "Eneias Xavier Quarteto toca Pat Metheny/Lyle Mays group",
+      "subtitle": "",
+      "tags": [
+        "Jazz Contemporâneo",
+        "Música Instrumental"
+      ],
+      "categories": [
+        "jazz",
+        "instrumental"
+      ],
+      "times": [
+        {
+          "label": "Abertura da casa",
+          "value": "19:00"
+        },
+        {
+          "label": "Primeiro Set",
+          "value": "21:00"
+        },
+        {
+          "label": "Segundo Set",
+          "value": "22:30"
+        }
+      ],
+      "prices": [
+        {
+          "label": "Área Interna",
+          "value": "R$ 40,00"
+        },
+        {
+          "label": "Área Externa",
+          "value": "R$ 20,00"
+        }
+      ],
+      "tickets_url": "https://bileto.sympla.com.br/event/129564",
+      "tickets_label": "Garanta seu lugar",
+      "youtube": "",
+      "image": "/assets/img/shows/1318.jpg",
+      "description": [
+        "Parceiros de longa data e músicos atuantes na cena instrumental de Belo Horizonte, Eneias Xavier e Magno Alexandre se unem em um espetáculo dedicado à obra de Pat Metheny e Lyle Mays, nomes fundamentais da história do jazz contemporâneo.",
+        "Influenciados por esse repertório desde sua formação musical, os dois artistas revisitam composições marcantes do lendário Pat Metheny Group, trazendo ao palco suas próprias interpretações e a conexão afetiva com uma música que atravessa gerações."
+      ],
+      "formation": [
+        {
+          "name": "Eneias Xavier",
+          "role": "piano, teclados e contrabaixo"
+        },
+        {
+          "name": "Magno Alexandre",
+          "role": "guitarra"
+        },
+        {
+          "name": "Bruno Velozzo",
+          "role": "baixo acústico"
+        },
+        {
+          "name": "Cyrano Almeida",
+          "role": "bateria"
+        }
+      ],
+      "source_url": "https://clubedejazzdocafe.com/show/?id=1318",
+      "escola": false
+    },
+    {
+      "id": 1322,
+      "slug": "2026-11-28-escola-do-jazz",
+      "date": "2026-11-28",
+      "weekday": "Sábado",
+      "title": "Escola do Jazz",
+      "subtitle": "com a Master Escola de Música",
+      "tags": [
+        "Educativo",
+        "Escola de Música"
+      ],
+      "categories": [
+        "escola"
+      ],
+      "times": [
+        {
+          "label": "Abertura da casa",
+          "value": "13:30"
+        },
+        {
+          "label": "Encerramento",
+          "value": "17:30"
+        }
+      ],
+      "prices": [
+        {
+          "label": "Ingressos",
+          "value": "à venda diretamente na Master Escola de Música"
+        }
+      ],
+      "tickets_url": "https://www.instagram.com/master.escola/",
+      "tickets_label": "Ingressos na Master Escola",
+      "youtube": "",
+      "image": "/assets/img/shows/1322.jpg",
+      "description": [
+        "Neste sábado, 28/11, das 13h30 às 17h30, o Clube de Jazz recebe a Master Escola de Música para uma tarde de apresentações dos seus alunos, dentro da programação da Escola do Jazz.",
+        "Ingressos: vendidos diretamente pela Master Escola de Música. Fale com a escola pelo Instagram @master.escola.",
+        "Escola do Jazz",
+        "A Escola do Jazz é o programa educativo do Clube de Jazz do Café com Letras. Ele reúne apresentações de escolas de música, ensaios abertos, masterclasses e encontros com músicos, e abre o palco do Clube para quem está aprendendo e para quem ensina. É a ponte do Clube com a educação, por meio da música.",
+        "Quer trazer sua escola ou propor uma atividade? Fale com a gente pelo WhatsApp (31) 98424-4285 ou pelo e-mail bruno@cidadescriativas.org.br."
+      ],
+      "formation": [],
+      "source_url": "https://clubedejazzdocafe.com/show/?id=1322",
+      "escola": true
+    },
+    {
+      "id": 1312,
+      "slug": "2026-11-28-marcelo-magalhaes-trio-rj",
+      "date": "2026-11-28",
+      "weekday": "Sábado",
+      "title": "Marcelo Magalhães Trio (RJ)",
+      "subtitle": "Participação Especial Juarez Moreira",
+      "tags": [
+        "Jazz",
+        "Swing"
+      ],
+      "categories": [
+        "jazz"
+      ],
+      "times": [
+        {
+          "label": "Abertura da casa",
+          "value": "19:00"
+        },
+        {
+          "label": "Primeiro Set",
+          "value": "21:00"
+        },
+        {
+          "label": "Segundo Set",
+          "value": "22:30"
+        }
+      ],
+      "prices": [
+        {
+          "label": "Área Interna",
+          "value": "R$ 40,00"
+        },
+        {
+          "label": "Área Externa",
+          "value": "R$ 20,00"
+        }
+      ],
+      "tickets_url": "https://bileto.sympla.com.br/event/129243",
+      "tickets_label": "Garanta o seu lugar",
+      "youtube": "J-7P3hHty4g",
+      "image": "/assets/img/shows/1312.jpg",
+      "description": [
+        "Marcelo Magalhães Pinto é natural de Belo Horizonte. Concluiu em 2015 o doutorado em Jazz Piano (classe do professor Harold Danko) pela Eastman School of Music da Universidade de Rochester (EUA) onde recebeu o prêmio Marian McPartland. Seus estudos incluem passagens pelas Escola de Música da Universidade Federal de Minas Gerais, Berklee College of Music, em Boston, EUA e no Conservatoire National de Région de Nice, França - nessa ocasião, participou juntamente com a Orquestra Sinfônica da Unesco do Concerto de Encerramento do Ano do Brasil na França, regido por Francis Hime.",
+        "Possui cinco discos autorais: o primeiro Paisagens de Minas contou com a participação do saxofonista francês Jean-Marc Baccarini e foi assinado por Russel Ferrante. Este foi lançado pelo selo Karmin. O segundo foi uma obra encomendada e se chama Missa da Capela Magnificat.. O terceiro disco chama-se Impressões. O quarto disco, Shifting Perspectives, foi gravado em parceria com Doug Stone em Nova Orleans e foi lançado pelo selo Ears and Eyes Records. O quinto disco intitulado Beating the Odds é uma continuação da parceria com Doug Stone e foi lançado em 2024. Em 2026 será lançado o seu mais recente trabalho: Bate Papo, disco gravado em parceria com o saxofonista Daniel Garcia, estreando o selo Luzeiro Records. Seus trabalhos têm sido apresentados em importantes festivais e casas de jazz tais como o Savassi Jazz Festival, Tudo é Jazz, Rochester Xerox International Jazz Festival, Clube de Jazz, Triboz, entre outros.",
+        "Além do trabalho como compositor e performer, Marcelo criou em 2023 o Luzeiro Musical Lab: este é um estúdio dedicado à produção e divulgação de música. Neste espaço vem recebendo importantes nomes da música contemporânea como Idriss Boudrioua, Sergio Barrozo, Paulo Diniz, Doug Stone, Mike Ryan, Daniel Garcia, Maximo Deda, entre outros. Produz também podcasts publicados pelo seu estúdio com importantes nomes do jazz: Bill Dobbins, Harold Danko, Gilson Peranzetta, entre outros. Vem publicando, de maneira constante, fonogramas que abrangem vários gêneros da música contemporânea.",
+        "O show a ser apresentado no Clube de Jazz é uma coletânea de grandes standards do Jazz e da música brasileira, todos em uma nova roupagem e com muito swing!"
+      ],
+      "formation": [
+        {
+          "name": "Marcelo Magalhães",
+          "role": "piano"
+        },
+        {
+          "name": "Enéias Xavier",
+          "role": "contrabaixo"
+        },
+        {
+          "name": "Hudson Vaz",
+          "role": "bateria"
+        }
+      ],
+      "source_url": "https://clubedejazzdocafe.com/show/?id=1312",
+      "escola": false
+    },
+    {
+      "id": 1319,
+      "slug": "2026-12-01-lancamento-da-megaro-music",
+      "date": "2026-12-01",
+      "weekday": "Terça",
+      "title": "Lançamento da Megaro Music",
+      "subtitle": "Sérgio Danilo Quarteto (1º Set) | Bárbara Barcellos Quinteto (2º Set)",
+      "tags": [
+        "Choro jazz",
+        "Música Mineira"
+      ],
+      "categories": [
+        "minas",
+        "instrumental"
+      ],
+      "times": [
+        {
+          "label": "Abertura da casa",
+          "value": "19:00"
+        },
+        {
+          "label": "Primeiro show - Sérgio Danilo Quarteto",
+          "value": "20:00"
+        },
+        {
+          "label": "Segundo show - Bárbara Barcellos",
+          "value": "21:15"
+        }
+      ],
+      "prices": [
+        {
+          "label": "INGRESSOS VÁLIDOS PARA OS DOIS SHOWS DA NOITE",
+          "value": ""
+        },
+        {
+          "label": "Área Interna",
+          "value": "R$ 40,00"
+        },
+        {
+          "label": "Área Externa",
+          "value": "R$ 20,00"
+        }
+      ],
+      "tickets_url": "https://bileto.sympla.com.br/event/129636",
+      "tickets_label": "Garanta o seu lugar",
+      "youtube": "eGGzf7rt8OA",
+      "image": "/assets/img/shows/1319.jpg",
+      "description": [
+        "Lançamento da Megaro Music",
+        "Megaro Music é um projeto e selo fonográfico criado pelo pianista Dr. Evan Megaro com o objetivo de formar uma comunidade de artistas em Belo Horizonte que se apoiam mutuamente em suas produções artísticas. A partir da gravação e as vendas do seu álbum em vinil \"Gatos Felizes\", Evan decidiu ajudar outros músicos que nem sempre têm acesso a financiamento para realizar os seus sonhos de gravar seus próprios álbuns. O conceito é simples: os lucros das vendas dos álbuns são repassados para o próximo artista, e em troca, todos os integrantes do projeto colaboram nas vendas de uns e dos outros, em convites para apresentações conjuntas e na divulgação virtual e presencial do trabalho de cada um. Com o apoio do Café Com Letras, O Clube De Jazz e Bar Ototoi, a Megaro Music busca manter a circulação tanto de renda quanto da cultura e música regional.",
+        "Esta noite, no Clube De Jazz, o palco receberá Sérgio Danilo e seu quarteto de choro jazz, seguido por Bárbara Barcellos e seu quinteto de música autoral mineira, cada grupo apresentando uma amostra do som que vem desenvolvendo.",
+        "Sérgio Danilo Quarteto (1º Set)",
+        "Este novo álbum instrumental do multi-instrumentista mineiro Sérgio Danilo combina seus 30 anos de experiência tocando choro em Belo Horizonte com as influências do jazz do pianista estadunidense Evan Megaro, temperado com ritmos de samba e de swing. Tudo isso se condensa em uma retrospectiva do repertório clássico do choro, de Pixinguinha, Paulo Moura e Paulinho da Viola, passando pela linguagem criada por artistas de jazz norte-americanos como Louis Armstrong, Paul Desmond e Dave Brubeck, resultando em um som cosmopolita contemporâneo. Sem restringir a expressão artística de cada músico, este álbum oferece, sem dúvida, o equilíbrio perfeito entre inovação para o futuro, a liberdade do presente e a reverência ao passado.",
+        "Bárbara Barcellos Quinteto (2º Set)",
+        "Cantora, compositora e instrumentista mineira, Bárbara Barcellos constrói uma trajetória artística marcada pela sensibilidade, anos de experiência com artistas renomados como Milton Nascimento, Toninho Horta, e Tavinho Moura e um álbum já registrado (“Ubuntu”) repleto de temas, texturas e músicos regionais. No seu segundo disco, “Ancestral” Bárbara seguiu aprofundando a sua valorização da música brasileira pelo diálogo entre arte, natureza e cultura popular celebrando as raízes da música brasileira e os saberes dos povos originários, entrelaçando ancestralidade, memória e resistência. Sua sonoridade marcante funde jazz, música brasileira e ritmos tradicionais, do congado mineiro à riqueza das manifestações populares. Entre composições autorais e releituras, o álbum conecta tradição e contemporaneidade em uma experiência musical pulsante, diversa e profundamente brasileira."
+      ],
+      "formation": [
+        {
+          "name": "Sérgio Danilo Quarteto",
+          "role": ""
+        },
+        {
+          "name": "Sérgio Danilo",
+          "role": "clarinete"
+        },
+        {
+          "name": "Evan Megaro",
+          "role": "piano"
+        },
+        {
+          "name": "Yan Vasconcellos",
+          "role": "contrabaixo"
+        },
+        {
+          "name": "Bo Hilbert",
+          "role": "bateria"
+        },
+        {
+          "name": "PARTICIPAÇÃO ESPECIAL",
+          "role": ""
+        },
+        {
+          "name": "Raíssa Anastasia",
+          "role": ""
+        },
+        {
+          "name": "Bárbara Barcellos Quinteto",
+          "role": ""
+        },
+        {
+          "name": "Bárbara Barcellos",
+          "role": "voz"
+        },
+        {
+          "name": "Beto Lopes",
+          "role": "violão"
+        },
+        {
+          "name": "Evan Megaro",
+          "role": "piano"
+        },
+        {
+          "name": "Enéias Xavier",
+          "role": "contrabaixo"
+        },
+        {
+          "name": "André “Limão” Queiroz",
+          "role": "bateria"
+        },
+        {
+          "name": "PARTICIPAÇÃO ESPECIAL",
+          "role": ""
+        },
+        {
+          "name": "Raíssa Anastasia",
+          "role": ""
+        }
+      ],
+      "source_url": "https://clubedejazzdocafe.com/show/?id=1319",
+      "escola": false
+    },
+    {
+      "id": 1326,
+      "slug": "2026-12-02-carolina-emilia-canta-toninho-horta",
+      "date": "2026-12-02",
+      "weekday": "Quarta",
+      "title": "Carolina Emília canta Toninho Horta",
+      "subtitle": "Jazz e Vinhos (Rolha free)",
+      "tags": [
+        "MPB",
+        "Vocal"
+      ],
+      "categories": [
+        "vocal",
+        "minas"
+      ],
+      "times": [
+        {
+          "label": "Abertura da casa",
+          "value": "19:00"
+        },
+        {
+          "label": "Primeiro Set",
+          "value": "20:00"
+        },
+        {
+          "label": "Segundo Set",
+          "value": "21:30"
+        }
+      ],
+      "prices": [
+        {
+          "label": "Área Interna",
+          "value": "R$ 40,00"
+        },
+        {
+          "label": "Área Externa",
+          "value": "R$ 20,00"
+        }
+      ],
+      "tickets_url": "https://bileto.sympla.com.br/event/129793",
+      "tickets_label": "Garanta o seu lugar",
+      "youtube": "",
+      "image": "/assets/img/shows/1326.jpg",
+      "description": [
+        "Carolina Emília e quinteto celebram a vida e a obra de Toninho Horta em uma apresentação especial no Clube de Jazz do Café com Letras. Compositor, guitarrista e violonista mineiro, Toninho Horta é um dos nomes fundamentais da música brasileira. Integrante da geração do Clube da Esquina, Toninho construiu uma linguagem musical singular, marcada pela sofisticação harmônica, pela riqueza melódica e pelo diálogo entre a música popular brasileira e o jazz. Sua obra conquistou reconhecimento internacional e influenciou músicos de diferentes gerações.",
+        "O repertório da noite percorre diferentes momentos de sua discografia, reunindo canções e temas instrumentais dos álbuns “Diamond Land”, “Terra dos Pássaros” e “Toninho Horta”, conhecido como “álbum branco”, além de outras composições marcantes de sua trajetória.  Na data em que se celebra o aniversário do artista, o público poderá ouvir músicas como “Céu de Brasília”, “Durango Kid”, “Diana” e “Meu Canário Vizinho Azul”, entre outros clássicos que revelam a inventividade e a identidade musical de Toninho Horta.",
+        "O quinteto é formado por Carolina Emília, Evan Megaro, Thiago Caldas, Beto Lopes e Lincoln Cheib. A apresentação contará ainda com as participações especiais de João Machala e Juarez Moreira."
+      ],
+      "formation": [
+        {
+          "name": "Carolina Emília",
+          "role": "voz"
+        },
+        {
+          "name": "Beto Lopes",
+          "role": "baixo"
+        },
+        {
+          "name": "Evan Megaro",
+          "role": "piano"
+        },
+        {
+          "name": "Thiago Caldas",
+          "role": "violão e guitarra"
+        },
+        {
+          "name": "Lincoln Cheib",
+          "role": "bateria"
+        },
+        {
+          "name": "PARTICIPAÇÃO ESPECIAL",
+          "role": ""
+        },
+        {
+          "name": "João Machala",
+          "role": "trombone"
+        },
+        {
+          "name": "Juarez Moreira",
+          "role": "guitarra"
+        }
+      ],
+      "source_url": "https://clubedejazzdocafe.com/show/?id=1326",
+      "escola": false
+    },
+    {
+      "id": 1320,
+      "slug": "2026-12-03-o-clube-a-musica-do-clube-da-esquina",
+      "date": "2026-12-03",
+      "weekday": "Quinta",
+      "title": "O Clube - A música do Clube da Esquina",
+      "subtitle": "",
+      "tags": [
+        "Clube da Esquina",
+        "Música Instrumental Mineira"
+      ],
+      "categories": [
+        "minas",
+        "instrumental"
+      ],
+      "times": [
+        {
+          "label": "Abertura da casa",
+          "value": "19:00"
+        },
+        {
+          "label": "Primeiro Set",
+          "value": "20:30"
+        },
+        {
+          "label": "Segundo Set",
+          "value": "22:00"
+        }
+      ],
+      "prices": [
+        {
+          "label": "Área Interna",
+          "value": "R$ 40,00"
+        },
+        {
+          "label": "Área Externa",
+          "value": "R$ 20,00"
+        }
+      ],
+      "tickets_url": "https://bileto.sympla.com.br/event/129642",
+      "tickets_label": "Garanta seu lugar",
+      "youtube": "CGX3CkrtGAc",
+      "image": "/assets/img/shows/1320.jpg",
+      "description": [
+        "O CLUBE no CLUBE DE JAZZ é um projeto musical dedicado à execução fiel da obra do Clube da Esquina, apresentada ao vivo com rigor estético e respeito às gravações originais que marcaram a história da música brasileira.",
+        "Partindo do entendimento de que essas canções possuem arranjos, atmosferas e linguagens muito específicas, o grupo base de O Clube se dedica à reprodução cuidadosa do repertório, preservando formas, andamentos, harmonias, timbres e dinâmicas que constituem a identidade sonora do Clube da Esquina. Trata-se de um trabalho de escuta profunda e compromisso musical, no qual cada detalhe é parte essencial da obra.",
+        "A cada apresentação , um solista convidado se integra ao grupo formado por Rodrigo Borges , Felipe Fantoni e Pingo Ballona ocupando espaços previamente definidos dentro dos arranjos. Esses momentos de destaque individual do solista convidado ,funcionam como comentários musicais, ampliando a escuta sem romper a fidelidade ao repertório. O encontro entre o grupo base e o convidado confere singularidade a cada apresentação, mantendo o equilíbrio entre preservação e presença.",
+        "Realizado no Clube de Jazz do Café com Letras, em Belo Horizonte — cidade onde essa música nasceu —, O Clube reafirma a importância do repertório do Clube da Esquina como patrimônio vivo, celebrado com respeito, precisão e sensibilidade, em diálogo direto com o público contemporâneo."
+      ],
+      "formation": [
+        {
+          "name": "Rodrigo Borges",
+          "role": "voz e guitarra"
+        },
+        {
+          "name": "Felipe Fantoni",
+          "role": "contrabaixo"
+        },
+        {
+          "name": "Pingo Ballona",
+          "role": "bateria"
+        },
+        {
+          "name": "PARTICIPAÇÃO ESPECIAL",
+          "role": ""
+        },
+        {
+          "name": "Em breve!",
+          "role": ""
+        }
+      ],
+      "source_url": "https://clubedejazzdocafe.com/show/?id=1320",
+      "escola": false
+    },
+    {
+      "id": 1321,
+      "slug": "2026-12-04-luisa-mitre-quinteto",
+      "date": "2026-12-04",
+      "weekday": "Sexta",
+      "title": "Luisa Mitre Quinteto",
+      "subtitle": "",
+      "tags": [
+        "Música Instrumental Brasileira"
+      ],
+      "categories": [
+        "instrumental"
+      ],
+      "times": [
+        {
+          "label": "Abertura da casa",
+          "value": "19:00"
+        },
+        {
+          "label": "Primeiro Set",
+          "value": "21:00"
+        },
+        {
+          "label": "Segundo Set",
+          "value": "22:30"
+        }
+      ],
+      "prices": [
+        {
+          "label": "Área Interna",
+          "value": "R$ 40,00"
+        },
+        {
+          "label": "Área Externa",
+          "value": "R$ 20,00"
+        }
+      ],
+      "tickets_url": "https://bileto.sympla.com.br/event/129644",
+      "tickets_label": "Garanta seu lugar",
+      "youtube": "",
+      "image": "/assets/img/shows/1321.jpg",
+      "description": [
+        "Luísa Mitre é pianista, compositora e arranjadora de destaque na cena da música instrumental brasileira contemporânea. Seu álbum de estreia, Oferenda (2018), lançado pelo selo Savassi Festival Records, foi reconhecido com o Prêmio Marco Antônio Araújo (2019) como melhor disco instrumental autoral de Minas Gerais. Ao lado da percussionista Natália Mitre, integra o Duo Mitre, cujo álbum Seiva (2022) — com participações de Léa Freire, Anat Cohen, Carol Panesi e Joana Queiroz — venceu o II Prêmio da Música Popular Mineira na categoria Melhor Álbum Instrumental. Sua discografia reúne ainda os álbuns do grupo Toca de Tatu — Meu amigo Radamés (2013), Afinidade (2017) e Toca de Tatu (2021) — além dos EPs Ecoar (2023), em duo com Maiara Moraes, e Primavera (2024), com Lucas Telles, consolidando uma produção autoral consistente e em constante expansão.",
+        "Presença marcante nos principais palcos da música instrumental no Brasil, já se apresentou em festivais como Savassi Festival, MIMO Instrumental, Instrumental Sesc Brasil, Sesc Jazz, BH Instrumental e Rio Montreux Jazz Festival, e recebeu prêmios como: 18o Prêmio BDMG Instrumental” – 2018, “Prêmio MIMO Instrumental – 2018, “Prêmio Revelação no FIPS – Festival Internacional de Piano Solo” – 2018, “I Concurso Jovens Solistas da OSMG” – 2010,  dentre outros. Com o grupo Toca de Tatu, foi premiada no II Concurso Instrumental Estúdio 66 (2013) e no I Festival de Choro Jorge Assad (2014), além de dividir o palco com nomes centrais da música brasileira, como Léa Freire, Nailor Proveta, Juarez Moreira, Cristóvão Bastos, Toninho Carrasqueira e Zé Nogueira.",
+        "No cenário internacional, realizou turnês, concertos e atividades pedagógicas em países como França, Alemanha, Estados Unidos, Holanda, Chile e Inglaterra, apresentando-se em festivais e projetos dedicados à difusão da música brasileira. Ministra workshops e oficinas no Brasil — como o Festival de Verão de Campos do Jordão, o CIVEBRA e a Oficina de Música de Curitiba — e no exterior, em eventos como o Festival de Choro de Paris, o Festival de Choro de Munique e o Choro Camp New England. É professora no Departamento de Música da Universidade Federal de São João del-Rei, atuando principalmente nas áreas de piano e música popular."
+      ],
+      "formation": [
+        {
+          "name": "Luísa Mitre",
+          "role": "piano, composições, arranjos e direção musical"
+        },
+        {
+          "name": "Natália Mitre",
+          "role": "vibrafone"
+        },
+        {
+          "name": "Marcela Nunes",
+          "role": "flauta"
+        },
+        {
+          "name": "Bruno Veloso",
+          "role": "baixo"
+        },
+        {
+          "name": "Lincoln Cheib",
+          "role": "bateria"
+        }
+      ],
+      "source_url": "https://clubedejazzdocafe.com/show/?id=1321",
+      "escola": false
+    },
+    {
+      "id": 1323,
+      "slug": "2026-12-05-escola-do-jazz",
+      "date": "2026-12-05",
+      "weekday": "Sábado",
+      "title": "Escola do Jazz",
+      "subtitle": "com a Master Escola de Música",
+      "tags": [
+        "Educativo",
+        "Escola de Música"
+      ],
+      "categories": [
+        "escola"
+      ],
+      "times": [
+        {
+          "label": "Abertura da casa",
+          "value": "13:30"
+        },
+        {
+          "label": "Encerramento",
+          "value": "17:30"
+        }
+      ],
+      "prices": [
+        {
+          "label": "Ingressos",
+          "value": "à venda diretamente na Master Escola de Música"
+        }
+      ],
+      "tickets_url": "https://www.instagram.com/master.escola/",
+      "tickets_label": "Ingressos na Master Escola",
+      "youtube": "",
+      "image": "/assets/img/shows/1323.jpg",
+      "description": [
+        "Neste sábado, 05/12, das 13h30 às 17h30, o Clube de Jazz recebe a Master Escola de Música para uma tarde de apresentações dos seus alunos, dentro da programação da Escola do Jazz.",
+        "Ingressos: vendidos diretamente pela Master Escola de Música. Fale com a escola pelo Instagram @master.escola.",
+        "Escola do Jazz",
+        "A Escola do Jazz é o programa educativo do Clube de Jazz do Café com Letras. Ele reúne apresentações de escolas de música, ensaios abertos, masterclasses e encontros com músicos, e abre o palco do Clube para quem está aprendendo e para quem ensina. É a ponte do Clube com a educação, por meio da música.",
+        "Quer trazer sua escola ou propor uma atividade? Fale com a gente pelo WhatsApp (31) 98424-4285 ou pelo e-mail bruno@cidadescriativas.org.br."
+      ],
+      "formation": [],
+      "source_url": "https://clubedejazzdocafe.com/show/?id=1323",
+      "escola": true
+    },
+    {
+      "id": 1271,
+      "slug": "2026-12-05-tributo-a-sade",
+      "date": "2026-12-05",
+      "weekday": "Sábado",
+      "title": "Tributo a Sade",
+      "subtitle": "Por Luisa Borges Sexteto",
+      "tags": [
+        "Pop",
+        "Vocal"
+      ],
+      "categories": [
+        "vocal"
+      ],
+      "times": [
+        {
+          "label": "Abertura da casa",
+          "value": "19:00"
+        },
+        {
+          "label": "Primeiro Set",
+          "value": "21:00"
+        },
+        {
+          "label": "Segundo Set",
+          "value": "22:30"
+        }
+      ],
+      "prices": [
+        {
+          "label": "Área Interna",
+          "value": "R$ 50,00"
+        },
+        {
+          "label": "Área Externa",
+          "value": "R$ 25,00"
+        }
+      ],
+      "tickets_url": "https://bileto.sympla.com.br/event/126081",
+      "tickets_label": "Garanta o seu lugar",
+      "youtube": "19kgWPtPOGo",
+      "image": "/assets/img/shows/1271.jpg",
+      "description": [
+        "Considerada uma das cantoras britânicas de maior sucesso global, Sade Adu, vocalista da banda Sade, vendeu mais de 50 milhões de discos em todo o mundo, com sucessos como “Smooth Operator” e “Is It a Crime”. Seu repertório atravessa gerações, e sua voz única e inconfundível conquistou amantes da música ao longo dos seus 40 anos de carreira, e seus 6 álbuns lançados.",
+        "O som pop da banda Sade, altamente influenciado pelo soul e jazz, consagrou uma sonoridade inédita com um equilíbrio de faixas dançantes e baladas melódicas e introspectivas, com arranjos minimalistas mas extremamente impactantes.",
+        "O show “Luisa Borges Sexteto interpreta Sade” será uma noite de tributo à banda, destacando as nuances de seu longo e versátil repertório, e trazendo versões ao vivo influenciadas pelo jazz e pela música brasileira. Clássicos como “Sweetest Taboo”, “Your Love is King”, e “By Your Side” farão parte do repertório, prometendo uma noite nostálgica e inesquecível."
+      ],
+      "formation": [
+        {
+          "name": "Luisa Borges",
+          "role": "voz"
+        },
+        {
+          "name": "Eneias Xavier",
+          "role": "piano"
+        },
+        {
+          "name": "Samy Erick",
+          "role": "guitarra e violão"
+        },
+        {
+          "name": "Yan Vasconcellos",
+          "role": "baixo"
+        },
+        {
+          "name": "Sérgio Danilo",
+          "role": "saxofone e flauta"
+        },
+        {
+          "name": "Lincoln Cheib",
+          "role": "bateria"
+        },
+        {
+          "name": "João Bosco de Oliveira",
+          "role": "percussão"
+        }
+      ],
+      "source_url": "https://clubedejazzdocafe.com/show/?id=1271",
+      "escola": false
+    },
+    {
+      "id": 1341,
+      "slug": "2026-12-08-happy-feet-jazz-band",
+      "date": "2026-12-08",
+      "weekday": "Terça",
+      "title": "Happy Feet Jazz Band",
+      "subtitle": "",
+      "tags": [
+        "Swing Jazz",
+        "Traditional Jazz",
+        "Vocal"
+      ],
+      "categories": [
+        "jazz",
+        "vocal"
+      ],
+      "times": [
+        {
+          "label": "Abertura da casa",
+          "value": "19:00"
+        },
+        {
+          "label": "Primeiro Set",
+          "value": "20:00"
+        },
+        {
+          "label": "Segundo Set",
+          "value": "21:30"
+        }
+      ],
+      "prices": [
+        {
+          "label": "Área Interna",
+          "value": "R$ 30"
+        },
+        {
+          "label": "Área Externa",
+          "value": "R$ 15"
+        }
+      ],
+      "tickets_url": "https://bileto.sympla.com.br/event/130002",
+      "tickets_label": "Garanta seu lugar",
+      "youtube": "lPZe9LYdnuc",
+      "image": "/assets/img/shows/1341.jpg",
+      "description": [
+        "Durante as décadas de 30, 40 e 50, o mundo dançava e curtia o jazz e a música popular americana. Era o que se ouvia nos bailes, nas rádios, nos filmes, nas vitrolas e nos bares. Nomes como Louis Armstrong, Frank Sinatra, Nat King Cole, Bing Crosby, Ella Fitzgerald, Billie Holiday, Duke Ellington e Louis Prima eram as grandes estrelas.",
+        "Este é o estilo da banda mineira Happy Feet Jazz Band. Formada em 2008, a banda tem levado a energia e o clima da época a várias cidades brasileiras desde então. Com um repertório amplo, o grupo toca tanto músicas suaves para se ouvir e emocionar, quanto músicas alegres e vibrantes para se dançar. Sua versatilidade a torna uma banda ideal para vários tipos de eventos, seja um jantar, uma festa de casamento ou apresentações em teatros e praças públicas, como aconteceu no festival “I Love Jazz”, quando tocou para milhares de pessoas com grande sucesso."
+      ],
+      "formation": [
+        {
+          "name": "Marcelo Costa",
+          "role": "trompete e voz"
+        },
+        {
+          "name": "Thais Moreira",
+          "role": "voz"
+        },
+        {
+          "name": "Fred Natalino",
+          "role": "piano"
+        },
+        {
+          "name": "Yan Vasconcellos",
+          "role": "contrabaixo acústico"
+        },
+        {
+          "name": "Bo Hilbert",
+          "role": "bateria"
+        }
+      ],
+      "source_url": "https://clubedejazzdocafe.com/show/?id=1341",
+      "escola": false
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Ao vivo no Clube — Clube de Jazz</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>@font-face{font-family:"Sharp Grotesk";src:url(/_blob/ab935f9fdb2c84faf4af7ccd4481f5bc) format("opentype");font-weight:100 900;font-style:normal}</style>
+<style>
+body{margin:0;background:#0F0E0D}
+a{color:#DEAC00}a:hover{color:#F0C53A}
+</style>
+</helmet>
+<div style="background: #0F0E0D; color: #F2ECE1; font-family: Inter, system-ui, sans-serif; min-height: 100vh">
+<dc-import name="Nav" active="aovivo" hint-size="100%,88px"></dc-import>
+
+<section style="max-width: 1360px; margin: 0 auto; padding: 96px 40px 64px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-end; justify-content: space-between">
+  <div style="flex: 1 1 560px; min-width: 0">
+    <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #DEAC00; font-weight: 600">Ao vivo no Clube</p>
+    <h1 style="margin: 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-weight: 900; font-size: 80px; line-height: 0.95">Cada noite fica gravada</h1>
+    <p style="margin: 24px 0 0; font-size: 18px; color: #D9D1C4; max-width: 640px; line-height: 1.55">Todos os shows do Clube são transmitidos ao vivo no YouTube e ficam no canal. Assista de casa, reveja um set ou descubra quem vai tocar.</p>
+  </div>
+  <div style="display: flex; gap: 40px">
+    <div><p style="margin: 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-size: 50px; line-height: 1">990</p><p style="margin: 4px 0 0; color: #B9B0A3; font-size: 14px">vídeos</p></div>
+    <div><p style="margin: 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-size: 50px; line-height: 1">5,82 mil</p><p style="margin: 4px 0 0; color: #B9B0A3; font-size: 14px">inscritos</p></div>
+  </div>
+</section>
+
+<section style="max-width: 1360px; margin: 0 auto; padding: 0 40px 80px; box-sizing: border-box">
+  <div style="display: flex; flex-wrap: wrap; gap: 0; border-radius: 16px; overflow: hidden; background: #181614; border: 1px solid rgba(242,236,225,0.1)">
+    <a href="https://www.youtube.com/watch?v=diKjoeDioiU" style="flex: 2 1 640px; aspect-ratio: 16 / 9; background: #2A2622; display: flex; align-items: center; justify-content: center; position: relative; text-decoration: none">
+      <svg width="88" height="88" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="none" stroke="#F2ECE1" stroke-width="1.5"></circle><path d="M23 19 L38 28 L23 37 Z" fill="#F2ECE1"></path></svg>
+      <span style="position: absolute; left: 16px; bottom: 14px; font-size: 12px; color: #CFC6B8">miniatura do YouTube</span>
+    </a>
+    <div style="flex: 1 1 360px; padding: 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px; justify-content: center">
+      <p style="margin: 0; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: #EFADFF; font-weight: 600">Em destaque · Discos na íntegra</p>
+      <h2 style="margin: 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-weight: 900; font-size: 38px; line-height: 1.05">Kind of Blue, de Miles Davis, na íntegra</h2>
+      <p style="margin: 0; font-size: 16px; color: #D9D1C4">Klesley Brandão Sexteto · gravado em 14/11/2026 · 1.086 visualizações</p>
+      <a href="https://www.youtube.com/watch?v=diKjoeDioiU" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #DEAC00; color: #0F0E0D; font-weight: 600; font-size: 15px; text-decoration: none; margin-top: 8px">Assistir</a>
+    </div>
+  </div>
+  <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-top: 24px; padding: 20px 24px; border-radius: 12px; border: 1px solid rgba(222,172,0,0.6)">
+    <p style="margin: 0; font-size: 16px"><span style="color: #DEAC00; font-weight: 700">Hoje, 20h, ao vivo</span> · Big Band Cefart</p>
+    <a href="https://www.youtube.com/channel/UCuiCi2BOYnrZ3ITCsRHIjtg" style="font-weight: 600; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center">Ativar lembrete no YouTube →</a>
+  </div>
+</section>
+
+<sc-for list="{{ rows }}" as="r" hint-placeholder-count="4">
+  <section style="max-width: 1360px; margin: 0 auto; padding: 0 40px 72px; box-sizing: border-box">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 24px; border-top: 1px solid rgba(242,236,225,0.12); padding-top: 32px">
+      <h2 style="margin: 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-weight: 900; font-size: 34px">{{ r.title }}</h2>
+      <p style="margin: 0; color: #B9B0A3; font-size: 15px">{{ r.note }}</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px">
+      <sc-for list="{{ r.items }}" as="v" hint-placeholder-count="3">
+        <a href="https://www.youtube.com/watch?v={{ v.id }}" style="display: flex; flex-direction: column; gap: 12px; color: #F2ECE1; text-decoration: none">
+          <div style="aspect-ratio: 16 / 9; background: #2A2622; border-radius: 10px; display: flex; align-items: center; justify-content: center">
+            <svg width="48" height="48" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="none" stroke="#F2ECE1" stroke-width="1.5"></circle><path d="M23 19 L38 28 L23 37 Z" fill="#F2ECE1"></path></svg>
+          </div>
+          <p style="margin: 0; font-size: 16px; font-weight: 600; line-height: 1.35">{{ v.title }}</p>
+          <p style="margin: 0; font-size: 13px; color: #B9B0A3">{{ v.meta }}</p>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+</sc-for>
+
+<section style="max-width: 1360px; margin: 0 auto; padding: 24px 40px 120px; box-sizing: border-box">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px; padding: 48px; border-radius: 16px; background: #EFADFF; color: #171513">
+    <p style="margin: 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-size: 34px; line-height: 1.05; max-width: 760px">Inscreva-se no canal e receba o aviso de cada transmissão</p>
+    <a href="https://www.youtube.com/channel/UCuiCi2BOYnrZ3ITCsRHIjtg" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: 999px; background: #171513; color: #F2ECE1; font-weight: 600; font-size: 16px; text-decoration: none">Ir para o YouTube</a>
+  </div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2500}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      rows: [
+        { title: 'Mais recentes', note: 'Shows das últimas noites', items: [
+          { id: 'wD_O4jcA5Y4', title: 'Alexandre Araújo ProgBlues: blues raiz com jazz, rock e sitar', meta: '22/11/2026 · 622 visualizações' },
+          { id: 'qcahzYH7QRU', title: 'Maíra Manga canta Chico Buarque: voz e violão', meta: '21/11/2026 · 1.082 visualizações' },
+          { id: '_pVhz07jBxE', title: 'Náilon e Aço: de Zappa a Hermeto entre a guitarra e o violão', meta: '20/11/2026 · 619 visualizações' }
+        ] },
+        { title: 'Música de Minas', note: 'Do Clube da Esquina à nova geração', items: [
+          { id: 'At3DRiqEe1I', title: 'O Clube: a música do Clube da Esquina', meta: '13/11/2026 · banda residente' },
+          { id: 'HKBi-_xHxGU', title: 'Juarez Moreira Trio: o violão mineiro entre o jazz e a bossa', meta: '12/11/2026 · 856 visualizações' },
+          { id: 'RSSGwVvigQY', title: 'Duo Mitre convida Maiara Moraes: música instrumental brasileira em trio', meta: '15/11/2026 · 527 visualizações' }
+        ] },
+        { title: 'Big Band do Clube', note: 'Néstor Lombida e a Big Band do Clube, às quartas', items: [
+          { id: '2O2fgWWuUO4', title: 'Néstor Lombida e a Big Band do Clube: do swing ao latin jazz', meta: '19/11/2026 · 455 visualizações' }
+        ] },
+        { title: 'Novos sons', note: 'Trabalhos autorais', items: [
+          { id: 'K-8sfacVNvI', title: 'Avec Trio: piano, contrabaixo e bateria em composições autorais', meta: '18/11/2026 · 710 visualizações' }
+        ] }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
