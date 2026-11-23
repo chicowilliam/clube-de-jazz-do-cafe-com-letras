@@ -3,9 +3,21 @@
    2. Filtro por estilo na Agenda
    3. Abas Cozinha / Bar no Cardápio
    4. Envio dos formulários para /api/forms (Cloudflare Pages Function)
-   5. Botão "Compartilhar" das páginas de show */
+   5. Botão "Compartilhar" das páginas de show
+   6. Posicionamento do item ativo na barra de navegação mobile */
 (function () {
   'use strict';
+
+  /* 0. Navegação mobile: posiciona o link ativo no campo de visão */
+  function initNav() {
+    var nav = document.querySelector('nav[aria-label="Principal"]');
+    if (!nav) return;
+    var active = nav.querySelector('[style*="text-decoration: underline"], [style*="text-decoration-color"]');
+    if (active && nav.scrollWidth > nav.clientWidth) {
+      var offset = active.offsetLeft - (nav.clientWidth / 2) + (active.clientWidth / 2);
+      nav.scrollLeft = Math.max(0, offset);
+    }
+  }
 
   /* 1. Slideshow ------------------------------------------------------- */
   function initHero() {
@@ -183,6 +195,14 @@
     });
   }
 
-  function init() { initHero(); initAgendaFilter(); initTabs(); initForms(); initShare(); initPending(); }
+  function init() {
+    initNav();
+    initHero();
+    initAgendaFilter();
+    initTabs();
+    initForms();
+    initShare();
+    initPending();
+  }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

@@ -36,8 +36,38 @@ a { color: var(--cdj-mostarda); }
 a:hover { color: #F0C53A; }
 [hidden] { display: none !important; }
 
-/* Foco visível para navegação por teclado */
-:focus-visible { outline: 2px solid var(--cdj-mostarda); outline-offset: 3px; }
+/* Foco visível para navegação por teclado e acessibilidade */
+:focus-visible {
+  outline: 2px solid var(--cdj-mostarda);
+  outline-offset: 2px;
+}
+a[style*="border-radius: 999px"]:focus-visible,
+a[style*="border-radius:999px"]:focus-visible,
+button[style*="border-radius: 999px"]:focus-visible,
+button[style*="border-radius:999px"]:focus-visible {
+  box-shadow: 0 0 0 3px rgba(222, 172, 0, 0.45);
+  outline: 2px solid var(--cdj-mostarda);
+}
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--cdj-mostarda) !important;
+  outline-offset: 1px !important;
+  border-color: var(--cdj-mostarda) !important;
+}
+
+/* Feedback tátil e transições suaves de interação */
+a, button, input, textarea {
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease, transform 0.15s ease;
+}
+a[style*="border-radius: 999px"]:active,
+a[style*="border-radius:999px"]:active,
+button[style*="border-radius: 999px"]:active,
+button[style*="border-radius:999px"]:active,
+button[type="submit"]:active,
+[role="tab"]:active {
+  transform: scale(0.98);
+  opacity: 0.92;
+}
 
 /* Link "pular para o conteúdo" */
 .skip-link {
@@ -57,9 +87,16 @@ a:hover { color: #F0C53A; }
 /* Slideshow da Home: transição definida também inline; aqui só garantimos a camada */
 [data-hero-slide] { will-change: opacity, transform; }
 
+/* Touch target acessível para links sociais e itens do rodapé */
+footer a[target="_blank"] {
+  min-height: 44px !important;
+  display: inline-flex;
+  align-items: center;
+}
+
 /* ---------- Celular e tablet ---------- */
 @media (max-width: 900px) {
-  /* Menu principal rola na horizontal em vez de quebrar em várias linhas */
+  /* Menu principal: rolagem horizontal suave com affordance visual de fade */
   nav[aria-label="Principal"] {
     flex-wrap: nowrap !important;
     overflow-x: auto;
@@ -68,26 +105,182 @@ a:hover { color: #F0C53A; }
     order: 3;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    scroll-padding: 0 20px;
+    padding-bottom: 4px;
+    -webkit-mask-image: linear-gradient(to right, black calc(100% - 36px), transparent 100%);
+    mask-image: linear-gradient(to right, black calc(100% - 36px), transparent 100%);
   }
   nav[aria-label="Principal"]::-webkit-scrollbar { display: none; }
-  nav[aria-label="Principal"] a { white-space: nowrap; flex: none; }
+  nav[aria-label="Principal"] a {
+    white-space: nowrap;
+    flex: none;
+  }
+  /* Margem de respiro no final para não cortar o último link e toque mínimo */
+  nav[aria-label="Principal"] a:last-child {
+    margin-right: 20px;
+    min-width: 44px;
+    justify-content: center;
+  }
+  /* Oculta espaçador vazio do header interno */
+  header .wrap > div:last-child:empty {
+    display: none;
+  }
 }
 
 @media (max-width: 720px) {
-  .wrap, header > div, footer > div { padding-left: 20px !important; padding-right: 20px !important; }
-  .pad-lg { padding: 28px !important; }
+  /* Padding lateral unificado */
+  .wrap, header > div, footer > div {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .pad-lg { padding: 24px !important; }
+
+  /* Cabeçalho Home: logo e patrocínio proporcionais e harmoniosos em telas pequenas */
+  header .wrap {
+    padding-top: 14px !important;
+    padding-bottom: 12px !important;
+    gap: 12px 16px !important;
+  }
+  header .wrap > div:first-child img {
+    height: 44px !important;
+  }
+  header .wrap > div:first-child {
+    margin-right: 0 !important;
+  }
+  header .wrap > div:last-child {
+    margin-left: auto !important;
+  }
+  header .wrap > div:last-child p {
+    font-size: 9px !important;
+    padding-bottom: 3px !important;
+    letter-spacing: 0.16em !important;
+  }
+  header .wrap > div:last-child > div > div {
+    gap: 16px !important;
+    padding-top: 6px !important;
+  }
+  header .wrap > div:last-child img[alt="CaptaMed"] {
+    height: 26px !important;
+  }
+  header .wrap > div:last-child img[alt="Grupo MIP"] {
+    height: 30px !important;
+  }
+
+  /* Ritmo vertical proporcional no mobile: reduz vazios excessivos */
+  section.wrap {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+  section:not(.wrap) > .wrap {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+  footer .wrap {
+    padding-top: 56px !important;
+  }
+
+  /* Hero da Home no mobile: melhor proporção e visualização da dobra */
+  section[aria-label="Destaque"] {
+    min-height: auto !important;
+    padding-top: 24px;
+  }
+  section[aria-label="Destaque"] .wrap {
+    padding-bottom: 32px !important;
+  }
+  section[aria-label="Destaque"] h1 {
+    font-size: clamp(46px, 12vw, 68px) !important;
+    line-height: 0.95 !important;
+  }
+  section[aria-label="Destaque"] p[style*="Playfair Display"] {
+    font-size: clamp(22px, 6vw, 32px) !important;
+    margin-top: 10px !important;
+  }
+  section[aria-label="Destaque"] p[style*="font-size: 20px"] {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    margin-top: 16px !important;
+  }
+
+  /* Padding interno de cartões e formulários: mais área útil para digitação */
+  form[data-form],
+  div[style*="padding: 40px"],
+  div[style*="padding: 48px"] {
+    padding: 24px !important;
+  }
+
   /* Cartões de grade fixa (3 colunas) passam a 1 coluna */
   [style*="grid-template-columns: repeat(3, minmax(0, 1fr))"] { grid-template-columns: 1fr !important; }
   [style*="grid-template-columns: repeat(2, minmax(0, 1fr))"] { grid-template-columns: 1fr !important; }
   [style*="grid-template-columns: repeat(3, minmax(160px, 1fr))"] { grid-template-columns: 1fr !important; }
-  /* Coluna da data na agenda fica acima da foto */
-  article[data-cats] > div:first-child { flex-basis: 100% !important; }
+
+  /* Estatísticas em O Clube: preserva as 3 colunas compactas lado a lado */
+  div[style*="grid-template-columns: repeat(3, minmax(0, 1fr))"]:has(div > p:first-child) {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  /* Agenda: alinhamento horizontal elegante da data no mobile */
+  article[data-cats] {
+    gap: 24px !important;
+    padding: 32px 0 !important;
+  }
+  article[data-cats] > div:first-child {
+    flex-basis: 100% !important;
+    display: flex !important;
+    align-items: baseline !important;
+    flex-wrap: wrap !important;
+    gap: 6px 12px !important;
+  }
+  article[data-cats] > div:first-child p {
+    margin: 0 !important;
+  }
+  article[data-cats] > div:first-child p:nth-child(2) {
+    font-size: 32px !important;
+    line-height: 1 !important;
+    order: -1 !important;
+  }
+  article[data-cats] > div:first-child p:nth-child(3) {
+    font-size: 14px !important;
+    color: #F2ECE1 !important;
+    font-weight: 600 !important;
+  }
+
+  /* Títulos de seção no Cardápio responsivos */
+  [data-panel="cozinha"] h2,
+  [data-panel="bar"] h2 {
+    font-size: clamp(26px, 6vw, 38px) !important;
+  }
+
   /* Painel lateral do show deixa de ser fixo */
   aside[style*="position: sticky"] { position: static !important; }
-  section[aria-label="Destaque"] { min-height: 88vh !important; }
+}
+
+@media (max-width: 540px) {
+  /* Abas do cardápio proporcionais em celulares estreitos */
+  [role="tablist"] {
+    gap: 8px !important;
+  }
+  [role="tab"] {
+    padding: 0 16px !important;
+    font-size: 14px !important;
+    min-height: 44px !important;
+    text-align: center !important;
+  }
+
+  /* Botões de ação em cartões com flexibilidade para preencher a largura */
+  article[data-cats] a[style*="border-radius: 999px"],
+  article[data-cats] a[style*="border-radius:999px"] {
+    flex: 1 1 calc(50% - 8px);
+    text-align: center;
+    justify-content: center;
+    padding: 0 14px !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }
