@@ -564,7 +564,7 @@
       "date": "2026-12-01",
       "weekday": "Terça",
       "title": "Lançamento da Megaro Music",
-      "subtitle": "Sérgio Danilo Quarteto (1º Set) | Bárbara Barcellos Quinteto (2º Set)",
+      "subtitle": "Sérgio Danilo (1º Set) | Bárbara Barcellos Quinteto (2º Set)",
       "tags": [
         "Choro jazz",
         "Música Mineira"
@@ -579,7 +579,7 @@
           "value": "19:00"
         },
         {
-          "label": "Primeiro show - Sérgio Danilo Quarteto",
+          "label": "Primeiro show - Sérgio Danilo",
           "value": "20:00"
         },
         {
@@ -608,15 +608,15 @@
       "description": [
         "Lançamento da Megaro Music",
         "Megaro Music é um projeto e selo fonográfico criado pelo pianista Dr. Evan Megaro com o objetivo de formar uma comunidade de artistas em Belo Horizonte que se apoiam mutuamente em suas produções artísticas. A partir da gravação e as vendas do seu álbum em vinil \"Gatos Felizes\", Evan decidiu ajudar outros músicos que nem sempre têm acesso a financiamento para realizar os seus sonhos de gravar seus próprios álbuns. O conceito é simples: os lucros das vendas dos álbuns são repassados para o próximo artista, e em troca, todos os integrantes do projeto colaboram nas vendas de uns e dos outros, em convites para apresentações conjuntas e na divulgação virtual e presencial do trabalho de cada um. Com o apoio do Café Com Letras, O Clube De Jazz e Bar Ototoi, a Megaro Music busca manter a circulação tanto de renda quanto da cultura e música regional.",
-        "Esta noite, no Clube De Jazz, o palco receberá Sérgio Danilo e seu quarteto de choro jazz, seguido por Bárbara Barcellos e seu quinteto de música autoral mineira, cada grupo apresentando uma amostra do som que vem desenvolvendo.",
-        "Sérgio Danilo Quarteto (1º Set)",
+        "Esta noite, no Clube De Jazz, o palco receberá Sérgio Danilo, em duo com o pianista Evan Megaro, seguido por Bárbara Barcellos e seu quinteto de música autoral mineira, cada um apresentando uma amostra do som que vem desenvolvendo.",
+        "Sérgio Danilo (1º Set)",
         "Este novo álbum instrumental do multi-instrumentista mineiro Sérgio Danilo combina seus 30 anos de experiência tocando choro em Belo Horizonte com as influências do jazz do pianista estadunidense Evan Megaro, temperado com ritmos de samba e de swing. Tudo isso se condensa em uma retrospectiva do repertório clássico do choro, de Pixinguinha, Paulo Moura e Paulinho da Viola, passando pela linguagem criada por artistas de jazz norte-americanos como Louis Armstrong, Paul Desmond e Dave Brubeck, resultando em um som cosmopolita contemporâneo. Sem restringir a expressão artística de cada músico, este álbum oferece, sem dúvida, o equilíbrio perfeito entre inovação para o futuro, a liberdade do presente e a reverência ao passado.",
         "Bárbara Barcellos Quinteto (2º Set)",
         "Cantora, compositora e instrumentista mineira, Bárbara Barcellos constrói uma trajetória artística marcada pela sensibilidade, anos de experiência com artistas renomados como Milton Nascimento, Toninho Horta, e Tavinho Moura e um álbum já registrado (“Ubuntu”) repleto de temas, texturas e músicos regionais. No seu segundo disco, “Ancestral” Bárbara seguiu aprofundando a sua valorização da música brasileira pelo diálogo entre arte, natureza e cultura popular celebrando as raízes da música brasileira e os saberes dos povos originários, entrelaçando ancestralidade, memória e resistência. Sua sonoridade marcante funde jazz, música brasileira e ritmos tradicionais, do congado mineiro à riqueza das manifestações populares. Entre composições autorais e releituras, o álbum conecta tradição e contemporaneidade em uma experiência musical pulsante, diversa e profundamente brasileira."
       ],
       "formation": [
         {
-          "name": "Sérgio Danilo Quarteto",
+          "name": "Sérgio Danilo",
           "role": ""
         },
         {
@@ -626,22 +626,6 @@
         {
           "name": "Evan Megaro",
           "role": "piano"
-        },
-        {
-          "name": "Yan Vasconcellos",
-          "role": "contrabaixo"
-        },
-        {
-          "name": "Bo Hilbert",
-          "role": "bateria"
-        },
-        {
-          "name": "PARTICIPAÇÃO ESPECIAL",
-          "role": ""
-        },
-        {
-          "name": "Raíssa Anastasia",
-          "role": ""
         },
         {
           "name": "Bárbara Barcellos Quinteto",
