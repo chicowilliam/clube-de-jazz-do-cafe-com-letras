@@ -12,11 +12,11 @@ export const statusTag = (m) => ({
   ultimos: '<span class="status status--ultimos">Últimos lugares</span>',
 }[m.status] || '');
 
-export function botaoIngressos(m, { classe = '', bloco = false, comPreco = false } = {}) {
+export function botaoIngressos(m, { classe = '', bloco = false } = {}) {
   const cls = `btn${bloco ? ' btn--bloco' : ''}${classe ? ' ' + classe : ''}`;
   if (m.passado) return `<span class="${cls}" aria-disabled="true">Show encerrado</span>`;
   if (m.status === 'esgotado') return `<span class="${cls}" aria-disabled="true">Esgotado</span>`;
-  return `<a class="${cls}" data-analytics="ticket" href="${esc(m.ingressos.url)}" target="_blank" rel="noopener">${esc(m.ingressos.rotulo)}${comPreco && m.precoPrincipal ? ` · ${esc(m.precoPrincipal)}` : ''}<span class="sr-only"> para ${esc(m.nome)} (abre em nova aba)</span></a>`;
+  return `<a class="${cls}" data-analytics="ticket" href="${esc(m.ingressos.url)}" target="_blank" rel="noopener">${esc(m.ingressos.rotulo)}<span class="sr-only"> para ${esc(m.nome)} (abre em nova aba)</span></a>`;
 }
 
 /* ------------------------------------------------------------ linha da programação */

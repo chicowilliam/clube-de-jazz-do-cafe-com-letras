@@ -595,7 +595,6 @@ input, textarea, select { scroll-margin-bottom: calc(var(--dock) + var(--s5)); }
 .secao-link { margin-top: var(--s6); }
 .bloco-titulo { margin-bottom: var(--s4); }
 .acoes { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s3) var(--s4); }
-.abertura__local { color: var(--mostarda); margin-bottom: var(--s4); }
 .abertura__fotos img:nth-child(3) { object-position: center 30%; }
 .abertura__fotos img:nth-child(4) { object-position: center 25%; }
 .abertura__fotos img:nth-child(5) { object-position: center 40%; }

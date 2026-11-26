@@ -398,7 +398,7 @@ function buildShows() {
     const desc = (s.description.find((p) => p.length > 60) || s.description[0] || s.title).replace(/\s+/g, ' ');
     out(showUrl(s), layout({
       body, nav: 'agenda',
-      dock: view.passado ? { href: '/agenda/', label: 'Ver a agenda' } : { html: C.botaoIngressos(view, { comPreco: true }) },
+      dock: view.passado ? { href: '/agenda/', label: 'Ver a agenda' } : { html: C.botaoIngressos(view) },
       headHtml: head({
         title: `${s.title} · ${dayLabel(s)}/${s.date.slice(0, 4)} · Clube de Jazz`,
         description: desc.length > 155 ? desc.slice(0, 152).replace(/\s+\S*$/, '') + '…' : desc,
