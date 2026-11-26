@@ -314,7 +314,7 @@ button { font: inherit; color: inherit; }
 .destaque h3 a { text-decoration: none; }
 .destaque h3 a:hover { color: var(--mostarda); }
 .destaque__sub { font-style: italic; color: var(--creme-2); margin-top: var(--s2); font-size: var(--t-lead); line-height: 1.35; }
-.destaque__acoes { display: flex; flex-wrap: wrap; gap: var(--s3); align-items: center; margin-top: var(--s2); }
+.destaque__acoes { display: flex; align-items: center; margin-top: var(--s2); }
 @media (min-width: 600px) {
   .destaque { grid-template-columns: 5fr 7fr; gap: var(--s6); align-items: end; }
 }

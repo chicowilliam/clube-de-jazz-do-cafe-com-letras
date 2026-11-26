@@ -56,7 +56,6 @@ export function destaque(m) {
     <p class="meta destaque__horarios">${esc(m.horario)}</p>
     <div class="destaque__acoes">
       ${botaoIngressos(m)}
-      ${m.precoPrincipal ? `<span class="meta">${esc(m.precoPrincipal)}</span>` : ''}
     </div>
     <p style="margin-top: var(--s5)"><a class="link-forte" href="${m.url}">Sobre o show</a></p>
   </div>
