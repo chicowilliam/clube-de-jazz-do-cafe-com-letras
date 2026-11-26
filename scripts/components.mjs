@@ -22,11 +22,6 @@ export function botaoIngressos(m, { classe = '', bloco = false } = {}) {
 /* ------------------------------------------------------------ linha da programação */
 export function gig(m, { foto = true, cabecalho = 'h3' } = {}) {
   const h = cabecalho;
-  const info = [
-    `<dl><div><dt>Horário</dt><dd class="gig__hora">${esc(m.horario)}</dd></div>`,
-    m.precoPrincipal ? `<div><dt>Ingresso</dt><dd>${esc(m.precoPrincipal)}</dd></div>` : '',
-    '</dl>',
-  ].join('');
   return `<li class="gig${m.passado ? ' gig--passado' : ''}" data-cats="${esc(m.categorias.join(' '))}">
   <article class="gig__in">
     <time class="gig__data" datetime="${m.data}"><span class="sr-only">${esc(m.semana)}, ${dataLonga(m)}</span><span class="gig__dia" aria-hidden="true">${m.dia}</span><span class="gig__semana" aria-hidden="true">${esc(m.semanaCurta)}</span><span class="gig__mes" aria-hidden="true">${month(m).slice(0, 3)}</span></time>
@@ -36,7 +31,7 @@ export function gig(m, { foto = true, cabecalho = 'h3' } = {}) {
       ${m.sub.length ? `<p class="gig__sub">${m.sub.map((part) => esc(part)).join(' · ')}</p>` : ''}
       ${m.tags ? `<p class="meta gig__tags">${esc(m.tags)}</p>` : ''}
     </div>
-    <div class="gig__info">${info}<span class="gig__cta">${botaoIngressos(m, { classe: 'btn--pequeno' + (m.passado ? '' : ' btn--linha') })}</span></div>
+    <div class="gig__info"><dl><div><dt>Horário</dt><dd class="gig__hora">${esc(m.horario)}</dd></div></dl><span class="gig__cta">${botaoIngressos(m, { classe: 'btn--pequeno' + (m.passado ? '' : ' btn--linha') })}</span></div>
   </article>
 </li>`;
 }
@@ -44,13 +39,12 @@ export function gig(m, { foto = true, cabecalho = 'h3' } = {}) {
 export const setlist = (lista, opts = {}) => `<ol class="setlist${opts.compacta ? ' setlist--compacta' : ''}" role="list">\n${lista.map((m) => gig(m, opts)).join('\n')}\n</ol>`;
 
 /* ------------------------------------------------------------ destaque (próximo show) */
-export function destaque(m) {
-  const rotulo = m.status === 'hoje' ? 'Hoje no Clube' : 'Próximo show';
+export function destaque(m, hoje) {
   return `<article class="destaque">
   <a class="destaque__foto" href="${m.url}" tabindex="-1" aria-hidden="true"><img src="${esc(m.imagem)}" alt="" width="600" height="510" loading="lazy" decoding="async"></a>
   <div>
-    <p class="label">${rotulo}</p>
-    <p class="destaque__data"><span class="num">${m.dia}/${String(m.mes).padStart(2, '0')}</span><span>${esc(m.semana.toLowerCase())}, ${esc(m.inicio)}</span></p>
+    ${hoje ? `<p class="t-2 destaque__titulo">Hoje no Clube</p><p class="destaque__inicio">${esc(m.inicio)}</p>` : `<p class="label">Próximo show</p>
+    <p class="destaque__data"><span class="num">${m.dia}/${String(m.mes).padStart(2, '0')}</span><span>${esc(m.semana.toLowerCase())}, ${esc(m.inicio)}</span></p>`}
     <h2 class="t-2"><a href="${m.url}" aria-label="${esc(m.titulo)}">${esc(m.nome)}</a></h2>
     ${m.sub.length ? `<p class="destaque__sub">${m.sub.map((part) => esc(part)).join(' · ')}</p>` : ''}
     <p class="meta destaque__horarios">${esc(m.horario)}</p>

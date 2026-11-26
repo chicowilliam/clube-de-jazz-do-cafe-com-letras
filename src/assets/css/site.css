@@ -135,6 +135,8 @@ button { font: inherit; color: inherit; }
   .duas--inv { grid-template-columns: 7fr 5fr; }
   .cabeca--lado { grid-template-columns: 7fr 5fr; align-items: end; column-gap: var(--s8); }
 }
+.transmissoes__titulo { font-size: clamp(48px, 9vw, 112px); line-height: 1; text-wrap: balance; }
+.transmissoes__descricao { max-width: 29em; text-wrap: pretty; }
 .regua { border: 0; border-top: 1px solid var(--linha-forte); margin: 0; }
 
 /* ---------- Botões e links ---------- */
@@ -308,6 +310,8 @@ button { font: inherit; color: inherit; }
 .destaque { display: grid; gap: var(--s5); }
 .destaque__foto { aspect-ratio: 6 / 5; overflow: hidden; background: var(--superficie); }
 .destaque__foto img { width: 100%; height: 100%; object-fit: cover; }
+.destaque__titulo { color: var(--mostarda); line-height: 1; }
+.destaque__inicio { font: italic 500 var(--t-lead)/1.2 var(--f-texto); margin-block: var(--s2); }
 .destaque__data { display: flex; align-items: baseline; gap: var(--s3); color: var(--mostarda); }
 .destaque__data .num { font-size: clamp(64px, 16vw, 132px); line-height: .8; }
 .destaque__data span:last-child { font: italic 500 var(--t-lead)/1.2 var(--f-texto); color: var(--creme); }
@@ -404,7 +408,6 @@ button { font: inherit; color: inherit; }
 .bilhete dt { color: var(--creme-2); }
 .bilhete dd { text-align: right; font-weight: 600; }
 .bilhete__nota { font-size: 14px; color: var(--creme-2); font-style: italic; }
-.bilhete__grupo { font: italic 500 15px/1.2 var(--f-texto); color: var(--lilas); grid-column: 1 / -1; padding-top: var(--s4); }
 .show__corpo { display: grid; gap: var(--s8); padding-top: var(--s8); }
 .formacao { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--linha-forte); }
 .formacao li { display: flex; justify-content: space-between; gap: var(--s4); padding: 14px 0; border-bottom: 1px solid var(--linha); }

@@ -118,10 +118,6 @@ function timesLong(s) {
   const open = s.times.find((t) => /abertura/i.test(t.label));
   return open ? `Casa abre ${hora(open.value)} · ${short}` : short;
 }
-function priceValue(v) {
-  const m = /^R\$\s*(\d+)(?:,00)?$/.exec(String(v).trim());
-  return m ? `R$ ${m[1]} por lugar` : v;
-}
 
 // ------------------------------------------------------------------ <head>
 function head({ title, description, path, image, imageAlt = site.name, jsonld = [], type = 'website' }) {
@@ -206,14 +202,6 @@ function eventLD(s) {
   const url = SITE_URL + showUrl(s);
   const upcoming = upcomingSlugs.has(s.slug);
   const names = [...new Set(s.formation.filter(({ role }) => role.trim()).map(({ name }) => name))];
-  const offers = upcoming && isSympla(s) ? s.prices.flatMap(({ label, value }) => {
-    const match = /^R\$\s*(\d+(?:\.\d{3})*)(?:,(\d{2}))?$/.exec(value.trim());
-    if (!match) return [];
-    return [{
-      '@type': 'Offer', name: label, url: s.tickets_url, priceCurrency: 'BRL',
-      price: `${match[1].replaceAll('.', '')}.${match[2] ?? '00'}`,
-    }];
-  }) : [];
   return {
     '@type': 'MusicEvent', '@id': url + '#event', name: s.title,
     startDate: s.startsAt,
@@ -225,7 +213,7 @@ function eventLD(s) {
     description: s.description[0],
     url,
     ...(names.length && { performer: names.map((name) => ({ '@type': 'Person', name })) }),
-    ...(offers.length && { offers }),
+    ...(upcoming && isSympla(s) && { offers: { '@type': 'Offer', url: s.tickets_url } }),
   };
 }
 
@@ -276,14 +264,11 @@ function showView(s, { destaque = false } = {}) {
   const [nome, complemento] = splitTitle(s.title);
   const passado = !upcomingSlugs.has(s.slug);
   const availability = ['esgotado', 'ultimos'].includes(s.availability) ? s.availability : '';
-  const primaryPrice = s.prices.find((p) => /área interna|salão/i.test(p.label) && p.value)
-    || s.prices.find((p) => p.value);
   return {
     data: s.date, dia: d, mes: m, semana: s.weekday, semanaCurta: s.weekday.slice(0, 3).toLowerCase(),
     nome, titulo: s.title, nomeCurto: escolaName(s), sub: [complemento, s.subtitle].filter(Boolean),
     imagem: s.image, url: showUrl(s), categorias: s.categories,
     tags: s.tags.join(' · '), inicio: hora(firstStart(s)), horario: destaque ? timesLong(s) : timesShort(s),
-    precoPrincipal: primaryPrice?.value || '',
     passado,
     status: passado ? 'encerrado' : availability || (s.date === TODAY ? 'hoje' : ''),
     ingressos: { url: s.tickets_url, rotulo: s.tickets_label },
@@ -311,7 +296,7 @@ function buildHome() {
     : '';
   body = body.replace('<!--@chancela-->', C.chancela())
     .replace('<!--@home-hoje-->', openingLink)
-    .replace('<!--@home-next-->', next ? C.destaque(showView(next, { destaque: true })) : '<p class="vazio">Em breve, novas datas na agenda.</p>')
+    .replace('<!--@home-next-->', next ? C.destaque(showView(next, { destaque: true }), Boolean(todayShow)) : '<p class="vazio">Em breve, novas datas na agenda.</p>')
     .replace('<!--@home-week-->', C.setlist(UPCOMING.slice(0, 6).map((s) => showView(s))));
   const esc3 = UPCOMING.filter((s) => s.escola).slice(0, 3);
   body = body.replace('<!--@home-escola-->', esc3.map((s) => fill(T.homeEscola, { ddmm: ddmm(s), name: esc(escolaName(s)), when: esc(escolaWhen(s)) })).join('\n'));
@@ -383,11 +368,7 @@ function buildShows() {
     } else body = body.replace('<!--@formation-->', '');
     body = body.replace('<!--@video-->', s.youtube ? fill(showParts['video-block'], { youtube: esc(s.youtube), title_attr: esc(s.title) }) : '');
     body = body.replace('<!--@bomsaber-->', isSympla(s) ? showParts['bomsaber-block'] : '');
-    const rows = [
-      ...timeRows(s),
-      ...s.prices.map((p) => ({ label: p.value ? p.label.replace(/^Área (\w)/, (_, c) => 'Área ' + c.toLowerCase()) : p.label.charAt(0) + p.label.slice(1).toLowerCase(), value: p.value ? priceValue(p.value) : '' })),
-    ];
-    body = body.replace('<!--@aside-rows-->', rows.map((r) => fill(r.value ? showParts['aside-row'] : showParts['aside-group'], { label: esc(r.label), value: esc(r.value) })).join('\n'));
+    body = body.replace('<!--@aside-rows-->', timeRows(s).map((r) => fill(showParts['aside-row'], { label: esc(r.label), value: esc(r.value) })).join('\n'));
     const more = UPCOMING.filter((x) => x.slug !== s.slug && x.startsAt >= s.startsAt).slice(0, 3);
     if (more.length) {
       body = body.replace('<!--@more-->', C.setlist(more.map((x) => showView(x))))

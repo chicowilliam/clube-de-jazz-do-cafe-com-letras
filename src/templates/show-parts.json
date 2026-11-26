@@ -7,6 +7,5 @@
   "formation-grid-open": "<ul class=\"formacao\" role=\"list\">",
   "video-block": "<section class=\"show__secao\" aria-labelledby=\"video-show\"><h2 class=\"t-3\" id=\"video-show\">Assista</h2><a class=\"video\" href=\"https://www.youtube.com/watch?v={{youtube}}\" rel=\"noopener\" target=\"_blank\"><img src=\"https://i.ytimg.com/vi/{{youtube}}/hqdefault.jpg\" alt=\"Vídeo de {{title_attr}} no YouTube\" width=\"480\" height=\"360\" loading=\"lazy\" decoding=\"async\"><span class=\"video__play\">Assistir no YouTube</span></a></section>",
   "bomsaber-block": "<section class=\"show__secao\" aria-labelledby=\"bom-saber\"><h2 class=\"t-3\" id=\"bom-saber\">Bom saber</h2><ul class=\"fatos\" role=\"list\"><li>As vendas antecipadas se encerram no início do show ou quando a área interna lota. Depois disso, só na porta.</li><li>Ingressos não validados até 30 minutos após o início do show liberam a mesa para a lista de espera. Chegue cedo.</li><li>Na varanda não há venda antecipada: é só chegar.</li></ul><p class=\"secao-link\"><a class=\"link-forte\" href=\"/visite/#perguntas\">Perguntas frequentes</a></p></section>",
-  "aside-row": "<dt>{{label}}</dt><dd>{{value}}</dd>",
-  "aside-group": "<dt class=\"bilhete__grupo\">{{label}}</dt><dd hidden></dd>"
+  "aside-row": "<dt>{{label}}</dt><dd>{{value}}</dd>"
 }
