@@ -1,895 +1,397 @@
-<div style="background: #0F0E0D; color: #F2ECE1; font-family: Inter, system-ui, sans-serif; min-height: 100vh">
-<!--@header-->
-<main id="conteudo">
-<section class="wrap" style="max-width: 1360px; margin: 0 auto; padding: 96px 40px 48px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-end; justify-content: space-between">
-<div style="flex: 1 1 640px; min-width: 0">
-<p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #DEAC00; font-weight: 600">Cardápio e bar</p>
-<h1 style="margin: 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-weight: 900; font-size: clamp(36px, 5.56vw, 80px); line-height: 0.95">Entre um set e outro</h1>
-</div>
-<p style="flex: 1 1 320px; margin: 0; font-size: 17px; line-height: 1.6; color: #D9D1C4">Tira-gostos e porções, com opções veganas e vegetarianas, pratos e sobremesas, coquetéis autorais batizados com nomes do jazz e uma carta de vinhos de Minas ao Velho Mundo.</p>
+<section class="secao secao--intro">
+  <div class="wrap">
+    <div class="cabeca cabeca--lado">
+      <div>
+        <h1 class="t-1">Cardápio e bar</h1>
+      </div>
+      <div class="prose"><p class="label">Entre um set e outro</p>
+        <p class="lead">Tira-gostos e porções, com opções veganas e vegetarianas, pratos e sobremesas, coquetéis autorais batizados com nomes do jazz e uma carta de vinhos de Minas ao Velho Mundo.</p></div></div>
+    <div aria-label="Cardápio" class="abas" hidden="" role="tablist">
+      <button aria-controls="painel-cozinha" aria-selected="true" class="aba" data-tab="cozinha" id="aba-cozinha" role="tab" type="button">Cozinha</button>
+      <button aria-controls="painel-bar" aria-selected="false" class="aba" data-tab="bar" id="aba-bar" role="tab" type="button">Bar · coquetéis, vinhos e cervejas</button>
+    </div>
+    <div class="cardapio-painel" id="painel-cozinha" data-panel="cozinha" tabindex="0" role="tabpanel" aria-labelledby="aba-cozinha"><span id="cozinha"></span>
+      <nav class="indice" aria-label="Seções"><a class="link" href="#tira-gostos-e-porcoes">Tira-gostos e porções</a><a class="link" href="#sanduiches-e-pratos">Sanduíches e pratos</a><a class="link" href="#sobremesas">Sobremesas</a></nav>
+      <div class="carta">
+        <section aria-labelledby="tira-gostos-e-porcoes">
+          <h2 id="tira-gostos-e-porcoes" class="t-2">Tira-gostos e porções</h2>
+          <ul class="pratos" role="list">
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Arancini <span class="prato__tipo">Vegetariano</span></span><span class="prato__preco">R$ 45</span></p>
+            <p class="prato__desc">Bolinho de risoto recheado com queijo, molho de mel trufado · 5 unidades</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Batata frita com molho de amendoim picante <span class="prato__tipo">Vegano</span></span><span class="prato__preco">R$ 30</span></p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Bifes à Lisboeta com batatas chips</span><span class="prato__preco">R$ 130</span></p>
+            <p class="prato__desc">300 g de filé mignon com presunto cru no palito · 2 pessoas (R$ 75) ou 4 pessoas</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Bolinho de Bacalhau Espiritual</span><span class="prato__preco">R$ 45</span></p>
+            <p class="prato__desc">Com aioli picante · 4 unidades</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Bruschettas de tomatinhos grape <span class="prato__tipo">Vegetariano</span></span><span class="prato__preco">R$ 30</span></p>
+            <p class="prato__desc">Com azeite balsâmico · 4 unidades</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Bruschettas do Chefe</span><span class="prato__preco">R$ 49</span></p>
+            <p class="prato__desc">Gorgonzola, figo fresco e presunto parma · 5 unidades</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Burrata <span class="prato__tipo">Vegetariano</span></span><span class="prato__preco">R$ 80</span></p>
+            <p class="prato__desc">Ao pesto de manjericão, compota de tomate e pão rústico tostado</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Carne de panela belga (Vlaamse Kardonade)</span><span class="prato__preco">R$ 72</span></p>
+            <p class="prato__desc">Músculo cozido na cerveja escura com ameixas pretas e pão · 2 pessoas (R$ 50) ou 4 pessoas</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Carne seca e mandioca acebolada</span><span class="prato__preco">R$ 52</span></p>
+            <p class="prato__desc">Na manteiga de garrafa, com pimenta biquinho</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Carpaccio clássico</span><span class="prato__preco">R$ 50</span></p>
+            <p class="prato__desc">Lagarto, molho de alcaparras, parmesão e rúcula, com torradas</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Ceviche de tilápia com manga</span><span class="prato__preco">R$ 40</span></p>
+            <p class="prato__desc">Cebola roxa, dedo-de-moça, coentro e limão, com torradas</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Croquete de costela</span><span class="prato__preco">R$ 45</span></p>
+            <p class="prato__desc">Com aioli de ervas · 4 unidades</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Falafel, homus e salada <span class="prato__tipo">Vegano</span></span><span class="prato__preco">R$ 45</span></p>
+            <p class="prato__desc">Grão-de-bico, tahine, tomate e pepino, com pão</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Filezinho curado</span><span class="prato__preco">R$ 55</span></p>
+            <p class="prato__desc">Com pesto de ervas e tomatinhos confitados</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Mini-pastéis de camarão com catupiry</span><span class="prato__preco">R$ 38</span></p>
+            <p class="prato__desc">3 unidades</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Pastel aberto (Flammkuchen) <span class="prato__tipo">Vegetariano</span></span><span class="prato__preco">R$ 35</span></p>
+            <p class="prato__desc">Cogumelos, aspargos, queijo e tartufata · 4 unidades</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Snack do dia</span><span class="prato__preco">R$ 22</span></p></li></ul>
+        </section>
+        <section aria-labelledby="sanduiches-e-pratos">
+          <h2 id="sanduiches-e-pratos" class="t-2">Sanduíches e pratos</h2>
+          <ul class="pratos" role="list">
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Prego de carne</span><span class="prato__preco">R$ 67</span></p>
+            <p class="prato__desc">O famoso pão com bife: filé de 180 g no pão de sal</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Sanduíche Caprese <span class="prato__tipo">Vegano</span></span><span class="prato__preco">R$ 43</span></p>
+            <p class="prato__desc">Panhoca, queijo de castanha da casa, tomatinhos, rúcula e pesto</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Arroz de costela</span><span class="prato__preco">R$ 55</span></p>
+            <p class="prato__desc">Costela braseada por 8 horas, cheiro-verde e tomate confit</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Fettuccine com iscas de filé</span><span class="prato__preco">R$ 82</span></p>
+            <p class="prato__desc">Ao pomodoro com queijo de búfala</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Tilápia grelhada</span><span class="prato__preco">R$ 52</span></p>
+            <p class="prato__desc">Molho de laranja, purê de cenoura e folhas</p></li></ul>
+        </section>
+        <section aria-labelledby="sobremesas">
+          <h2 id="sobremesas" class="t-2">Sobremesas</h2>
+          <ul class="pratos" role="list">
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Petit gâteau</span><span class="prato__preco">R$ 40</span></p>
+            <p class="prato__desc">Com sorvete de creme</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Tiramisù</span><span class="prato__preco">R$ 35</span></p>
+            <p class="prato__desc">Mascarpone, café, biscoito champagne e cacau</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Sorvete de creme</span><span class="prato__preco">R$ 18</span></p>
+            <p class="prato__desc">2 bolas</p></li></ul>
+        </section>
+      </div>
+      <p class="meta secao-link">A carta completa fica disponível na casa.</p></div>
+    <div class="cardapio-painel" id="painel-bar" data-panel="bar" tabindex="0" role="tabpanel" aria-labelledby="aba-bar"><span id="bar"></span>
+      <nav class="indice" aria-label="Seções"><a class="link" href="#coqueteis-autorais">Coquetéis autorais</a><a class="link" href="#sem-alcool">Sem álcool</a><a class="link" href="#classicos">Clássicos</a><a class="link" href="#vinhos-e-espumantes">Vinhos e espumantes</a><a class="link" href="#cervejas-whiskies-e-bourbons">Cervejas, whiskies e bourbons</a><a class="link" href="#destilados-e-licores">Destilados e licores</a><a class="link" href="#cafes-aguas-e-sucos">Cafés, águas e sucos</a></nav>
+      <div class="carta">
+        <section aria-labelledby="coqueteis-autorais">
+          <h2 id="coqueteis-autorais" class="t-2">Coquetéis autorais</h2>
+          <p class="carta__nota">Batizados com nomes do jazz</p>
+          <ul class="pratos" role="list">
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Ella Fitzgerald</span><span class="prato__preco">R$ 45</span></p>
+            <p class="prato__desc">Gin London Dry, tônica, bitter aromático, limão, demerara e espuma de gengibre</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Miles</span><span class="prato__preco">R$ 47</span></p>
+            <p class="prato__desc">Jameson, Ramazzotti Rosato, vinho tinto e limão</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Speakeasy</span><span class="prato__preco">R$ 52</span></p>
+            <p class="prato__desc">Bulleit bourbon, Punt e Mes, limão, orgeat e chocolate meio amargo</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Aretha</span><span class="prato__preco">R$ 40</span></p>
+            <p class="prato__desc">Vodka, manga, limão, geleia de pimenta e espuma de manga</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Feeling Good</span><span class="prato__preco">R$ 40</span></p>
+            <p class="prato__desc">Captain Morgan e Bacardi Ouro, manga, mel e limão</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Tom Jobim Collins</span><span class="prato__preco">R$ 35</span></p>
+            <p class="prato__desc">Cachaça, Ramazzotti Rosato, limão, xarope, água com gás e bitter</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Al Capone Sour</span><span class="prato__preco">R$ 40</span></p>
+            <p class="prato__desc">Fernet Branca, bourbon, limão e demerara</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">C'est la Vie</span><span class="prato__preco">R$ 38</span></p>
+            <p class="prato__desc">Aperol, Lillet Blanc, vermute dry, gin, orgeat e limão</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Cynatra</span><span class="prato__preco">R$ 38</span></p>
+            <p class="prato__desc">Cynar, triple sec, romã e limão</p></li></ul>
+        </section>
+        <section aria-labelledby="sem-alcool">
+          <h2 id="sem-alcool" class="t-2">Sem álcool</h2>
+          <p class="carta__nota">Autorais</p>
+          <ul class="pratos" role="list">
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Diana Krall</span><span class="prato__preco">R$ 35</span></p>
+            <p class="prato__desc">Hibisco, tangerina, limão e espuma de tangerina</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Moramora</span><span class="prato__preco">R$ 30</span></p>
+            <p class="prato__desc">Amora, morango e xarope de gengibre gaseificado</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Manjerina</span><span class="prato__preco">R$ 25</span></p>
+            <p class="prato__desc">Tangerina, gengibre, chá preto, água com gás e manjericão</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Pink Lemonade</span><span class="prato__preco">R$ 25</span></p>
+            <p class="prato__desc">Cranberry, limão e xarope de açúcar</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Mojito sem álcool</span><span class="prato__preco">R$ 25</span></p>
+            <p class="prato__desc">Água gaseificada, xarope de açúcar, limão e hortelã</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Soda italiana</span><span class="prato__preco">R$ 25</span></p>
+            <p class="prato__desc">Morango, manga ou refrigerante artesanal de pimentão</p></li></ul>
+        </section>
+        <section aria-labelledby="classicos">
+          <h2 id="classicos" class="t-2">Clássicos</h2>
+          <ul class="pratos" role="list">
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Negroni</span><span class="prato__preco">R$ 45</span></p>
+            <p class="prato__desc">Gin, Campari e Punt e Mes</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Old Fashioned</span><span class="prato__preco">R$ 45</span></p>
+            <p class="prato__desc">Bourbon, açúcar e bitter aromático</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Manhattan</span><span class="prato__preco">R$ 45</span></p>
+            <p class="prato__desc">Bourbon, Punt e Mes e bitter</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Boulevardier</span><span class="prato__preco">R$ 48</span></p>
+            <p class="prato__desc">Bourbon, Campari e Punt e Mes</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Penicillin</span><span class="prato__preco">R$ 45</span></p>
+            <p class="prato__desc">Scotch, mel com gengibre, limão e bitter</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Dry Martini</span><span class="prato__preco">R$ 35</span></p>
+            <p class="prato__desc">Gin, vermute seco e azeitonas</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Aperol Spritz</span><span class="prato__preco">R$ 45</span></p>
+            <p class="prato__desc">Aperol, água tônica e espumante</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Margarita</span><span class="prato__preco">R$ 45</span></p>
+            <p class="prato__desc">Tequila, triple sec, limão e borda de sal</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Gin tônica</span><span class="prato__preco">R$ 35</span></p>
+            <p class="prato__desc">Gin London Dry, água tônica e limão</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Caipirinha</span><span class="prato__preco">R$ 25</span></p>
+            <p class="prato__desc">Cachaça, limão e açúcar</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Alexander</span><span class="prato__preco">R$ 30</span></p>
+            <p class="prato__desc">Conhaque, licor de cacau, creme de leite e canela</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Bloody Mary</span><span class="prato__preco">R$ 32</span></p>
+            <p class="prato__desc">Vodka Ketel One, suco de tomate, pimenta tabasco, molho inglês e limão</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Cosmopolitan</span><span class="prato__preco">R$ 25</span></p>
+            <p class="prato__desc">Vodka, cherry brandy e triple sec</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Daiquiri</span><span class="prato__preco">R$ 25</span></p>
+            <p class="prato__desc">Rum carta branca, xarope demerara e limão</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Fanciulli</span><span class="prato__preco">R$ 48</span></p>
+            <p class="prato__desc">Bourbon, vermute rosso Punt e Mes e Fernet Blanc</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Fitzgerald</span><span class="prato__preco">R$ 35</span></p>
+            <p class="prato__desc">Gin London Dry, xarope demerara, limão e bitter aromático</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Hanky Panky</span><span class="prato__preco">R$ 30</span></p>
+            <p class="prato__desc">Gin London Dry, vermute rosso Punt e Mes e Fernet Blanc</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Mark Twain</span><span class="prato__preco">R$ 40</span></p>
+            <p class="prato__desc">Whiskey Jameson, xarope demerara, limão e bitter aromático</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Mint Julep</span><span class="prato__preco">R$ 32</span></p>
+            <p class="prato__desc">Bourbon, água com gás, xarope demerara, limão e hortelã</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Mojito</span><span class="prato__preco">R$ 25</span></p>
+            <p class="prato__desc">Rum carta branca, água com gás, xarope, hortelã e limão</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Rob Roy</span><span class="prato__preco">R$ 45</span></p>
+            <p class="prato__desc">Blended Scotch whisky, vermute Punt e Mes e bitter aromático</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Tom Collins</span><span class="prato__preco">R$ 28</span></p>
+            <p class="prato__desc">Gin London Dry, xarope, água com gás e limão</p></li></ul>
+        </section>
+        <section aria-labelledby="vinhos-e-espumantes">
+          <h2 id="vinhos-e-espumantes" class="t-2">Vinhos e espumantes</h2>
+          <p class="carta__nota">Taça de 150 ml · garrafa de 750 ml</p>
+          <ul class="pratos" role="list">
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">3 Tons Blend <span class="prato__tipo">Minas</span></span><span class="prato__preco">R$ 36 · R$ 170</span></p>
+            <p class="prato__desc">Andradas (MG) · Merlot, Syrah e Cabernet Franc · Casa Geraldo</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Maria Maria Kika Syrah <span class="prato__tipo">Minas</span></span><span class="prato__preco">R$ 260</span></p>
+            <p class="prato__desc">Boa Esperança (MG) · 2025</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Château Tassin Bordeaux</span><span class="prato__preco">R$ 268</span></p>
+            <p class="prato__desc">Bordeaux, França · 2023</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">La Grive Musicienne Pinot Noir</span><span class="prato__preco">R$ 180</span></p>
+            <p class="prato__desc">Languedoc-Roussillon, França · 2024</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Corvos de Lisboa Blend</span><span class="prato__preco">R$ 210</span></p>
+            <p class="prato__desc">Lisboa, Portugal · 2022 · Casa Santos Lima</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Fonte Sagrada Vinho Verde</span><span class="prato__preco">R$ 170</span></p>
+            <p class="prato__desc">Portugal · 2024</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Prófugo Cabernet Sauvignon</span><span class="prato__preco">R$ 30 · R$ 145</span></p>
+            <p class="prato__desc">Mendoza, Argentina · 2024</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Vigia Superior Chardonnay</span><span class="prato__preco">R$ 30 · R$ 138</span></p>
+            <p class="prato__desc">Chile · 2023</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Siempre Tengo un Plan B Rosé</span><span class="prato__preco">R$ 30 · R$ 145</span></p>
+            <p class="prato__desc">Mendoza · Malbec e Pinot Noir · 2025</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Alud Brut <span class="prato__tipo">Espumante</span></span><span class="prato__preco">R$ 30 · R$ 135</span></p>
+            <p class="prato__desc">Badajoz, Espanha · método Charmat</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Rex Bibendi Brut <span class="prato__tipo">Espumante</span></span><span class="prato__preco">R$ 125</span></p>
+            <p class="prato__desc">Serra Gaúcha (RS) · Chardonnay e Pinot Noir · método Charmat</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Alud Brut Rosé <span class="prato__tipo">Espumante</span></span><span class="prato__preco">R$ 125</span></p>
+            <p class="prato__desc">Badajoz, Espanha · Tempranillo · método Charmat</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Prófugo Sauvignon Blanc</span><span class="prato__preco">R$ 30 · R$ 145</span></p>
+            <p class="prato__desc">Mendoza, Argentina · 2022 · Agrovit</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Feudo dei Venti Pinot Grigio D.O.C.</span><span class="prato__preco">R$ 180</span></p>
+            <p class="prato__desc">Vêneto, Itália · 2021 · Cantine Minini</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Vigia Superior Rosé Merlot</span><span class="prato__preco">R$ 138</span></p>
+            <p class="prato__desc">Santiago, Chile · 2023</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Yeah Carménère</span><span class="prato__preco">R$ 138</span></p>
+            <p class="prato__desc">D.O. Valle Central, Chile · 2024</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Terre Forti Sangiovese Romagna D.O.C.</span><span class="prato__preco">R$ 180</span></p>
+            <p class="prato__desc">Emilia-Romagna, Itália · 2023 · Caviro</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Terre Forti Montepulciano d'Abruzzo D.O.C.</span><span class="prato__preco">R$ 180</span></p>
+            <p class="prato__desc">Abruzzo, Itália · 2023 · Caviro</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Marqués de Tejares Blend</span><span class="prato__preco">R$ 180</span></p>
+            <p class="prato__desc">Albacete, Espanha · Cabernet Sauvignon, Merlot e Tempranillo · 2021</p></li></ul>
+        </section>
+        <section aria-labelledby="cervejas-whiskies-e-bourbons">
+          <h2 id="cervejas-whiskies-e-bourbons" class="t-2">Cervejas, whiskies e bourbons</h2>
+          <ul class="pratos" role="list">
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Chopp Heineken</span><span class="prato__preco">R$ 22,90</span></p>
+            <p class="prato__desc">300 ml (R$ 16,90) ou 500 ml</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Baden Baden Golden ou IPA</span><span class="prato__preco">R$ 35</span></p>
+            <p class="prato__desc">600 ml</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Lagunitas IPA · Blue Moon</span><span class="prato__preco">R$ 25</span></p>
+            <p class="prato__desc">355 ml</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Heineken, Ultimate ou Zero</span><span class="prato__preco">R$ 20</span></p>
+            <p class="prato__desc">330 ml</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Woodford Reserve · Maker’s Mark <span class="prato__tipo">Bourbon</span></span><span class="prato__preco">R$ 46</span></p>
+            <p class="prato__desc">Dose de 50 ml</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">The Glenlivet Founders Reserve <span class="prato__tipo">Single malt</span></span><span class="prato__preco">R$ 75</span></p>
+            <p class="prato__desc">Dose de 50 ml</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Ballantine’s 17 anos</span><span class="prato__preco">R$ 75</span></p>
+            <p class="prato__desc">Dose de 50 ml</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Johnnie Walker Black Label</span><span class="prato__preco">R$ 35</span></p>
+            <p class="prato__desc">Dose de 50 ml</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Praya sem glúten</span><span class="prato__preco">R$ 18</span></p>
+            <p class="prato__desc">Lager · 355 ml</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Jack Daniel’s Old No. 7 <span class="prato__tipo">Bourbon</span></span><span class="prato__preco">R$ 26</span></p>
+            <p class="prato__desc">Dose de 50 ml</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Gentleman Jack <span class="prato__tipo">Bourbon</span></span><span class="prato__preco">R$ 42</span></p>
+            <p class="prato__desc">Dose de 50 ml</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Bulleit Bourbon <span class="prato__tipo">Bourbon</span></span><span class="prato__preco">R$ 35</span></p>
+            <p class="prato__desc">Dose de 50 ml</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Chivas Regal 12 anos</span><span class="prato__preco">R$ 35</span></p>
+            <p class="prato__desc">Dose de 50 ml</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Ballantine’s Finest</span><span class="prato__preco">R$ 22</span></p>
+            <p class="prato__desc">Dose de 50 ml</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Johnnie Walker Red Label</span><span class="prato__preco">R$ 22</span></p>
+            <p class="prato__desc">Dose de 50 ml</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Jameson · Jameson Caskmates IPA</span><span class="prato__preco">R$ 22</span></p>
+            <p class="prato__desc">Irlanda · dose de 50 ml</p></li></ul>
+        </section>
+        <section aria-labelledby="destilados-e-licores">
+          <h2 id="destilados-e-licores" class="t-2">Destilados e licores</h2>
+          <p class="carta__nota">Doses de 50 ml</p>
+          <ul class="pratos" role="list">
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Cachaça branca</span><span class="prato__preco">R$ 16</span></p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Cachaça Vale Verde</span><span class="prato__preco">R$ 19</span></p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Campari</span><span class="prato__preco">R$ 19</span></p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Vodka Absolut</span><span class="prato__preco">R$ 25</span></p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Gin Beefeater</span><span class="prato__preco">R$ 26</span></p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Licor 43</span><span class="prato__preco">R$ 36</span></p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Baileys</span><span class="prato__preco">R$ 46</span></p>
+            <p class="prato__desc">Licor de chocolate e baunilha</p></li></ul>
+        </section>
+        <section aria-labelledby="cafes-aguas-e-sucos">
+          <h2 id="cafes-aguas-e-sucos" class="t-2">Cafés, águas e sucos</h2>
+          <ul class="pratos" role="list">
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Café coado na V60</span><span class="prato__preco">R$ 12</span></p>
+            <p class="prato__desc">200 ml</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Chá de hortelã</span><span class="prato__preco">R$ 8</span></p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Chá de gengibre, limão e mel</span><span class="prato__preco">R$ 9</span></p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Água Mamba Water</span><span class="prato__preco">R$ 8</span></p>
+            <p class="prato__desc">350 ml · com ou sem gás</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Água Ingá</span><span class="prato__preco">R$ 8</span></p>
+            <p class="prato__desc">300 ml · com ou sem gás</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Água tônica</span><span class="prato__preco">R$ 9,60</span></p>
+            <p class="prato__desc">Lata 350 ml</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Refrigerante</span><span class="prato__preco">R$ 9,60</span></p>
+            <p class="prato__desc">Lata 350 ml · Coca-Cola, Coca-Cola Zero, Guaraná Antarctica, Guaraná Antarctica Zero</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Red Bull</span><span class="prato__preco">R$ 23,50</span></p>
+            <p class="prato__desc">250 ml</p></li>
+            <li class="prato">
+            <p class="prato__linha"><span class="prato__nome">Suco natural de laranja</span><span class="prato__preco">R$ 18,20</span></p>
+            <p class="prato__desc">300 ml</p></li></ul>
+        </section>
+      </div>
+      <p class="meta secao-link">A carta completa fica disponível na casa.</p></div>
+  </div>
 </section>
-<section class="wrap" style="max-width: 1360px; margin: 0 auto; padding: 0 40px; box-sizing: border-box">
-<div aria-label="Cardápio" data-style-off="min-height: 48px; padding: 0 28px; border-radius: 999px; font-family: inherit; font-size: 16px; cursor: pointer; background: transparent; color: #F2ECE1; border: 1px solid rgba(242,236,225,0.3); font-weight: 500;" data-style-on="min-height: 48px; padding: 0 28px; border-radius: 999px; font-family: inherit; font-size: 16px; cursor: pointer; background: #EFADFF; color: #0F0E0D; border: 1px solid #F2ECE1; font-weight: 600;" role="tablist" style="display: flex; gap: 8px; flex-wrap: wrap; border-bottom: 1px solid rgba(242,236,225,0.12); padding-bottom: 24px">
-<button aria-controls="painel-cozinha" aria-selected="true" data-tab="cozinha" id="aba-cozinha" role="tab" style="min-height: 48px; padding: 0 28px; border-radius: 999px; font-family: inherit; font-size: 16px; cursor: pointer; background: #EFADFF; color: #0F0E0D; border: 1px solid #F2ECE1; font-weight: 600;" type="button">Cozinha</button>
-<button aria-controls="painel-bar" aria-selected="false" data-tab="bar" id="aba-bar" role="tab" style="min-height: 48px; padding: 0 28px; border-radius: 999px; font-family: inherit; font-size: 16px; cursor: pointer; background: transparent; color: #F2ECE1; border: 1px solid rgba(242,236,225,0.3); font-weight: 500;" type="button">Bar · coquetéis, vinhos e cervejas</button>
-</div>
-</section>
-<section aria-labelledby="aba-cozinha" class="wrap" data-panel="cozinha" id="painel-cozinha" role="tabpanel" style="max-width: 1360px; margin: 0 auto; padding: 48px 40px 112px; box-sizing: border-box">
-<div style="margin-bottom: 64px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 16px; margin-bottom: 8px">
-<h2 style="margin: 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-weight: 900; font-size: 38px">Tira-gostos e porções</h2>
-<p style="margin: 0; color: #B9B0A3; font-size: 14px"></p>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(480px, 100%), 1fr)); gap: 0 64px">
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Arancini <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px">Vegetariano</span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Bolinho de risoto recheado com queijo, molho de mel trufado · 5 unidades</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 45</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Batata frita com molho de amendoim picante <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px">Vegano</span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5"></p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 30</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Bifes à Lisboeta com batatas chips <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">300 g de filé mignon com presunto cru no palito · 2 pessoas (R$ 75) ou 4 pessoas</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 130</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Bolinho de Bacalhau Espiritual <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Com aioli picante · 4 unidades</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 45</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Bruschettas de tomatinhos grape <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px">Vegetariano</span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Com azeite balsâmico · 4 unidades</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 30</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Bruschettas do Chefe <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Gorgonzola, figo fresco e presunto parma · 5 unidades</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 49</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Burrata <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px">Vegetariano</span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Ao pesto de manjericão, compota de tomate e pão rústico tostado</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 80</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Carne de panela belga (Vlaamse Kardonade) <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Músculo cozido na cerveja escura com ameixas pretas e pão · 2 pessoas (R$ 50) ou 4 pessoas</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 72</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Carne seca e mandioca acebolada <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Na manteiga de garrafa, com pimenta biquinho</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 52</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Carpaccio clássico <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Lagarto, molho de alcaparras, parmesão e rúcula, com torradas</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 50</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Ceviche de tilápia com manga <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Cebola roxa, dedo-de-moça, coentro e limão, com torradas</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 40</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Croquete de costela <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Com aioli de ervas · 4 unidades</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 45</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Falafel, homus e salada <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px">Vegano</span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Grão-de-bico, tahine, tomate e pepino, com pão</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 45</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Filezinho curado <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Com pesto de ervas e tomatinhos confitados</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 55</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Mini-pastéis de camarão com catupiry <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">3 unidades</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 38</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Pastel aberto (Flammkuchen) <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px">Vegetariano</span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Cogumelos, aspargos, queijo e tartufata · 4 unidades</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 35</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Snack do dia <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5"></p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 22</p>
-</div>
-</div>
-</div>
-<div style="margin-bottom: 64px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 16px; margin-bottom: 8px">
-<h2 style="margin: 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-weight: 900; font-size: 38px">Sanduíches e pratos</h2>
-<p style="margin: 0; color: #B9B0A3; font-size: 14px"></p>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(480px, 100%), 1fr)); gap: 0 64px">
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Prego de carne <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">O famoso pão com bife: filé de 180 g no pão de sal</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 67</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Sanduíche Caprese <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px">Vegano</span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Panhoca, queijo de castanha da casa, tomatinhos, rúcula e pesto</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 43</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Arroz de costela <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Costela braseada por 8 horas, cheiro-verde e tomate confit</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 55</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Fettuccine com iscas de filé <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Ao pomodoro com queijo de búfala</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 82</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Tilápia grelhada <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Molho de laranja, purê de cenoura e folhas</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 52</p>
-</div>
-</div>
-</div>
-<div style="margin-bottom: 64px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 16px; margin-bottom: 8px">
-<h2 style="margin: 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-weight: 900; font-size: 38px">Sobremesas</h2>
-<p style="margin: 0; color: #B9B0A3; font-size: 14px"></p>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(480px, 100%), 1fr)); gap: 0 64px">
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Petit gâteau <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Com sorvete de creme</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 40</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Tiramisù <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Mascarpone, café, biscoito champagne e cacau</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 35</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Sorvete de creme <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">2 bolas</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 18</p>
-</div>
-</div>
-</div>
-<p style="margin: 0; font-size: 13px; color: #B9B0A3">A carta completa fica disponível na casa.</p>
-</section><section aria-labelledby="aba-bar" class="wrap" data-panel="bar" hidden="" id="painel-bar" role="tabpanel" style="max-width: 1360px; margin: 0 auto; padding: 48px 40px 112px; box-sizing: border-box">
-<div style="margin-bottom: 64px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 16px; margin-bottom: 8px">
-<h2 style="margin: 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-weight: 900; font-size: 38px">Coquetéis autorais</h2>
-<p style="margin: 0; color: #B9B0A3; font-size: 14px">Batizados com nomes do jazz</p>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(480px, 100%), 1fr)); gap: 0 64px">
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Ella Fitzgerald <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Gin London Dry, tônica, bitter aromático, limão, demerara e espuma de gengibre</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 45</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Miles <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Jameson, Ramazzotti Rosato, vinho tinto e limão</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 47</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Speakeasy <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Bulleit bourbon, Punt e Mes, limão, orgeat e chocolate meio amargo</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 52</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Aretha <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Vodka, manga, limão, geleia de pimenta e espuma de manga</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 40</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Feeling Good <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Captain Morgan e Bacardi Ouro, manga, mel e limão</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 40</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Tom Jobim Collins <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Cachaça, Ramazzotti Rosato, limão, xarope, água com gás e bitter</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 35</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Al Capone Sour <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Fernet Branca, bourbon, limão e demerara</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 40</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">C'est la Vie <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Aperol, Lillet Blanc, vermute dry, gin, orgeat e limão</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 38</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Cynatra <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Cynar, triple sec, romã e limão</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 38</p>
-</div>
-</div>
-</div>
-<div style="margin-bottom: 64px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 16px; margin-bottom: 8px">
-<h2 style="margin: 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-weight: 900; font-size: 38px">Sem álcool</h2>
-<p style="margin: 0; color: #B9B0A3; font-size: 14px">Autorais</p>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(480px, 100%), 1fr)); gap: 0 64px">
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Diana Krall <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Hibisco, tangerina, limão e espuma de tangerina</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 35</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Moramora <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Amora, morango e xarope de gengibre gaseificado</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 30</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Manjerina <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Tangerina, gengibre, chá preto, água com gás e manjericão</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 25</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Pink Lemonade <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Cranberry, limão e xarope de açúcar</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 25</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Mojito sem álcool <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Água gaseificada, xarope de açúcar, limão e hortelã</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 25</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Soda italiana <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Morango, manga ou refrigerante artesanal de pimentão</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 25</p>
-</div>
-</div>
-</div>
-<div style="margin-bottom: 64px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 16px; margin-bottom: 8px">
-<h2 style="margin: 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-weight: 900; font-size: 38px">Clássicos</h2>
-<p style="margin: 0; color: #B9B0A3; font-size: 14px"></p>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(480px, 100%), 1fr)); gap: 0 64px">
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Negroni <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Gin, Campari e Punt e Mes</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 45</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Old Fashioned <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Bourbon, açúcar e bitter aromático</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 45</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Manhattan <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Bourbon, Punt e Mes e bitter</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 45</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Boulevardier <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Bourbon, Campari e Punt e Mes</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 48</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Penicillin <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Scotch, mel com gengibre, limão e bitter</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 45</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Dry Martini <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Gin, vermute seco e azeitonas</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 35</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Aperol Spritz <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Aperol, água tônica e espumante</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 45</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Margarita <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Tequila, triple sec, limão e borda de sal</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 45</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Gin tônica <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Gin London Dry, água tônica e limão</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 35</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Caipirinha <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Cachaça, limão e açúcar</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 25</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Alexander <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Conhaque, licor de cacau, creme de leite e canela</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 30</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Bloody Mary <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Vodka Ketel One, suco de tomate, pimenta tabasco, molho inglês e limão</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 32</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Cosmopolitan <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Vodka, cherry brandy e triple sec</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 25</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Daiquiri <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Rum carta branca, xarope demerara e limão</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 25</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Fanciulli <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Bourbon, vermute rosso Punt e Mes e Fernet Blanc</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 48</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Fitzgerald <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Gin London Dry, xarope demerara, limão e bitter aromático</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 35</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Hanky Panky <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Gin London Dry, vermute rosso Punt e Mes e Fernet Blanc</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 30</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Mark Twain <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Whiskey Jameson, xarope demerara, limão e bitter aromático</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 40</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Mint Julep <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Bourbon, água com gás, xarope demerara, limão e hortelã</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 32</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Mojito <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Rum carta branca, água com gás, xarope, hortelã e limão</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 25</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Rob Roy <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Blended Scotch whisky, vermute Punt e Mes e bitter aromático</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 45</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Tom Collins <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Gin London Dry, xarope, água com gás e limão</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 28</p>
-</div>
-</div>
-</div>
-<div style="margin-bottom: 64px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 16px; margin-bottom: 8px">
-<h2 style="margin: 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-weight: 900; font-size: 38px">Vinhos e espumantes</h2>
-<p style="margin: 0; color: #B9B0A3; font-size: 14px">Taça de 150 ml · garrafa de 750 ml</p>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(480px, 100%), 1fr)); gap: 0 64px">
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">3 Tons Blend <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px">Minas</span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Andradas (MG) · Merlot, Syrah e Cabernet Franc · Casa Geraldo</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 36 · R$ 170</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Maria Maria Kika Syrah <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px">Minas</span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Boa Esperança (MG) · 2025</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 260</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Château Tassin Bordeaux <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Bordeaux, França · 2023</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 268</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">La Grive Musicienne Pinot Noir <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Languedoc-Roussillon, França · 2024</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 180</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Corvos de Lisboa Blend <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Lisboa, Portugal · 2022 · Casa Santos Lima</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 210</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Fonte Sagrada Vinho Verde <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Portugal · 2024</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 170</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Prófugo Cabernet Sauvignon <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Mendoza, Argentina · 2024</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 30 · R$ 145</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Vigia Superior Chardonnay <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Chile · 2023</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 30 · R$ 138</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Siempre Tengo un Plan B Rosé <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Mendoza · Malbec e Pinot Noir · 2025</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 30 · R$ 145</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Alud Brut <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px">Espumante</span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Badajoz, Espanha · método Charmat</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 30 · R$ 135</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Rex Bibendi Brut <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px">Espumante</span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Serra Gaúcha (RS) · Chardonnay e Pinot Noir · método Charmat</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 125</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Alud Brut Rosé <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px">Espumante</span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Badajoz, Espanha · Tempranillo · método Charmat</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 125</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Prófugo Sauvignon Blanc <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Mendoza, Argentina · 2022 · Agrovit</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 30 · R$ 145</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Feudo dei Venti Pinot Grigio D.O.C. <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Vêneto, Itália · 2021 · Cantine Minini</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 180</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Vigia Superior Rosé Merlot <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Santiago, Chile · 2023</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 138</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Yeah Carménère <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">D.O. Valle Central, Chile · 2024</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 138</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Terre Forti Sangiovese Romagna D.O.C. <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Emilia-Romagna, Itália · 2023 · Caviro</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 180</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Terre Forti Montepulciano d'Abruzzo D.O.C. <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Abruzzo, Itália · 2023 · Caviro</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 180</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Marqués de Tejares Blend <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Albacete, Espanha · Cabernet Sauvignon, Merlot e Tempranillo · 2021</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 180</p>
-</div>
-</div>
-</div>
-<div style="margin-bottom: 64px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 16px; margin-bottom: 8px">
-<h2 style="margin: 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-weight: 900; font-size: 38px">Cervejas, whiskies e bourbons</h2>
-<p style="margin: 0; color: #B9B0A3; font-size: 14px"></p>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(480px, 100%), 1fr)); gap: 0 64px">
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Chopp Heineken <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">300 ml (R$ 16,90) ou 500 ml</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 22,90</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Baden Baden Golden ou IPA <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">600 ml</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 35</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Lagunitas IPA · Blue Moon <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">355 ml</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 25</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Heineken, Ultimate ou Zero <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">330 ml</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 20</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Woodford Reserve · Maker’s Mark <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px">Bourbon</span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Dose de 50 ml</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 46</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">The Glenlivet Founders Reserve <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px">Single malt</span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Dose de 50 ml</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 75</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Ballantine’s 17 anos <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Dose de 50 ml</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 75</p>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Johnnie Walker Black Label <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Dose de 50 ml</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 35</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Praya sem glúten <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Lager · 355 ml</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 18</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Jack Daniel’s Old No. 7 <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px">Bourbon</span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Dose de 50 ml</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 26</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Gentleman Jack <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px">Bourbon</span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Dose de 50 ml</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 42</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Bulleit Bourbon <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px">Bourbon</span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Dose de 50 ml</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 35</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Chivas Regal 12 anos <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Dose de 50 ml</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 35</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Ballantine’s Finest <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Dose de 50 ml</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 22</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Johnnie Walker Red Label <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Dose de 50 ml</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 22</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Jameson · Jameson Caskmates IPA <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Irlanda · dose de 50 ml</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 22</p>
-</div>
-</div>
-</div>
-<div style="margin-bottom: 64px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 16px; margin-bottom: 8px">
-<h2 style="margin: 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-weight: 900; font-size: 38px">Destilados e licores</h2>
-<p style="margin: 0; color: #B9B0A3; font-size: 14px">Doses de 50 ml</p>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(480px, 100%), 1fr)); gap: 0 64px">
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Cachaça branca <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5"></p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 16</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Cachaça Vale Verde <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5"></p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 19</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Campari <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5"></p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 19</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Vodka Absolut <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5"></p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 25</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Gin Beefeater <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5"></p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 26</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Licor 43 <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5"></p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 36</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Baileys <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Licor de chocolate e baunilha</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 46</p>
-</div>
-</div>
-</div>
-<div style="margin-bottom: 64px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 16px; margin-bottom: 8px">
-<h2 style="margin: 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-weight: 900; font-size: 38px">Cafés, águas e sucos</h2>
-<p style="margin: 0; color: #B9B0A3; font-size: 14px"></p>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(480px, 100%), 1fr)); gap: 0 64px">
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Café coado na V60 <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">200 ml</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 12</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Chá de hortelã <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5"></p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 8</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Chá de gengibre, limão e mel <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5"></p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 9</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Água Mamba Water <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">350 ml · com ou sem gás</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 8</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Água Ingá <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">300 ml · com ou sem gás</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 8</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Água tônica <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Lata 350 ml</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 9,60</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Refrigerante <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">Lata 350 ml · Coca-Cola, Coca-Cola Zero, Guaraná Antarctica, Guaraná Antarctica Zero</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 9,60</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Red Bull <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">250 ml</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 23,50</p>
-</div>
-<div data-fonte="cardapio-fev25" style="display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid rgba(242,236,225,0.1)">
-<div style="min-width: 0">
-<p style="margin: 0; font-size: 17px; font-weight: 600">Suco natural de laranja <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EFADFF; margin-left: 6px"></span></p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #B9B0A3; line-height: 1.5">300 ml</p>
-</div>
-<p style="margin: 0; font-size: 16px; color: #F2ECE1; white-space: nowrap">R$ 18,20</p>
-</div>
-</div>
-</div>
-<p style="margin: 0; font-size: 13px; color: #B9B0A3">A carta completa fica disponível na casa.</p>
-</section>
-</main>
-<!--@footer-->
-</div>

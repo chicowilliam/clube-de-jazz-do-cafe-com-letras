@@ -1,51 +1,37 @@
-<div style="background: #0F0E0D; color: #F2ECE1; font-family: Inter, system-ui, sans-serif; min-height: 100vh">
-<!--@header-->
-<main id="conteudo">
-<section class="wrap" style="max-width: 1360px; margin: 0 auto; padding: 48px 40px 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-end">
-<img alt="{{title_attr}}" fetchpriority="high" loading="eager" src="{{image}}" style="flex: 0 1 520px; min-width: 280px; width: 100%; max-width: 520px; aspect-ratio: 600 / 510; object-fit: cover; border-radius: 14px; display: block"/>
-<div style="flex: 1 1 520px; min-width: 0">
-<a href="/agenda/" style="font-size: 14px; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center">← Agenda</a>
-<p style="margin: 16px 0 12px; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #DEAC00; font-weight: 600">{{eyebrow}}</p>
-<h1 style="margin: 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-weight: 900; font-size: clamp(34px, 5.21vw, 75px); line-height: 0.95">{{title_main}}</h1>
-<!--@title-sub-->
-</div>
+<article class="show">
+  <div class="wrap">
+    <nav class="show__breadcrumb" aria-label="Localização na agenda"><a href="/agenda/" class="link">Agenda</a></nav>
+    <div class="show__grade">
+      <div class="show__foto"><img src="{{image}}" alt="{{title_attr}}" width="600" height="510" fetchpriority="high"></div>
+      <div class="show__lateral">
+        <div>
+          <p class="show__quando"><time datetime="{{event_date}}"><span class="sr-only">{{full_date}}</span><span class="num" aria-hidden="true">{{date_short}}</span> <span>{{eyebrow}}</span></time> {{status}}</p>
+          <h1 class="t-1 show__titulo">{{title_main}}</h1>
+          <!--@title-sub-->
+        </div>
+        <div class="bilhete" id="ingressos">
+          <dl><!--@aside-rows--></dl>
+          {{ticket_button}}
+          <p class="bilhete__nota"{{ticket_note_hidden}}>{{tickets_note}}</p>
+          <p class="acoes"><a class="link" href="{{ics_url}}" download>Adicionar à agenda</a><a class="link" data-share href="{{url}}">Compartilhar</a></p>
+        </div>
+      </div>
+      <div class="show__corpo">
+        <section class="show__secao" aria-labelledby="sobre"><h2 class="t-3" id="sobre">Sobre o show</h2>
+          <div class="prose"><!--@description--></div>
+        </section>
+        <!--@formation-->
+        <!--@video-->
+        <!--@bomsaber-->
+      </div>
+    </div>
+  </div>
+</article>
+<!--@more-start-->
+<section class="secao" aria-labelledby="mais">
+  <div class="wrap">
+    <div class="cabeca cabeca--lado"><h2 class="t-2" id="mais">Próximos shows</h2><p><a class="link-forte" href="/agenda/">Agenda completa</a></p></div>
+    <!--@more-->
+  </div>
 </section>
-<section class="wrap pad-lg" style="max-width: 1360px; margin: 0 auto; padding: 64px 40px 120px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 64px; align-items: flex-start">
-<div style="flex: 999 1 560px; min-width: 0">
-<!--@description-->
-
-<!--@formation-->
-
-<!--@video-->
-
-<!--@bomsaber-->
-
-</div>
-<aside style="flex: 1 1 360px; min-width: 0; position: sticky; top: 24px; background: #181614; border: 1px solid rgba(242,236,225,0.12); border-radius: 14px; padding: 32px; box-sizing: border-box">
-<p style="margin: 0; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-size: 31px; line-height: 1">{{aside_date}}</p>
-<div style="margin-top: 20px; display: flex; flex-direction: column; font-size: 15px">
-
-
-
-
-
-<!--@aside-rows--></div>
-<a href="{{tickets_url}}" rel="noopener" style="display: flex; justify-content: center; align-items: center; min-height: 56px; margin-top: 24px; border-radius: 999px; background: #DEAC00; color: #0F0E0D; font-weight: 600; font-size: 16px; text-decoration: none" target="_blank">{{tickets_label}}</a>
-<p style="margin: 12px 0 0; font-size: 13px; color: #B9B0A3; text-align: center">{{tickets_note}}</p>
-<div style="display: flex; gap: 8px; margin-top: 20px; flex-wrap: wrap">
-<a download="" href="{{ics_url}}" style="flex: 1; display: flex; justify-content: center; align-items: center; min-height: 44px; border-radius: 999px; border: 1px solid rgba(242,236,225,0.3); color: #F2ECE1; font-size: 14px; text-decoration: none">Adicionar à agenda</a>
-<a data-share="" href="{{url}}" style="flex: 1; display: flex; justify-content: center; align-items: center; min-height: 44px; border-radius: 999px; border: 1px solid rgba(242,236,225,0.3); color: #F2ECE1; font-size: 14px; text-decoration: none">Compartilhar</a>
-</div>
-</aside>
-</section>
-<!--@more-start--><section class="wrap" style="max-width: 1360px; margin: 0 auto; padding: 0 40px 112px; box-sizing: border-box">
-<h2 style="margin: 0 0 32px; font-family: 'Sharp Grotesk', Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.01em; font-weight: 900; font-size: 38px">Próximos shows</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); gap: 24px">
-
-
-
-<!--@more--></div>
-</section><!--@more-end-->
-</main>
-<!--@footer-->
-</div>
+<!--@more-end-->

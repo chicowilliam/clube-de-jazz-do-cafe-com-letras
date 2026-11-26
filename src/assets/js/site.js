@@ -4,121 +4,180 @@
    3. Abas Cozinha / Bar no Cardápio
    4. Envio dos formulários para /api/forms (Cloudflare Pages Function)
    5. Botão "Compartilhar" das páginas de show
-   6. Posicionamento do item ativo na barra de navegação mobile */
+   6. Menu em tela cheia no celular */
 (function () {
   'use strict';
 
-  /* 0. Navegação mobile: posiciona o link ativo no campo de visão */
-  function initNav() {
-    var nav = document.querySelector('nav[aria-label="Principal"]');
-    if (!nav) return;
-    var active = nav.querySelector('[style*="text-decoration: underline"], [style*="text-decoration-color"]');
-    if (active && nav.scrollWidth > nav.clientWidth) {
-      var offset = active.offsetLeft - (nav.clientWidth / 2) + (active.clientWidth / 2);
-      nav.scrollLeft = Math.max(0, offset);
+  var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
+  var reduzir = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* 1. Menu do celular ------------------------------------------------- */
+  function menu() {
+    var folha = document.querySelector('#menu');
+    var page = document.querySelector('#site-page');
+    if (!folha) return;
+    var abrir = $$('[data-menu-abrir]');
+    var ultimoFoco = null;
+    function focaveis() { return $$('a[href], button:not([disabled])', folha); }
+    function fechar() {
+      folha.hidden = true;
+      if (page) page.inert = false;
+      document.documentElement.style.overflow = '';
+      abrir.forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
+      if (ultimoFoco) ultimoFoco.focus();
     }
-  }
-
-  /* 1. Slideshow ------------------------------------------------------- */
-  function initHero() {
-    var slides = Array.prototype.slice.call(document.querySelectorAll('[data-hero-slide]'));
-    if (slides.length < 2) return;
-    var dots = Array.prototype.slice.call(document.querySelectorAll('[data-hero-dot]'));
-    var caption = document.querySelector('[data-hero-caption]');
-    var current = 0;
-    var timer = null;
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    function show(n) {
-      current = (n + slides.length) % slides.length;
-      slides.forEach(function (img, i) {
-        img.style.opacity = i === current ? '1' : '0';
-        img.style.transform = 'scale(' + (i === current ? 1.06 : 1) + ')';
-      });
-      dots.forEach(function (btn, i) {
-        var bar = btn.querySelector('span');
-        btn.setAttribute('aria-pressed', i === current ? 'true' : 'false');
-        if (bar) {
-          bar.style.width = (i === current ? 36 : 12) + 'px';
-          bar.style.background = i === current ? '#DEAC00' : 'rgba(242,236,225,0.45)';
-        }
-      });
-      if (caption) caption.textContent = slides[current].getAttribute('data-caption') || '';
+    function abre(e) {
+      ultimoFoco = e.currentTarget;
+      folha.hidden = false;
+      if (page) page.inert = true;
+      document.documentElement.style.overflow = 'hidden';
+      abrir.forEach(function (b) { b.setAttribute('aria-expanded', 'true'); });
+      var atual = folha.querySelector('[aria-current="page"]') || focaveis()[0];
+      if (atual) atual.focus();
     }
-    function start() { if (!reduce) { stop(); timer = setInterval(function () { show(current + 1); }, 6000); } }
-    function stop() { if (timer) clearInterval(timer); timer = null; }
-
-    dots.forEach(function (btn, i) {
-      btn.addEventListener('click', function () { show(i); start(); });
+    abrir.forEach(function (b) { b.addEventListener('click', abre); });
+    $$('[data-menu-fechar]', folha).forEach(function (b) { b.addEventListener('click', fechar); });
+    folha.addEventListener('click', function (e) { if (e.target.closest('a')) fechar(); });
+    document.addEventListener('keydown', function (e) {
+      if (folha.hidden) return;
+      if (e.key === 'Escape') { fechar(); return; }
+      if (e.key === 'Tab') { // mantém o foco dentro do menu
+        var f = focaveis(); var primeiro = f[0]; var ultimo = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === primeiro) { ultimo.focus(); e.preventDefault(); }
+        else if (!e.shiftKey && document.activeElement === ultimo) { primeiro.focus(); e.preventDefault(); }
+      }
     });
-    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
-    show(0);
-    start();
+    window.matchMedia('(min-width: 900px)').addEventListener('change', function (mq) { if (mq.matches && !folha.hidden) fechar(); });
   }
 
-  /* 2. Filtro da agenda ------------------------------------------------- */
-  function initAgendaFilter() {
-    var group = document.querySelector('[data-filter-group]');
-    if (!group) return;
-    var on = group.getAttribute('data-style-on');
-    var off = group.getAttribute('data-style-off');
-    var buttons = Array.prototype.slice.call(group.querySelectorAll('[data-filter]'));
-    var items = Array.prototype.slice.call(document.querySelectorAll('[data-cats]'));
-    var count = document.querySelector('[data-count]');
-    function apply(key) {
-      var visible = 0;
-      items.forEach(function (it) {
-        var cats = (it.getAttribute('data-cats') || '').split(' ');
-        var show = key === 'todos' || cats.indexOf(key) >= 0;
-        it.hidden = !show;
-        if (show) visible++;
+  /* 2. Abertura (troca de fotos) -------------------------------------- */
+  function abertura() {
+    var fotos = $$('.abertura__fotos [data-foto]');
+    if (fotos.length < 2) return;
+    var pontos = $$('[data-ponto]');
+    var credito = document.querySelector('[data-credito]');
+    var atual = 0, timer = null;
+    function mostra(n) {
+      atual = (n + fotos.length) % fotos.length;
+      fotos.forEach(function (img, i) {
+        if (i === atual && img.dataset.src) { img.src = img.dataset.src; img.removeAttribute('data-src'); }
+        img.classList.toggle('ativa', i === atual);
+        img.setAttribute('aria-hidden', String(i !== atual));
       });
-      buttons.forEach(function (b) {
-        var active = b.getAttribute('data-filter') === key;
-        b.setAttribute('aria-pressed', active ? 'true' : 'false');
-        b.setAttribute('style', active ? on : off);
-      });
-      if (count) count.textContent = visible + (visible === 1 ? ' show' : ' shows');
+      pontos.forEach(function (b, i) { b.setAttribute('aria-pressed', i === atual ? 'true' : 'false'); });
+      if (credito) credito.textContent = fotos[atual].getAttribute('data-credito-texto') || '';
     }
-    buttons.forEach(function (b) {
-      b.addEventListener('click', function () { apply(b.getAttribute('data-filter')); });
-    });
+    function inicia() { if (reduzir || document.hidden) return; para(); timer = setInterval(function () { mostra(atual + 1); }, 7000); }
+    function para() { if (timer) clearInterval(timer); timer = null; }
+    pontos.forEach(function (b, i) { b.addEventListener('click', function () { mostra(i); inicia(); }); });
+    document.addEventListener('visibilitychange', function () { document.hidden ? para() : inicia(); });
+    mostra(0); inicia();
   }
 
-  /* 3. Abas do cardápio ------------------------------------------------- */
+  /* 3. Filtro da agenda ------------------------------------------------ */
+  function filtro() {
+    var chips = $$('[data-filtro]');
+    if (!chips.length) return;
+    var itens = $$('.gig[data-cats]', document.querySelector('[data-agenda]'));
+    var meses = $$('[data-mes]');
+    var contador = document.querySelector('[data-contagem]');
+    var vazio = document.querySelector('[data-filtro-vazio]');
+    function aplica(k) {
+      var n = 0;
+      itens.forEach(function (it) {
+        var ok = k === 'todos' || (' ' + it.getAttribute('data-cats') + ' ').indexOf(' ' + k + ' ') >= 0;
+        it.hidden = !ok; if (ok) n++;
+      });
+      meses.forEach(function (m) { m.hidden = !m.querySelector('.gig:not([hidden])'); });
+      chips.forEach(function (c) { c.setAttribute('aria-pressed', c.getAttribute('data-filtro') === k ? 'true' : 'false'); });
+      if (contador) contador.textContent = n + (n === 1 ? ' show' : ' shows');
+      if (vazio) vazio.hidden = n > 0;
+    }
+    chips.forEach(function (c) {
+      c.addEventListener('click', function () {
+        aplica(c.dataset.filtro);
+        if (c.closest('[data-filtro-vazio]') && vazio.hidden) chips[0].focus();
+      });
+    });
+    aplica('todos');
+  }
+
+  /* 4. Abas do cardápio ------------------------------------------------ */
   function initTabs() {
     var list = document.querySelector('[role="tablist"]');
     if (!list) return;
-    var on = list.getAttribute('data-style-on');
-    var off = list.getAttribute('data-style-off');
     var tabs = Array.prototype.slice.call(list.querySelectorAll('[data-tab]'));
     function select(key, focus) {
       tabs.forEach(function (t) {
         var active = t.getAttribute('data-tab') === key;
         t.setAttribute('aria-selected', active ? 'true' : 'false');
         t.setAttribute('tabindex', active ? '0' : '-1');
-        t.setAttribute('style', active ? on : off);
         var panel = document.getElementById(t.getAttribute('aria-controls'));
         if (panel) panel.hidden = !active;
         if (active && focus) t.focus();
       });
     }
     tabs.forEach(function (t, i) {
-      t.addEventListener('click', function () { select(t.getAttribute('data-tab')); });
+      t.addEventListener('click', function () {
+        select(t.dataset.tab);
+        history.replaceState(null, '', '#' + t.dataset.tab);
+      });
       t.addEventListener('keydown', function (e) {
         if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
           var n = (i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
-          select(tabs[n].getAttribute('data-tab'), true);
+          select(tabs[n].dataset.tab, true);
+          history.replaceState(null, '', '#' + tabs[n].dataset.tab);
           e.preventDefault();
         }
       });
     });
-    var hash = (location.hash || '').replace('#', '');
-    select(hash === 'bar' ? 'bar' : 'cozinha');
+    function selectFromHash() {
+      var target = document.getElementById(location.hash.slice(1));
+      select(target && target.closest('[data-panel=bar]') ? 'bar' : 'cozinha');
+    }
+    list.hidden = false;
+    selectFromHash();
+    window.addEventListener('hashchange', selectFromHash);
   }
 
   /* 4. Formulários ------------------------------------------------------ */
+  async function getTurnstileToken(form, sitekey, action) {
+    var api = window.turnstile;
+    if (!api) throw new Error();
+
+    var container = document.createElement('div');
+    container.style.position = 'absolute';
+    form.appendChild(container);
+    var widget;
+    var timer;
+    try {
+      return await new Promise(function (resolve, reject) {
+        var fail = function () { reject(new Error()); };
+        timer = setTimeout(fail, 15000);
+        widget = api.render(container, {
+          sitekey: sitekey,
+          action: action,
+          retry: 'never',
+          'response-field': false,
+          callback: resolve,
+          'error-callback': function () { fail(); return true; },
+          'expired-callback': fail,
+          'timeout-callback': fail
+        });
+      });
+    } finally {
+      clearTimeout(timer);
+      try {
+        if (widget != null) api.remove(widget);
+      } finally {
+        container.remove();
+      }
+    }
+  }
+
   function initForms() {
+    var turnstileScript = document.querySelector('script[data-turnstile-sitekey]');
+    var sitekey = turnstileScript && turnstileScript.getAttribute('data-turnstile-sitekey');
     var forms = Array.prototype.slice.call(document.querySelectorAll('form[data-form]'));
     forms.forEach(function (form) {
       var status = form.querySelector('[data-form-status]') ||
@@ -128,8 +187,10 @@
         status.textContent = msg;
         status.setAttribute('data-state', state);
       }
-      form.addEventListener('submit', function (e) {
+      var sending = false;
+      form.addEventListener('submit', async function (e) {
         e.preventDefault();
+        if (sending) return;
         var email = form.querySelector('input[type="email"]');
         if (email && !email.checkValidity()) {
           say('Informe um e-mail válido.', 'erro');
@@ -141,26 +202,42 @@
           if (el.name) data[el.name] = el.value;
         });
         var btn = form.querySelector('[type="submit"]');
+        sending = true;
         if (btn) btn.disabled = true;
         say('Enviando…', 'enviando');
-        fetch('/api/forms', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        }).then(function (r) {
-          return r.json().catch(function () { return {}; }).then(function (body) { return { ok: r.ok, status: r.status, body: body }; });
-        }).then(function (res) {
+        try {
+          if (sitekey && !data.website) {
+            try {
+              data['cf-turnstile-response'] = await getTurnstileToken(form, sitekey, data.form);
+            } catch {
+              say('Não foi possível verificar o envio. Tente novamente.', 'erro');
+              return;
+            }
+          }
+          var res = await fetch('/api/forms', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
           if (res.ok) {
             say('Recebemos sua mensagem. Obrigado!', 'ok');
             form.reset();
+            if (!data.website && window.clubeAnalytics) {
+              var outcome = await res.json().catch(function () { return null; });
+              if (outcome && outcome.ok === true) window.clubeAnalytics.recordForm(data.form);
+            }
           } else if (res.status === 503 || res.status === 404 || res.status === 405) {
             say('O envio pelo site ainda não está ativo. Escreva para contato@clubedejazzdocafe.com.', 'erro');
           } else {
-            say((res.body && res.body.message) || 'Não foi possível enviar agora. Tente novamente.', 'erro');
+            var body = await res.json().catch(function () { return {}; });
+            say((body && body.message) || 'Não foi possível enviar agora. Tente novamente.', 'erro');
           }
-        }).catch(function () {
+        } catch {
           say('Sem conexão com o servidor. Tente novamente.', 'erro');
-        }).then(function () { if (btn) btn.disabled = false; });
+        } finally {
+          sending = false;
+          if (btn) btn.disabled = false;
+        }
       });
     });
   }
@@ -196,9 +273,9 @@
   }
 
   function init() {
-    initNav();
-    initHero();
-    initAgendaFilter();
+    menu();
+    abertura();
+    filtro();
     initTabs();
     initForms();
     initShare();
