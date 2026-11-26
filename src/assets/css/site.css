@@ -416,11 +416,14 @@ button { font: inherit; color: inherit; }
 .formacao .grupo { display: block; border: 0; padding: var(--s5) 0 var(--s2); font: italic 500 16px/1.2 var(--f-texto); color: var(--lilas); }
 .video { display: block; position: relative; aspect-ratio: 16 / 9; background: var(--superficie); overflow: hidden; text-decoration: none; }
 .video img { width: 100%; height: 100%; object-fit: cover; opacity: .9; transition: opacity .2s, transform .5s var(--ease); }
-.video:hover img { opacity: 1; transform: scale(1.02); }
-.video__play {
-  position: absolute; left: var(--s4); bottom: var(--s4); display: inline-flex; align-items: center; gap: var(--s2);
-  background: var(--creme); color: var(--fundo); padding: 10px 14px; font: 900 13px/1 var(--f-display); text-transform: uppercase; letter-spacing: .04em;
+.video:hover img, .video:focus-visible img,
+.videos__card:is(:hover, :focus-visible) .video img { opacity: 1; transform: scale(1.02); }
+.video__cta { align-self: flex-start; min-width: 112px; min-height: 44px; padding-inline: var(--s4); border-radius: 12px; }
+.video__cta:focus-visible, .videos__card:is(:hover, :focus-visible) .video__cta {
+  background: var(--mostarda-2); border-color: var(--mostarda-2);
 }
+.video-destaque { gap: var(--s5); align-items: center; }
+.video-destaque > .cabeca { margin-bottom: 0; }
 .fatos { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s4); }
 .fatos li { padding-left: var(--s5); position: relative; max-width: 36em; }
 .fatos li::before { content: ""; position: absolute; left: 0; top: .72em; width: 10px; height: 2px; background: var(--mostarda); }
@@ -466,16 +469,23 @@ button { font: inherit; color: inherit; }
 
 /* Festivais */
 .festivais { display: grid; gap: var(--s8); }
-.festival { display: grid; gap: var(--s4); }
-.festival__datas { font: 900 clamp(56px, 15vw, 152px)/.82 var(--f-display); color: var(--lilas); letter-spacing: -.02em; }
+.festival { display: grid; align-content: start; gap: var(--s3); }
+.festival .t-3 a { display: inline-flex; align-items: center; min-height: 44px; text-underline-offset: .15em; }
+.festival .t-3 a:hover { color: var(--lilas); }
+.festival__periodo { color: var(--lilas); font-weight: 600; line-height: 1.4; }
+.festival__datas + .lead { margin-top: var(--s2); }
+#so-bigs .t-1, #piano-duo .t-1 { line-height: 1; }
+.festival__datas { font: 900 clamp(36px, 8vw, 76px)/1 var(--f-display); color: var(--lilas); letter-spacing: -.02em; }
 .festival__datas small { display: block; font: italic 500 var(--t-lead)/1.2 var(--f-texto); letter-spacing: 0; color: var(--creme); margin-top: var(--s3); }
 @media (min-width: 900px) { .festivais { grid-template-columns: 1fr 1fr; gap: var(--s8); } }
 
 /* Vídeos (Ao vivo) */
 .videos { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s6); }
-.videos a { text-decoration: none; display: grid; gap: var(--s3); }
-.videos .video { pointer-events: none; }
-.videos a:hover .videos__titulo { color: var(--mostarda); }
+.videos__card { display: flex; flex-direction: column; gap: var(--s2); height: 100%; text-decoration: none; }
+.videos__card .video { margin-bottom: var(--s1); }
+.videos__card .video__cta { margin-top: auto; }
+.videos__card .meta { margin-bottom: var(--s2); }
+.videos__card:is(:hover, :focus-visible) .videos__titulo { color: var(--mostarda); }
 .videos__titulo { font-weight: 600; line-height: 1.35; font-size: 17px; }
 @media (min-width: 600px) { .videos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 1200px) { .videos { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
@@ -545,11 +555,12 @@ button { font: inherit; color: inherit; }
 
 /* Cotas (Amigos do Clube) */
 .cotas { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1.5px solid currentColor; }
-.cota { display: grid; gap: var(--s3); padding: var(--s5) 0; border-bottom: 1px solid color-mix(in srgb, currentColor 35%, transparent); }
-.cota__nome { font: 900 var(--t-3)/1 var(--f-display); text-transform: uppercase; }
+.cota { display: flex; flex-direction: column; gap: var(--s3); padding: var(--s5) 0; border-bottom: 1px solid color-mix(in srgb, currentColor 35%, transparent); }
+.cota__nome { font: 900 var(--t-3)/1.08 var(--f-display); text-transform: uppercase; text-wrap: balance; }
+.cota > p:last-child { margin-top: auto; }
+.cota .link-forte { display: inline-flex; align-items: center; min-height: 44px; }
 @media (min-width: 900px) {
-  .cotas { grid-template-columns: repeat(3, 1fr); column-gap: var(--s6); }
-  .cota { align-content: start; }
+  .cotas { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--s6); }
 }
 
 /* ---------- Rodapé ---------- */
@@ -653,3 +664,25 @@ input, textarea, select { scroll-margin-bottom: calc(var(--dock) + var(--s5)); }
 .destaque h2 a:hover { color: var(--mostarda); }
 .eventos-abertura > .cabeca { align-self: center; margin: 0; }
 .show__quando time { display: contents; }
+
+/* Composições da Escola, dos Amigos e de eventos */
+.escola-home, .amigos-home, .amigos-abertura, .eventos-home { gap: var(--s6); }
+.escola-home > .cabeca, .amigos-home > .cabeca,
+.amigos-abertura > .cabeca, .eventos-home > .cabeca { margin-bottom: 0; min-width: 0; }
+.escola-home .t-1, .amigos-abertura .t-1 { font-size: clamp(44px, 8vw, 100px); line-height: 1.12; }
+.escola-home .t-4 { margin-bottom: var(--s4); }
+.escola-home .lista__aviso .meta { text-wrap: pretty; }
+.amigos-home .t-2, .eventos-home .t-3 { line-height: 1.08; }
+.amigos-home__grupos { display: grid; gap: var(--s5); }
+.amigos-home__grupos h3 { margin-bottom: var(--s3); }
+.amigos-home__grupos li { padding-block: var(--s2); }
+.eventos-home__cta { border-radius: 12px; }
+
+@media (min-width: 600px) {
+  .amigos-home__grupos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 900px) {
+  .escola-home, .amigos-abertura { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s7); }
+  .amigos-home, .eventos-home { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s7); }
+  .escola-home, .amigos-home, .amigos-abertura, .eventos-home { align-items: center; }
+}
