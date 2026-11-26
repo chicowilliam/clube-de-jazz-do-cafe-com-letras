@@ -47,6 +47,7 @@
   --t-2: clamp(34px, 7vw, 72px);
   --t-3: clamp(26px, 4.4vw, 44px);
   --t-4: clamp(21px, 2.6vw, 28px);
+  --entrelinha-titulo: 1.12;
   --t-lead: clamp(20px, 2.2vw, 24px);
   --t-corpo: 18px;
   --t-meta: 15px;
@@ -95,13 +96,13 @@ button { font: inherit; color: inherit; }
 /* ---------- Tipografia ---------- */
 .display, .t-hero, .t-1, .t-2, .t-3, .t-4 {
   font-family: var(--f-display); font-weight: 900; text-transform: uppercase;
-  line-height: .9; letter-spacing: -.005em; text-wrap: balance;
+  line-height: var(--entrelinha-titulo); letter-spacing: -.005em; text-wrap: balance;
 }
-.t-hero { font-size: var(--t-hero); line-height: .82; letter-spacing: -.02em; }
-.t-1 { font-size: var(--t-1); line-height: .86; }
+.t-hero { font-size: var(--t-hero); letter-spacing: -.02em; }
+.t-1 { font-size: var(--t-1); }
 .t-2 { font-size: var(--t-2); }
-.t-3 { font-size: var(--t-3); line-height: .95; }
-.t-4 { font-size: var(--t-4); line-height: 1; }
+.t-3 { font-size: var(--t-3); }
+.t-4 { font-size: var(--t-4); }
 .lead { font-size: var(--t-lead); line-height: 1.45; font-variation-settings: "opsz" 28; max-width: 34em; text-wrap: pretty; }
 .italico, .label { font-style: italic; }
 .label { color: var(--lilas); font-size: var(--t-meta); line-height: 1.3; font-weight: 500; }
@@ -135,7 +136,7 @@ button { font: inherit; color: inherit; }
   .duas--inv { grid-template-columns: 7fr 5fr; }
   .cabeca--lado { grid-template-columns: 7fr 5fr; align-items: end; column-gap: var(--s8); }
 }
-.transmissoes__titulo { font-size: clamp(48px, 9vw, 112px); line-height: 1; text-wrap: balance; }
+.transmissoes__titulo { font-size: clamp(48px, 9vw, 112px); text-wrap: balance; }
 .transmissoes__descricao { max-width: 29em; text-wrap: pretty; }
 .regua { border: 0; border-top: 1px solid var(--linha-forte); margin: 0; }
 
@@ -310,7 +311,7 @@ button { font: inherit; color: inherit; }
 .destaque { display: grid; gap: var(--s5); }
 .destaque__foto { aspect-ratio: 6 / 5; overflow: hidden; background: var(--superficie); }
 .destaque__foto img { width: 100%; height: 100%; object-fit: cover; }
-.destaque__titulo { color: var(--mostarda); line-height: 1; }
+.destaque__titulo { color: var(--mostarda); }
 .destaque__inicio { font: italic 500 var(--t-lead)/1.2 var(--f-texto); margin-block: var(--s2); }
 .destaque__data { display: flex; align-items: baseline; gap: var(--s3); color: var(--mostarda); }
 .destaque__data .num { font-size: clamp(64px, 16vw, 132px); line-height: .8; }
@@ -338,7 +339,7 @@ button { font: inherit; color: inherit; }
 .gig__semana { font: italic 500 15px/1.2 var(--f-texto); color: var(--creme); margin-top: var(--s2); }
 .gig__mes { font: italic 400 14px/1.2 var(--f-texto); color: var(--creme-2); }
 .gig__foto { display: none; }
-.gig__nome { font: 900 clamp(22px, 5.8vw, 34px)/.98 var(--f-display); text-transform: uppercase; text-wrap: balance; }
+.gig__nome { font: 900 clamp(22px, 5.8vw, 34px)/var(--entrelinha-titulo) var(--f-display); text-transform: uppercase; text-wrap: balance; }
 .gig__nome a { text-decoration: none; }
 .gig__nome a::after { content: ""; position: absolute; inset: 0; } /* linha inteira clicável */
 .gig__nome a:hover { color: var(--mostarda); }
@@ -444,7 +445,7 @@ button { font: inherit; color: inherit; }
 .artista__foto img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
 .artista a:hover img { transform: scale(1.03); }
 .artista a:hover .artista__nome { color: var(--mostarda); }
-.artista__nome { font: 900 clamp(17px, 4.4vw, 24px)/1 var(--f-display); text-transform: uppercase; text-wrap: balance; }
+.artista__nome { font: 900 clamp(17px, 4.4vw, 24px)/var(--entrelinha-titulo) var(--f-display); text-transform: uppercase; text-wrap: balance; }
 .artista__quando { font-size: 14px; font-style: italic; color: var(--creme-2); }
 @media (min-width: 900px) { .artistas { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s7) var(--s5); } }
 
@@ -461,7 +462,7 @@ button { font: inherit; color: inherit; }
 
 .lista { list-style: none; margin: 0; padding: 0; border-top: 1px solid currentColor; }
 .lista > li { padding: var(--s4) 0; border-bottom: 1px solid color-mix(in srgb, currentColor 30%, transparent); display: grid; gap: var(--s1); }
-.lista__titulo { font: 900 var(--t-4)/1 var(--f-display); text-transform: uppercase; }
+.lista__titulo { font: 900 var(--t-4)/var(--entrelinha-titulo) var(--f-display); text-transform: uppercase; }
 .lista a { text-decoration: none; }
 .lista a:hover .lista__titulo { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px; }
 .lista--datas > li { grid-template-columns: 72px 1fr; column-gap: var(--s4); align-items: baseline; }
@@ -474,7 +475,6 @@ button { font: inherit; color: inherit; }
 .festival .t-3 a:hover { color: var(--lilas); }
 .festival__periodo { color: var(--lilas); font-weight: 600; line-height: 1.4; }
 .festival__datas + .lead { margin-top: var(--s2); }
-#so-bigs .t-1, #piano-duo .t-1 { line-height: 1; }
 .festival__datas { font: 900 clamp(36px, 8vw, 76px)/1 var(--f-display); color: var(--lilas); letter-spacing: -.02em; }
 .festival__datas small { display: block; font: italic 500 var(--t-lead)/1.2 var(--f-texto); letter-spacing: 0; color: var(--creme); margin-top: var(--s3); }
 @media (min-width: 900px) { .festivais { grid-template-columns: 1fr 1fr; gap: var(--s8); } }
@@ -515,7 +515,7 @@ button { font: inherit; color: inherit; }
 .abas { display: flex; gap: var(--s2); margin-bottom: var(--s6); border-bottom: 1px solid var(--linha-forte); }
 .aba {
   min-height: 52px; padding: 0 var(--s2); margin-bottom: -1px; border: 0; border-bottom: 3px solid transparent; background: none; cursor: pointer;
-  font: 900 clamp(20px, 5vw, 28px)/1 var(--f-display); text-transform: uppercase; color: var(--creme-2);
+  font: 900 clamp(20px, 5vw, 28px)/var(--entrelinha-titulo) var(--f-display); text-transform: uppercase; color: var(--creme-2);
 }
 .aba[aria-selected="true"] { color: var(--creme); border-bottom-color: var(--mostarda); }
 .aba:hover { color: var(--creme); }
@@ -556,7 +556,7 @@ button { font: inherit; color: inherit; }
 /* Cotas (Amigos do Clube) */
 .cotas { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1.5px solid currentColor; }
 .cota { display: flex; flex-direction: column; gap: var(--s3); padding: var(--s5) 0; border-bottom: 1px solid color-mix(in srgb, currentColor 35%, transparent); }
-.cota__nome { font: 900 var(--t-3)/1.08 var(--f-display); text-transform: uppercase; text-wrap: balance; }
+.cota__nome { font: 900 var(--t-3)/var(--entrelinha-titulo) var(--f-display); text-transform: uppercase; text-wrap: balance; }
 .cota > p:last-child { margin-top: auto; }
 .cota .link-forte { display: inline-flex; align-items: center; min-height: 44px; }
 @media (min-width: 900px) {
@@ -566,7 +566,7 @@ button { font: inherit; color: inherit; }
 /* ---------- Rodapé ---------- */
 .rodape { background: var(--fundo-rodape); border-top: 1px solid var(--linha-forte); padding: var(--s8) 0 var(--s6); font-size: var(--t-meta); }
 .rodape__grade { display: grid; gap: var(--s7); }
-.rodape h2 { font: 900 var(--t-4)/1 var(--f-display); text-transform: uppercase; margin-bottom: var(--s4); }
+.rodape h2 { font: 900 var(--t-4)/var(--entrelinha-titulo) var(--f-display); text-transform: uppercase; margin-bottom: var(--s4); }
 .rodape__nl p { color: var(--creme-2); margin-bottom: var(--s4); max-width: 26em; }
 .rodape__nl .linha { display: flex; gap: var(--s2); }
 .rodape__nl input { flex: 1; min-width: 0; min-height: 48px; padding: 0 14px; border: 1px solid var(--linha-forte); background: transparent; color: inherit; font: 400 16px/1 var(--f-texto); }
@@ -669,10 +669,9 @@ input, textarea, select { scroll-margin-bottom: calc(var(--dock) + var(--s5)); }
 .escola-home, .amigos-home, .amigos-abertura, .eventos-home { gap: var(--s6); }
 .escola-home > .cabeca, .amigos-home > .cabeca,
 .amigos-abertura > .cabeca, .eventos-home > .cabeca { margin-bottom: 0; min-width: 0; }
-.escola-home .t-1, .amigos-abertura .t-1 { font-size: clamp(44px, 8vw, 100px); line-height: 1.12; }
+.escola-home .t-1, .amigos-abertura .t-1 { font-size: clamp(44px, 8vw, 100px); }
 .escola-home .t-4 { margin-bottom: var(--s4); }
 .escola-home .lista__aviso .meta { text-wrap: pretty; }
-.amigos-home .t-2, .eventos-home .t-3 { line-height: 1.08; }
 .amigos-home__grupos { display: grid; gap: var(--s5); }
 .amigos-home__grupos h3 { margin-bottom: var(--s3); }
 .amigos-home__grupos li { padding-block: var(--s2); }
