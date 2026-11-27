@@ -490,6 +490,7 @@ button { font: inherit; color: inherit; }
 .festival .t-3 a { display: inline-flex; align-items: center; min-height: 44px; text-underline-offset: .15em; }
 .festival .t-3 a:hover { color: var(--lilas); }
 .festival__periodo { color: var(--lilas); font-weight: 600; line-height: 1.4; }
+.festival__descricao--piano-duo { font-size: 1.125em; }
 .festival__datas + .lead { margin-top: var(--s2); }
 .festival__datas { font: 900 clamp(36px, 8vw, 76px)/1 var(--f-display); color: var(--lilas); letter-spacing: -.02em; }
 .festival__datas small { display: block; font: italic 500 var(--t-lead)/1.2 var(--f-texto); letter-spacing: 0; color: var(--creme); margin-top: var(--s3); }
