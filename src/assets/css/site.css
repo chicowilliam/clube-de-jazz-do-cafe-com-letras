@@ -608,13 +608,14 @@ html:has(.cardapio__nav[data-ativa]) {
 .carta h2 { margin-bottom: var(--s2); }
 .carta__nota { font-style: italic; color: var(--creme-2); font-size: var(--t-meta); margin-bottom: var(--s5); }
 .pratos { list-style: none; margin: 0; padding: 0; display: grid; column-gap: var(--s8); }
-.prato { padding: var(--s3) 0; break-inside: avoid; }
+.prato { padding: 10px 0; break-inside: avoid; }
 .prato__linha { display: flex; align-items: baseline; gap: var(--s2); font-weight: 600; }
 .prato__linha::after { content: ""; order: 2; flex: 1; border-bottom: 1.5px dotted var(--linha-forte); transform: translateY(-4px); min-width: var(--s2); }
-.prato__nome { order: 1; min-width: 0; overflow-wrap: anywhere; }
+.prato__nome { order: 1; min-width: 0; font-weight: 650; overflow-wrap: anywhere; }
 .prato__preco { order: 3; flex: none; white-space: nowrap; font-variant-numeric: tabular-nums; text-align: right; }
-.prato__desc { font-style: italic; color: var(--creme); font-size: 16px; line-height: 1.45; }
-.prato__tipo { font: italic 500 13px/1 var(--f-texto); color: var(--lilas); display: block; margin-block: var(--s1) var(--s2); }
+.prato__desc { font-style: italic; color: var(--creme); font-size: 16px; font-weight: 450; line-height: 1.45; margin-top: var(--s1); }
+.prato__volume { font-weight: 600; white-space: nowrap; }
+.prato__tipo { font: italic 500 13px/1.35 var(--f-texto); color: var(--lilas); display: block; margin-top: var(--s1); }
 @media (min-width: 900px) { .pratos { grid-template-columns: 1fr 1fr; } }
 
 /* Formulários */
