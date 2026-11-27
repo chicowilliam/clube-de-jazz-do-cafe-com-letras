@@ -447,7 +447,7 @@ const STATIC = [
   { src: 'escola-do-jazz', path: '/escola-do-jazz/', nav: 'escola', title: 'A Escola do Jazz · Clube de Jazz do Café com Letras', description: 'Apresentações de escolas de música, masterclasses e ensaios abertos e gratuitos no Clube de Jazz do Café com Letras.' },
   { src: 'festivais', path: '/festivais/', nav: 'festivais', title: 'Festivais · Clube de Jazz do Café com Letras', description: 'Só Bigs, Festival de Big Bands (14 a 16/5/2027), e Piano Duo, Festival de Duos de Pianos (13 a 17/7/2027), no Clube de Jazz.' },
   { src: 'eventos', path: '/eventos/', nav: 'eventos', title: 'Eventos e empresas · Clube de Jazz do Café com Letras', description: 'Eventos corporativos com música ao vivo para até 97 pessoas no Clube de Jazz do Café com Letras, na Savassi.' },
-  { src: 'cardapio', path: '/cardapio/', nav: 'cardapio', title: 'Cardápio e bar · Clube de Jazz do Café com Letras', description: 'Tira-gostos e porções, pratos, sobremesas, coquetéis autorais, vinhos e cervejas do Clube de Jazz do Café com Letras.' },
+  { src: 'cardapio', path: '/cardapio/', nav: 'cardapio', title: 'Cardápio · Clube de Jazz do Café com Letras', description: 'Tira-gostos e porções, pratos, sobremesas, coquetéis autorais, vinhos e cervejas do Clube de Jazz do Café com Letras.' },
   { src: 'o-clube', path: '/o-clube/', nav: 'clube', title: 'O Clube e Amigos do Clube · Clube de Jazz do Café com Letras', description: 'Jazz de perto, no coração da Savassi. O Clube de Jazz do Café com Letras, o palco, as bandas residentes e o programa Amigos do Clube.' },
 ];
 function renderPage(p, schedule) {

@@ -73,7 +73,7 @@ export const NAV = [
   { key: 'visite', href: '/visite/', label: 'Visite', desc: 'endereço, horários, cardápio' },
 ];
 const NAV_EXTRA = [
-  { key: 'cardapio', href: '/cardapio/', label: 'Cardápio e bar' },
+  { key: 'cardapio', href: '/cardapio/', label: 'Cardápio' },
   { key: 'eventos', href: '/eventos/', label: 'Eventos e empresas' },
   { key: 'amigos', href: '/o-clube/#amigos', label: 'Amigos do Clube' },
 ];
@@ -156,7 +156,7 @@ export function rodape(site) {
         <h2 id="r-clube">O Clube</h2>
         <ul>
           ${NAV.map(({ href, label }) => `<li><a class="link" href="${href}">${label}</a></li>`).join('')}
-          <li><a class="link" href="/cardapio/">Cardápio e bar</a></li>
+          <li><a class="link" href="/cardapio/">Cardápio</a></li>
           <li><a class="link" href="/eventos/">Eventos e empresas</a></li>
           <li><a class="link" href="/o-clube/#amigos">Amigos do Clube</a></li>
           <li><a class="link" href="/visite/#perguntas">Perguntas frequentes</a></li>
