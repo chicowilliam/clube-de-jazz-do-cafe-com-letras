@@ -101,11 +101,17 @@ const isSympla = (s) => {
 };
 
 function timeRows(s) {
-  return s.times.map((t) => {
+  const primeiroSet = /^primeiro set$/i;
+  const segundoSet = /^segundo set$/i;
+  const showEmDoisSets = s.times.some((t) => primeiroSet.test(t.label))
+    && s.times.some((t) => segundoSet.test(t.label))
+    && !s.times.some((t) => /^(primeiro|segundo) show\b/i.test(t.label));
+  const times = showEmDoisSets ? s.times.filter((t) => !segundoSet.test(t.label)) : s.times;
+  return times.map((t) => {
     let label = t.label;
     if (/^abertura da casa$/i.test(label)) label = 'Casa abre';
-    else if (/^primeiro set$/i.test(label)) label = '1º set';
-    else if (/^segundo set$/i.test(label)) label = '2º set';
+    else if (primeiroSet.test(label)) label = showEmDoisSets ? 'Horário' : '1º set';
+    else if (segundoSet.test(label)) label = '2º set';
     else if (/^primeiro show/i.test(label)) label = '1º show' + label.replace(/^primeiro show\s*-?\s*/i, ' · ');
     else if (/^segundo show/i.test(label)) label = '2º show' + label.replace(/^segundo show\s*-?\s*/i, ' · ');
     return { label, value: hora(t.value) };
@@ -115,7 +121,7 @@ function timesShort(s) {
   const end = s.times.find((t) => /encerramento/i.test(t.label));
   const open = s.times.find((t) => /abertura/i.test(t.label));
   if (end && open) return `${hora(open.value)} às ${hora(end.value)}`;
-  return timeRows(s).filter((r) => r.label !== 'Casa abre').map((r) => `${r.label.split(' · ')[0]} ${r.value}`).join(' · ');
+  return timeRows(s).filter((r) => r.label !== 'Casa abre').map((r) => r.label === 'Horário' ? r.value : `${r.label.split(' · ')[0]} ${r.value}`).join(' · ');
 }
 function timesLong(s) {
   const short = timesShort(s);
