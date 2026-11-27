@@ -127,39 +127,105 @@
 
   /* 4. Abas do cardápio ------------------------------------------------ */
   function initTabs() {
-    var list = document.querySelector('[role="tablist"]');
-    if (!list) return;
-    var tabs = Array.prototype.slice.call(list.querySelectorAll('[data-tab]'));
+    var navigation = document.querySelector('.cardapio__nav');
+    if (!navigation) return;
+    var list = navigation.querySelector('[role="tablist"]');
+    var tabs = $$('[data-tab]', list);
+    var indices = $$('[data-indice]', navigation);
+    var keyAtual, indice, categorias, secoes, observador, linha, ativo, destino, timer;
+
+    function destaca(link) {
+      if (ativo === link) return;
+      if (ativo) ativo.removeAttribute('aria-current');
+      ativo = link;
+      ativo.setAttribute('aria-current', 'location');
+      var faixa = indice.getBoundingClientRect();
+      var item = ativo.getBoundingClientRect();
+      if (item.left < faixa.left || item.right > faixa.right) {
+        indice.scrollLeft += item.left < faixa.left ? item.left - faixa.left : item.right - faixa.right;
+      }
+    }
+    function sincroniza() {
+      var atual = 0;
+      secoes.forEach(function (secao, i) { if (secao.getBoundingClientRect().top <= linha) atual = i; });
+      if (!destino || categorias[atual] === destino) {
+        if (destino) encerraNavegacao();
+        else destaca(categorias[atual]);
+      }
+    }
+    function encerraNavegacao() {
+      clearTimeout(timer);
+      destino = null;
+      sincroniza();
+    }
+    function observa() {
+      if (observador) observador.disconnect();
+      linha = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) + 2;
+      if ('IntersectionObserver' in window) {
+        var fim = Math.max(0, document.documentElement.clientHeight - linha);
+        observador = new IntersectionObserver(sincroniza, { rootMargin: '-' + (linha - 1) + 'px 0px -' + fim + 'px' });
+        secoes.forEach(function (secao) { observador.observe(secao); });
+      }
+      sincroniza();
+    }
     function select(key, focus, animar) {
+      var mudou = keyAtual !== key;
+      var fixo = mudou && keyAtual && navigation.getBoundingClientRect().top <= parseFloat(getComputedStyle(navigation).top) + 1;
       tabs.forEach(function (t) {
-        var active = t.getAttribute('data-tab') === key;
-        t.setAttribute('aria-selected', active ? 'true' : 'false');
-        t.setAttribute('tabindex', active ? '0' : '-1');
+        var active = t.dataset.tab === key;
+        t.setAttribute('aria-selected', String(active));
+        t.tabIndex = active ? 0 : -1;
         var panel = document.getElementById(t.getAttribute('aria-controls'));
-        if (panel && panel.hidden === active) {
+        if (panel.hidden === active) {
           panel.toggleAttribute('data-animando', active && animar);
           panel.hidden = !active;
         }
-        if (active && focus) t.focus();
+        if (active && focus) t.focus({ preventScroll: true });
       });
+      if (!mudou) return;
+      keyAtual = key;
+      clearTimeout(timer);
+      destino = null;
+      indices.forEach(function (nav) { nav.hidden = nav.dataset.indice !== key; });
+      indice = indices.find(function (nav) { return !nav.hidden; });
+      categorias = $$('a', indice);
+      secoes = categorias.map(function (link) { return document.getElementById(link.hash.slice(1)).closest('section'); });
+      navigation.dataset.ativa = key;
+      if (fixo && animar) document.getElementById(key).scrollIntoView({ behavior: 'instant' });
+      observa();
     }
-    tabs.forEach(function (t, i) {
-      t.addEventListener('click', function () {
-        select(t.dataset.tab, false, true);
-        history.replaceState(null, '', '#' + t.dataset.tab);
+    indices.forEach(function (nav) {
+      nav.addEventListener('click', function (e) {
+        var link = e.target.closest('a');
+        if (!link || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        clearTimeout(timer);
+        destino = link;
+        destaca(link);
+        timer = setTimeout(encerraNavegacao, 1200);
       });
+    });
+    document.addEventListener('scrollend', function () { if (destino) encerraNavegacao(); });
+    window.addEventListener('resize', observa);
+    tabs.forEach(function (t, i) {
+      function ativa(tab, focus) {
+        select(tab.dataset.tab, focus, true);
+        history.replaceState(null, '', '#' + tab.dataset.tab);
+      }
+      t.addEventListener('click', function () { ativa(t, false); });
       t.addEventListener('keydown', function (e) {
         if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
           var n = (i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
-          select(tabs[n].dataset.tab, true, true);
-          history.replaceState(null, '', '#' + tabs[n].dataset.tab);
+          ativa(tabs[n], true);
           e.preventDefault();
         }
       });
     });
     function selectFromHash() {
       var target = document.getElementById(location.hash.slice(1));
-      select(target && target.closest('[data-panel=bar]') ? 'bar' : 'cozinha');
+      var key = target && target.closest('[data-panel=bar]') ? 'bar' : 'cozinha';
+      var mudou = keyAtual !== key;
+      select(key);
+      if (mudou && target && target.closest('[data-panel]')) target.scrollIntoView({ behavior: 'instant' });
     }
     list.hidden = false;
     selectFromHash();
