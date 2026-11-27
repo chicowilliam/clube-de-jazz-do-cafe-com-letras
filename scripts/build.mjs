@@ -100,12 +100,14 @@ const isSympla = (s) => {
   return host === 'sympla.com.br' || host.endsWith('.sympla.com.br');
 };
 
+const isDistinctShowTime = (t) => /^(primeiro|segundo) show\b/i.test(t.label);
+
 function timeRows(s) {
   const primeiroSet = /^primeiro set$/i;
   const segundoSet = /^segundo set$/i;
   const showEmDoisSets = s.times.some((t) => primeiroSet.test(t.label))
     && s.times.some((t) => segundoSet.test(t.label))
-    && !s.times.some((t) => /^(primeiro|segundo) show\b/i.test(t.label));
+    && !s.times.some(isDistinctShowTime);
   const times = showEmDoisSets ? s.times.filter((t) => !segundoSet.test(t.label)) : s.times;
   return times.map((t) => {
     let label = t.label;
@@ -123,10 +125,15 @@ function timesShort(s) {
   if (end && open) return `${hora(open.value)} às ${hora(end.value)}`;
   return timeRows(s).filter((r) => r.label !== 'Casa abre').map((r) => r.label === 'Horário' ? r.value : `${r.label.split(' · ')[0]} ${r.value}`).join(' · ');
 }
-function timesLong(s) {
+function timesLong(s, hoje = false) {
   const short = timesShort(s);
   if (s.times.some((t) => /encerramento/i.test(t.label))) return short;
   const open = s.times.find((t) => /abertura/i.test(t.label));
+  if (hoje) {
+    const showsDistintos = s.times.some(isDistinctShowTime);
+    const inicio = showsDistintos ? short : `Show às ${hora(firstStart(s))}`;
+    return open ? `${inicio} · Casa abre às ${hora(open.value)}` : inicio;
+  }
   return open ? `Casa abre ${hora(open.value)} · ${short}` : short;
 }
 
@@ -267,7 +274,7 @@ function out(path, html) {
   writeFileSync(file, html);
 }
 
-function showView(s, { today, upcomingSlugs }, { destaque = false } = {}) {
+function showView(s, { today, upcomingSlugs }, { destaque = false, hoje = false } = {}) {
   const { m, d } = parts(s);
   const [nome, complemento] = splitTitle(s.title);
   const passado = !upcomingSlugs.has(s.slug);
@@ -276,7 +283,7 @@ function showView(s, { today, upcomingSlugs }, { destaque = false } = {}) {
     data: s.date, dia: d, mes: m, semana: s.weekday, semanaCurta: s.weekday.slice(0, 3).toLowerCase(),
     nome, titulo: s.title, nomeCurto: escolaName(s), sub: [complemento, s.subtitle].filter(Boolean),
     imagem: s.image, url: showUrl(s), categorias: s.categories,
-    tags: s.tags.join(' · '), inicio: hora(firstStart(s)), horario: destaque ? timesLong(s) : timesShort(s),
+    tags: s.tags.join(' · '), inicio: hora(firstStart(s)), horario: destaque ? timesLong(s, hoje) : timesShort(s),
     passado,
     status: passado ? 'encerrado' : availability || (s.date === today ? 'hoje' : ''),
     ingressos: { url: s.tickets_url, rotulo: s.tickets_label },
@@ -307,7 +314,7 @@ function renderHome(schedule) {
   const week = upcoming.filter((s) => s.date < nextWeek).slice(0, 6);
   body = body.replace('<!--@chancela-->', C.chancela())
     .replace('<!--@home-hoje-->', openingLink)
-    .replace('<!--@home-next-->', next ? C.destaque(showView(next, schedule, { destaque: true }), isToday) : '<p class="vazio">Em breve, novas datas na agenda.</p>')
+    .replace('<!--@home-next-->', next ? C.destaque(showView(next, schedule, { destaque: true, hoje: isToday }), isToday) : '<p class="vazio">Em breve, novas datas na agenda.</p>')
     .replace('<!--@home-week-->', week.length
       ? C.setlist(week.map((s) => showView(s, schedule)))
       : '<p class="vazio">Nenhum show programado para esta semana.</p>');

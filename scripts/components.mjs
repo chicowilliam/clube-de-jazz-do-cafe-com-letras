@@ -43,7 +43,7 @@ export function destaque(m, hoje) {
   return `<article class="destaque">
   <a class="destaque__foto" href="${m.url}" tabindex="-1" aria-hidden="true"><img src="${esc(m.imagem)}" alt="" width="600" height="510" loading="lazy" decoding="async"></a>
   <div>
-    ${hoje ? `<p class="t-2 destaque__titulo">Hoje no Clube</p><p class="destaque__inicio">${esc(m.inicio)}</p>` : `<p class="destaque__data"><span class="num">${m.dia}/${String(m.mes).padStart(2, '0')}</span><span>${esc(m.semana.toLowerCase())}, ${esc(m.inicio)}</span></p>`}
+    ${hoje ? `<p class="t-2 destaque__titulo">Hoje no Clube</p>` : `<p class="destaque__data"><span class="num">${m.dia}/${String(m.mes).padStart(2, '0')}</span><span>${esc(m.semana.toLowerCase())}, ${esc(m.inicio)}</span></p>`}
     <h2 class="t-2"><a href="${m.url}" aria-label="${esc(m.titulo)}">${esc(m.nome)}</a></h2>
     ${m.sub.length ? `<p class="destaque__sub">${m.sub.map((part) => esc(part)).join(' · ')}</p>` : ''}
     <p class="meta destaque__horarios">${esc(m.horario)}</p>

@@ -327,7 +327,7 @@ button { font: inherit; color: inherit; }
 .destaque__foto { aspect-ratio: 6 / 5; overflow: hidden; background: var(--superficie); }
 .destaque__foto img { width: 100%; height: 100%; object-fit: cover; }
 .destaque__titulo { color: var(--mostarda); }
-.destaque__inicio { font: italic 500 var(--t-lead)/1.2 var(--f-texto); margin-block: var(--s2); }
+.destaque__titulo + h2 { margin-top: var(--s3); }
 .destaque__data { display: flex; align-items: baseline; gap: var(--s3); color: var(--mostarda); }
 .destaque__data .num { font-size: clamp(64px, 16vw, 132px); line-height: .8; }
 .destaque__data span:last-child { font: italic 500 var(--t-lead)/1.2 var(--f-texto); color: var(--creme); }
