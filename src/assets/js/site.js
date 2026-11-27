@@ -54,6 +54,14 @@
   function abertura() {
     var fotos = $$('.abertura__fotos [data-foto]');
     if (fotos.length < 2) return;
+    var whatsapp = document.querySelector('.wa');
+    if (whatsapp && 'IntersectionObserver' in window) {
+      var hero = fotos[0].closest('.abertura');
+      new IntersectionObserver(function (entries) {
+        var entry = entries[entries.length - 1];
+        whatsapp.classList.toggle('wa--visivel', !entry.isIntersecting && entry.boundingClientRect.bottom <= 0);
+      }).observe(hero);
+    }
     var pontos = $$('[data-ponto]');
     var credito = document.querySelector('[data-credito]');
     var atual = 0, timer = null;

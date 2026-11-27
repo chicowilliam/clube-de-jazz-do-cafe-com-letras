@@ -90,6 +90,7 @@ export function topo(ativo, { home = false } = {}) {
 <header class="topo${home ? ' topo--sobre' : ''}">
   <div class="wrap topo__in">
     <a class="topo__logo" href="/">${LOGO}</a>
+    <button class="topo__menu" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu" data-menu-abrir><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
     <nav class="nav" aria-label="Principal"><ul>${itens}</ul></nav>
     ${home ? `<div class="topo__acoes topo__chancela">${chancela()}</div>` : ''}
   </div>
@@ -98,10 +99,10 @@ export function topo(ativo, { home = false } = {}) {
 
 /* Barra inferior do celular: a ação principal muda conforme a página */
 export function dock(primaria) {
-  if (primaria === false) return '<div class="dock dock--so-menu"><button class="btn btn--linha dock__menu" type="button" aria-expanded="false" aria-controls="menu" data-menu-abrir>Menu</button></div>';
+  if (primaria === false) return '<div class="dock dock--so-menu" hidden></div>';
   const p = primaria || { href: '/agenda/', label: 'Ver a agenda' };
   const acao = p.html || `<a class="btn" href="${esc(p.href)}"${p.externo ? ' target="_blank" rel="noopener"' : ''}>${esc(p.label)}</a>`;
-  return `<div class="dock">${acao}<button class="btn btn--linha dock__menu" type="button" aria-expanded="false" aria-controls="menu" data-menu-abrir>Menu</button></div>`;
+  return `<div class="dock">${acao}</div>`;
 }
 
 export function folha(ativo, site) {

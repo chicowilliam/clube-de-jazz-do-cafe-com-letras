@@ -238,14 +238,11 @@ button { font: inherit; color: inherit; }
 /* ---------- Barra inferior (celular) e menu ---------- */
 .dock {
   position: fixed; z-index: 60; left: 0; right: 0; bottom: 0;
-  display: grid; grid-template-columns: 1fr 48px 104px; gap: var(--s2);
+  display: grid;
   padding: var(--s2) var(--margem) calc(var(--s2) + env(safe-area-inset-bottom));
   background: var(--fundo); border-top: 1px solid var(--linha);
 }
 .dock .btn { min-height: 48px; }
-.dock__menu { grid-column: 3; }
-.dock--so-menu { grid-template-columns: 1fr 48px; }
-.dock--so-menu .dock__menu { grid-column: 1; }
 .dock--so-menu ~ .wa { right: var(--margem); }
 @media (min-width: 900px) { .dock { display: none; } }
 
@@ -275,7 +272,6 @@ button { font: inherit; color: inherit; }
 
 /* WhatsApp: componente global único */
 .wa {
-  /* no celular, o botão se encaixa na barra inferior (entre a ação principal e o Menu) */
   position: fixed; z-index: 65; right: calc(var(--margem) + 104px + var(--s2));
   bottom: calc(var(--s2) + env(safe-area-inset-bottom));
   width: 48px; height: 48px; display: grid; place-items: center;
@@ -704,4 +700,44 @@ input, textarea, select { scroll-margin-bottom: calc(var(--dock) + var(--s5)); }
   .escola-home, .amigos-abertura { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s7); }
   .amigos-home, .eventos-home { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s7); }
   .escola-home, .amigos-home, .amigos-abertura, .eventos-home { align-items: center; }
+}
+
+/* Abertura e navegação mobile */
+.topo__menu { display: none; }
+@media (width < 900px) {
+  .topo__menu {
+    display: grid; place-items: center; flex: none;
+    width: 44px; height: 44px; padding: 0;
+    border: 1px solid var(--linha-forte); border-radius: 12px;
+    background: var(--fundo); color: var(--creme); cursor: pointer;
+  }
+  .abertura {
+    min-height: 100svh;
+    justify-content: center;
+    padding-block: 64px calc(var(--dock) + var(--s7) + env(safe-area-inset-bottom));
+  }
+  .abertura::after {
+    background: linear-gradient(180deg, rgba(15,14,13,.54), rgba(15,14,13,.48) 52%, rgba(15,14,13,.72));
+  }
+  .abertura__texto { padding-block: 0; }
+  .abertura h1 { max-inline-size: 6em; }
+  .abertura h1 .nome, .abertura__hoje, .abertura__pe > p:not(.abertura__credito) { display: none; }
+  .abertura__credito {
+    position: absolute; width: 1px; height: 1px; min-height: 0;
+    overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+  }
+  .abertura__pe {
+    position: absolute; inset-inline: max(var(--margem), var(--safe-inline));
+    bottom: calc(var(--dock) + var(--s3) + env(safe-area-inset-bottom));
+    margin: 0; padding: 0; border: 0;
+  }
+  .wa, .dock--so-menu ~ .wa {
+    right: max(var(--margem), env(safe-area-inset-right));
+    bottom: calc(var(--dock) + var(--s3) + env(safe-area-inset-bottom));
+    transition: opacity .2s var(--ease), transform .15s var(--ease), background-color .15s;
+  }
+  .dock--so-menu ~ .wa { bottom: calc(var(--s4) + env(safe-area-inset-bottom)); }
+  #site-page:has(.abertura) .wa:not(.wa--visivel) {
+    opacity: 0; visibility: hidden; pointer-events: none;
+  }
 }
