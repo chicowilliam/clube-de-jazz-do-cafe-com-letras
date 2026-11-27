@@ -164,8 +164,10 @@ export function rodape(site) {
         <h2 id="r-contato">Fale com o Clube</h2>
         <ul>
           <li><a class="link" href="tel:${esc(site.phone.replace(/\s/g, ''))}">${esc(fone)}</a></li>
+          <!--email_off-->
           <li><a class="link" href="mailto:info@cidadescriativas.org.br">Informações gerais: info@cidadescriativas.org.br</a></li>
           <li><a class="link" href="mailto:bruno@cidadescriativas.org.br">Curadoria: bruno@cidadescriativas.org.br</a></li>
+          <!--/email_off-->
         </ul>
         <h2 class="rodape__social">Acompanhe</h2>
         <ul>
