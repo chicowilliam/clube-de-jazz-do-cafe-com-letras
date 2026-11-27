@@ -2,6 +2,48 @@ const uploads = 'UUuiCi2BOYnrZ3ITCsRHIjtg';
 const freshSeconds = 6 * 60 * 60;
 const cycleSeconds = 48 * 60 * 60;
 const retentionSeconds = 30 * 24 * 60 * 60;
+const statisticsKey = 'youtube:statistics:v1:' + uploads;
+
+export async function readStatistics(env) {
+  try {
+    return await env.YOUTUBE_CACHE?.get(statisticsKey, 'json');
+  } catch {
+    log('youtube_cache_read_failed');
+  }
+}
+
+export async function onRequestPost({ env, request }) {
+  if (new URL(request.url).searchParams.get('feed') !== 'statistics') {
+    return new Response(null, { status: 405 });
+  }
+  const kv = env.YOUTUBE_CACHE;
+  if (!kv || !env.YOUTUBE_API_KEY) return new Response(null, { status: 503 });
+  const day = new Date(Date.now()).toISOString().slice(0, 10);
+  try {
+    const saved = await readStatistics(env);
+    if (saved?.day === day) return Response.json(saved);
+    if (await kv.get(statisticsKey + ':retry')) return new Response(null, { status: 503 });
+    const { items } = await youtube('channels', {
+      part: 'statistics',
+      id: 'UC' + uploads.slice(2),
+      fields: 'items(statistics(videoCount,subscriberCount,hiddenSubscriberCount))',
+    }, env.YOUTUBE_API_KEY);
+    const statistics = items[0]?.statistics;
+    const videoCount = Number(statistics?.videoCount);
+    const subscriberCount = Number(statistics?.subscriberCount);
+    if (statistics?.hiddenSubscriberCount || !/^\d+$/.test(statistics?.videoCount ?? '') ||
+        !/^\d+$/.test(statistics?.subscriberCount ?? '') ||
+        !Number.isSafeInteger(videoCount) || !Number.isSafeInteger(subscriberCount)) {
+      throw new Error('invalid_statistics');
+    }
+    const snapshot = { day, videoCount, subscriberCount };
+    await kv.put(statisticsKey, JSON.stringify(snapshot));
+    return Response.json(snapshot);
+  } catch (error) {
+    await refreshFailed(kv, statisticsKey, error);
+    return new Response(null, { status: 503 });
+  }
+}
 
 async function youtube(resource, params, key, signal = AbortSignal.timeout(5000)) {
   const url = new URL('https://www.googleapis.com/youtube/v3/' + resource);

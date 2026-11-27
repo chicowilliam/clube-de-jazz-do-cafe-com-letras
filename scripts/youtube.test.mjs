@@ -1,6 +1,41 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { onRequestGet } from '../functions/api/youtube.js';
+import { onRequestGet, onRequestPost, readStatistics } from '../functions/api/youtube.js';
+
+test('estatísticas atualizam uma vez ao dia e preservam o último resultado válido', async (t) => {
+  let now = Date.parse('2026-11-27T00:05:00Z');
+  t.mock.method(Date, 'now', () => now);
+  const store = new Map();
+  const env = { YOUTUBE_API_KEY: 'fixture-key', YOUTUBE_CACHE: {
+    get: async (key, type) => type === 'json' ? JSON.parse(store.get(key) ?? 'null') : store.get(key),
+    put: async (key, value) => { store.set(key, value); },
+  } };
+  let statistics = { videoCount: '994', subscriberCount: '5830' };
+  const upstream = t.mock.method(globalThis, 'fetch', async (url) => {
+    assert.equal(url.pathname, '/youtube/v3/channels');
+    assert.equal(url.searchParams.get('id'), 'UCuiCi2BOYnrZ3ITCsRHIjtg');
+    return Response.json({ items: [{ statistics }] });
+  });
+  const request = new Request('https://example.com/api/youtube?feed=statistics', { method: 'POST' });
+  const refresh = () => onRequestPost({ env, request });
+
+  assert.deepEqual(await (await refresh()).json(), {
+    day: '2026-11-27', videoCount: 994, subscriberCount: 5830,
+  });
+  assert.equal((await refresh()).status, 200);
+  assert.equal(upstream.mock.callCount(), 1);
+  now += 86400000;
+  statistics = { videoCount: '995', subscriberCount: '5840' };
+  assert.equal((await refresh()).status, 200);
+  now += 86400000;
+  statistics = {};
+  assert.equal((await refresh()).status, 503);
+  assert.equal((await refresh()).status, 503);
+  assert.deepEqual(await readStatistics(env), {
+    day: '2026-11-28', videoCount: 995, subscriberCount: 5840,
+  });
+  assert.equal(upstream.mock.callCount(), 3);
+});
 
 test('YouTube usa os uploads públicos, cache de seis horas e último resultado válido', async (t) => {
   const now = Date.parse('2026-11-27T12:00:00Z');
