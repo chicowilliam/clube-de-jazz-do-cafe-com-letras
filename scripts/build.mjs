@@ -18,7 +18,7 @@ import { createHash } from 'node:crypto';
 import { join, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { firstStart, prepareShows, scheduleOn } from './shows.mjs';
-import { addDays, weekStart } from './schedule-clock.mjs';
+import { addDays } from './schedule-clock.mjs';
 import * as C from './components.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -310,14 +310,13 @@ function renderHome(schedule) {
   const openingLink = next
     ? `<p class="abertura__hoje"><a href="${showUrl(next)}"><span class="label">${isToday ? 'Hoje no Clube' : `Próximo show · ${esc(dayLabel(next))}`}</span><strong>${esc(next.title)}</strong></a></p>`
     : '';
-  const nextWeek = addDays(weekStart(today), 7);
-  const week = upcoming.filter((s) => s.date < nextWeek).slice(0, 6);
+  const nextShows = upcoming.slice(0, 13);
   body = body.replace('<!--@chancela-->', C.chancela())
     .replace('<!--@home-hoje-->', openingLink)
     .replace('<!--@home-next-->', next ? C.destaque(showView(next, schedule, { destaque: true, hoje: isToday }), isToday) : '<p class="vazio">Em breve, novas datas na agenda.</p>')
-    .replace('<!--@home-week-->', week.length
-      ? C.setlist(week.map((s) => showView(s, schedule)))
-      : '<p class="vazio">Nenhum show programado para esta semana.</p>');
+    .replace('<!--@home-upcoming-->', nextShows.length
+      ? C.setlist(nextShows.map((s) => showView(s, schedule)))
+      : '<p class="vazio">Nenhum show programado no momento.</p>');
   const esc3 = upcoming.filter((s) => s.escola).slice(0, 3);
   body = body.replace('<!--@home-escola-->', esc3.map((s) => fill(T.homeEscola, { ddmm: ddmm(s), name: esc(escolaName(s)), when: esc(escolaWhen(s)) })).join('\n'));
   return layout({
@@ -484,7 +483,6 @@ function buildSchedule() {
   const endings = new Map();
   for (const show of SHOWS) {
     if (show.date < firstDay) continue;
-    dates.add(weekStart(show.date));
     dates.add(show.date);
     dates.add(addDays(show.date, 1));
     const end = Date.parse(show.endsAt);
