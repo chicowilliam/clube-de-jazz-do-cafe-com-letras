@@ -503,7 +503,6 @@ button { font: inherit; color: inherit; }
 .videos__card { display: flex; flex-direction: column; gap: var(--s2); height: 100%; text-decoration: none; }
 .videos__card .video { margin-bottom: var(--s1); }
 .videos__card .video__cta { margin-top: auto; }
-.videos__card .meta { margin-bottom: var(--s2); }
 .videos__card:is(:hover, :focus-visible) .videos__titulo { color: var(--mostarda); }
 .videos__titulo { font-weight: 600; line-height: 1.35; font-size: 17px; }
 @media (min-width: 600px) { .videos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

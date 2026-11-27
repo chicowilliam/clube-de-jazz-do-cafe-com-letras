@@ -272,6 +272,26 @@
     });
   }
 
+  async function initArchiveVideos() {
+    var list = document.querySelector('[data-youtube-archive]');
+    if (!list) return;
+    var cards = list.querySelectorAll('.videos__card');
+    try {
+      var response = await fetch('/api/youtube?feed=archive');
+      if (!response.ok) return;
+      var data = await response.json();
+      if (!Array.isArray(data.videos) || data.videos.length !== cards.length) return;
+      cards.forEach(function (card, index) {
+        var video = data.videos[index];
+        card.href = video.url;
+        card.querySelector('img').src = video.thumbnail;
+        card.querySelector('.videos__titulo').textContent = video.title;
+      });
+    } catch {
+      // Mantém os cards editoriais já renderizados.
+    }
+  }
+
   function init() {
     menu();
     abertura();
@@ -280,6 +300,7 @@
     initForms();
     initShare();
     initPending();
+    initArchiveVideos();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

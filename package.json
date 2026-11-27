@@ -11,7 +11,7 @@
     "preview": "node scripts/serve.mjs",
     "dev": "node scripts/build.mjs && node scripts/serve.mjs",
     "pages:dev": "npx wrangler pages dev dist",
-    "test": "node scripts/build.mjs && node scripts/check.mjs && node --test scripts/schedule.test.mjs"
+    "test": "node scripts/build.mjs && node scripts/check.mjs && node --test scripts/schedule.test.mjs scripts/youtube.test.mjs"
   },
   "license": "UNLICENSED"
 }
