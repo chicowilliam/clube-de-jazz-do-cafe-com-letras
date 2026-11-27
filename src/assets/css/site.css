@@ -512,6 +512,8 @@ button { font: inherit; color: inherit; }
 .horarios dt, .horarios dd { margin: 0; padding: 12px 0; border-bottom: 1px solid var(--linha); }
 .horarios dt { padding-right: var(--s5); }
 .horarios dd { text-align: right; font-weight: 600; }
+.visita-home__horarios .label { font-size: calc(var(--t-meta) * 1.125); margin-bottom: var(--s2); }
+.visita-home__horarios .meta { font-size: 17px; line-height: 1.55; color: var(--creme); margin-bottom: var(--s3); }
 .local { display: grid; gap: var(--s3); }
 .local address { font-style: normal; font-size: var(--t-lead); line-height: 1.35; }
 
