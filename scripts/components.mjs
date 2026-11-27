@@ -160,12 +160,12 @@ export function rodape(site) {
           <li><a class="link" href="/visite/#perguntas">Perguntas frequentes</a></li>
         </ul>
       </nav>
-      <section class="rodape__col" aria-labelledby="r-contato">
+      <section class="rodape__col rodape__col--contato" aria-labelledby="r-contato">
         <h2 id="r-contato">Fale com o Clube</h2>
         <ul>
           <li><a class="link" href="tel:${esc(site.phone.replace(/\s/g, ''))}">${esc(fone)}</a></li>
-          <li><a class="link" href="mailto:${esc(site.email)}">${esc(site.email)}</a></li>
-          <li><a class="link" href="mailto:curadoria@clubedejazzdocafe.com">Curadoria: curadoria@clubedejazzdocafe.com</a></li>
+          <li><a class="link" href="mailto:info@cidadescriativas.org.br">Informações gerais: info@cidadescriativas.org.br</a></li>
+          <li><a class="link" href="mailto:bruno@cidadescriativas.org.br">Curadoria: bruno@cidadescriativas.org.br</a></li>
         </ul>
         <h2 class="rodape__social">Acompanhe</h2>
         <ul>

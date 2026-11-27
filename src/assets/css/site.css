@@ -650,6 +650,18 @@ input, textarea, select { scroll-margin-bottom: calc(var(--dock) + var(--s5)); }
 .prato__nome { min-width: 0; overflow-wrap: anywhere; }
 .prato__preco { flex: 0 1 auto; white-space: normal; text-align: right; }
 .rodape__social { margin-top: var(--s5); }
+.rodape__col--contato { min-width: 0; }
+.rodape__col--contato .link {
+  color: var(--creme); font: 500 var(--t-meta)/1.5 var(--f-texto);
+  max-width: 100%; padding-block: var(--s1);
+  text-decoration-style: dotted; text-underline-offset: .26em;
+  text-decoration-color: color-mix(in srgb, var(--creme) 55%, transparent);
+  transition: color .18s ease, text-decoration-color .18s ease;
+}
+.rodape__col--contato .link:is(:hover, :focus-visible) {
+  color: var(--mostarda); text-decoration-color: currentColor;
+}
+.rodape__col--contato .link:focus-visible { outline-color: var(--mostarda); }
 .rodape__col a { overflow-wrap: anywhere; }
 .rodape__col a, .indice a { display: inline-flex; align-items: center; min-height: 44px; }
 .rodape__nl .linha { flex-wrap: wrap; }
