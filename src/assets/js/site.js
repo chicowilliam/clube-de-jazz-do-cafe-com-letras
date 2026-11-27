@@ -288,12 +288,25 @@
       var response = await fetch('/api/youtube?feed=archive');
       if (!response.ok) return;
       var data = await response.json();
-      if (!Array.isArray(data.videos) || data.videos.length !== cards.length) return;
+      var videos = list.dataset.youtubeArchive === 'live' ? data.liveVideos : data.videos;
+      if (!Array.isArray(videos) || videos.length !== cards.length) return;
+      var dateFormat = new Intl.DateTimeFormat('pt-BR', { timeZone: 'America/Sao_Paulo' });
+      var numberFormat = new Intl.NumberFormat('pt-BR');
       cards.forEach(function (card, index) {
-        var video = data.videos[index];
+        var video = videos[index];
         card.href = video.url;
         card.querySelector('img').src = video.thumbnail;
         card.querySelector('.videos__titulo').textContent = video.title;
+        var metadata = card.querySelector('.meta');
+        if (metadata) {
+          var date = new Date(video.date);
+          var views = Number(video.views);
+          metadata.textContent = [
+            Number.isFinite(date.getTime()) ? dateFormat.format(date) : '',
+            Number.isSafeInteger(views) ? numberFormat.format(views) + (views === 1 ? ' visualização' : ' visualizações') : '',
+          ].filter(Boolean).join(' · ');
+          metadata.hidden = !metadata.textContent;
+        }
       });
     } catch {
       // Mantém os cards editoriais já renderizados.
