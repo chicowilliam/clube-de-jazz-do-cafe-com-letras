@@ -106,14 +106,16 @@ export function dock(primaria) {
 }
 
 export function folha(ativo, site) {
-  const itens = [...NAV, ...NAV_EXTRA.map((n) => ({ ...n, desc: '', sec: true }))]
-    .map((n) => `<li${n.sec ? ' class="folha__sec"' : ''}><a href="${n.href}"${n.key === ativo ? ' aria-current="page"' : ''}>${n.label}${n.desc ? `<small>${n.desc}</small>` : ''}</a></li>`).join('');
+  const itens = [...NAV, ...NAV_EXTRA]
+    .map((n) => `<li><a href="${n.href}"${n.key === ativo ? ' aria-current="page"' : ''}><span>${n.label}</span>${n.desc ? `<small>${n.desc}</small>` : ''}</a></li>`).join('');
   return `<div class="folha" id="menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
-  <div class="folha__topo"><a href="/">${LOGO}</a></div>
-  <nav aria-label="Menu do celular"><ul>${itens}</ul></nav>
-  <div class="folha__info">
-    <p>${esc(site.address.street)}, ${esc(site.address.district)}</p>
-    <p>Terça a sábado, a partir das 19h</p>
+  <div class="folha__conteudo">
+    <div class="folha__topo"><a href="/">${LOGO}</a></div>
+    <nav aria-label="Menu do celular"><ul>${itens}</ul></nav>
+    <div class="folha__info">
+      <p>${esc(site.address.street)}, ${esc(site.address.district)}</p>
+      <p>Terça a sábado, a partir das 19h</p>
+    </div>
   </div>
   <button class="btn btn--bloco folha__fechar" type="button" data-menu-fechar>Fechar menu</button>
 </div>`;
