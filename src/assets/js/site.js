@@ -20,6 +20,7 @@
     var ultimoFoco = null;
     function focaveis() { return $$('a[href], button:not([disabled])', folha); }
     function fechar() {
+      folha.inert = true;
       folha.hidden = true;
       if (page) page.inert = false;
       document.documentElement.style.overflow = '';
@@ -28,6 +29,7 @@
     }
     function abre(e) {
       ultimoFoco = e.currentTarget;
+      folha.inert = false;
       folha.hidden = false;
       if (page) page.inert = true;
       document.documentElement.style.overflow = 'hidden';
@@ -54,32 +56,45 @@
   function abertura() {
     var fotos = $$('.abertura__fotos [data-foto]');
     if (fotos.length < 2) return;
-    var whatsapp = document.querySelector('.wa');
-    if (whatsapp && 'IntersectionObserver' in window) {
-      var hero = fotos[0].closest('.abertura');
-      new IntersectionObserver(function (entries) {
-        var entry = entries[entries.length - 1];
-        whatsapp.classList.toggle('wa--visivel', !entry.isIntersecting && entry.boundingClientRect.bottom <= 0);
-      }).observe(hero);
-    }
     var pontos = $$('[data-ponto]');
     var credito = document.querySelector('[data-credito]');
-    var atual = 0, timer = null;
-    function mostra(n) {
-      atual = (n + fotos.length) % fotos.length;
+    var hero = fotos[0].closest('.abertura');
+    var whatsapp = document.querySelector('.wa');
+    var visivel = !('IntersectionObserver' in window);
+    var alvo = 0, troca = 0, timer = null;
+    async function mostra(n) {
+      alvo = (n + fotos.length) % fotos.length;
+      var id = ++troca;
+      var atual = alvo;
+      var foto = fotos[atual];
+      if (foto.dataset.src) { foto.src = foto.dataset.src; foto.removeAttribute('data-src'); }
+      if (foto.decode && (!foto.complete || !foto.naturalWidth)) {
+        try { await foto.decode(); } catch { return; }
+      }
+      if (id !== troca) return;
       fotos.forEach(function (img, i) {
-        if (i === atual && img.dataset.src) { img.src = img.dataset.src; img.removeAttribute('data-src'); }
         img.classList.toggle('ativa', i === atual);
         img.setAttribute('aria-hidden', String(i !== atual));
       });
       pontos.forEach(function (b, i) { b.setAttribute('aria-pressed', i === atual ? 'true' : 'false'); });
-      if (credito) credito.textContent = fotos[atual].getAttribute('data-credito-texto') || '';
+      if (credito) credito.textContent = foto.getAttribute('data-credito-texto') || '';
     }
-    function inicia() { if (reduzir || document.hidden) return; para(); timer = setInterval(function () { mostra(atual + 1); }, 7000); }
+    function inicia() {
+      para();
+      if (!reduzir && visivel && !document.hidden) timer = setInterval(function () { mostra(alvo + 1); }, 7000);
+    }
     function para() { if (timer) clearInterval(timer); timer = null; }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        var entry = entries[entries.length - 1];
+        visivel = entry.isIntersecting;
+        if (whatsapp) whatsapp.classList.toggle('wa--visivel', !visivel && entry.boundingClientRect.bottom <= 0);
+        inicia();
+      }).observe(hero);
+    }
     pontos.forEach(function (b, i) { b.addEventListener('click', function () { mostra(i); inicia(); }); });
-    document.addEventListener('visibilitychange', function () { document.hidden ? para() : inicia(); });
-    mostra(0); inicia();
+    document.addEventListener('visibilitychange', inicia);
+    inicia();
   }
 
   /* 3. Filtro da agenda ------------------------------------------------ */
@@ -115,25 +130,28 @@
     var list = document.querySelector('[role="tablist"]');
     if (!list) return;
     var tabs = Array.prototype.slice.call(list.querySelectorAll('[data-tab]'));
-    function select(key, focus) {
+    function select(key, focus, animar) {
       tabs.forEach(function (t) {
         var active = t.getAttribute('data-tab') === key;
         t.setAttribute('aria-selected', active ? 'true' : 'false');
         t.setAttribute('tabindex', active ? '0' : '-1');
         var panel = document.getElementById(t.getAttribute('aria-controls'));
-        if (panel) panel.hidden = !active;
+        if (panel && panel.hidden === active) {
+          panel.toggleAttribute('data-animando', active && animar);
+          panel.hidden = !active;
+        }
         if (active && focus) t.focus();
       });
     }
     tabs.forEach(function (t, i) {
       t.addEventListener('click', function () {
-        select(t.dataset.tab);
+        select(t.dataset.tab, false, true);
         history.replaceState(null, '', '#' + t.dataset.tab);
       });
       t.addEventListener('keydown', function (e) {
         if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
           var n = (i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
-          select(tabs[n].dataset.tab, true);
+          select(tabs[n].dataset.tab, true, true);
           history.replaceState(null, '', '#' + tabs[n].dataset.tab);
           e.preventDefault();
         }
