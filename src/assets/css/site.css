@@ -207,6 +207,7 @@ button { font: inherit; color: inherit; }
 /* ---------- Cabeçalho ---------- */
 .topo { position: sticky; top: 0; z-index: 50; background: var(--fundo); border-bottom: 1px solid var(--linha); }
 .topo__in { display: flex; align-items: center; justify-content: space-between; gap: var(--s5); min-height: 64px; }
+#seu-festival { scroll-margin-top: calc(65px + env(safe-area-inset-top)); }
 .topo__logo { display: block; flex: none; }
 .topo__logo img { width: 104px; height: auto; }
 .nav { display: none; }
