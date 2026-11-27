@@ -17,7 +17,8 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, readdirSync } f
 import { createHash } from 'node:crypto';
 import { join, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { firstStart, prepareShows } from './shows.mjs';
+import { firstStart, prepareShows, scheduleOn } from './shows.mjs';
+import { addDays, weekStart } from './schedule-clock.mjs';
 import * as C from './components.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -28,10 +29,14 @@ const read = (p) => readFileSync(join(SRC, p), 'utf8');
 const readJSON = (p) => JSON.parse(read(p));
 
 const site = readJSON('data/site.json');
-const { today: TODAY, shows: SHOWS, upcoming: UPCOMING } = prepareShows(readJSON('data/shows.json'), {
-  buildDate: process.env.BUILD_DATE || undefined,
+const buildDate = process.env.BUILD_DATE || undefined;
+const buildTime = new Date();
+const initialSchedule = prepareShows(readJSON('data/shows.json'), {
+  now: buildTime,
+  buildDate,
   assetDir: new URL('../src/assets/', import.meta.url),
 });
+const { shows: SHOWS } = initialSchedule;
 const showParts = readJSON('templates/show-parts.json');
 
 const SITE_URL = (process.env.SITE_URL || site.site_url_default).replace(/\/$/, '');
@@ -196,11 +201,8 @@ const WEBSITE = {
   inLanguage: site.locale.replace('_', '-'),
   publisher: { '@id': ORGANIZATION['@id'] },
 };
-const upcomingSlugs = new Set(UPCOMING.map((show) => show.slug));
-
-function eventLD(s) {
+function eventLD(s, upcoming) {
   const url = SITE_URL + showUrl(s);
-  const upcoming = upcomingSlugs.has(s.slug);
   const names = [...new Set(s.formation.filter(({ role }) => role.trim()).map(({ name }) => name))];
   return {
     '@type': 'MusicEvent', '@id': url + '#event', name: s.title,
@@ -259,7 +261,7 @@ function out(path, html) {
   writeFileSync(file, html);
 }
 
-function showView(s, { destaque = false } = {}) {
+function showView(s, { today, upcomingSlugs }, { destaque = false } = {}) {
   const { m, d } = parts(s);
   const [nome, complemento] = splitTitle(s.title);
   const passado = !upcomingSlugs.has(s.slug);
@@ -270,7 +272,7 @@ function showView(s, { destaque = false } = {}) {
     imagem: s.image, url: showUrl(s), categorias: s.categories,
     tags: s.tags.join(' · '), inicio: hora(firstStart(s)), horario: destaque ? timesLong(s) : timesShort(s),
     passado,
-    status: passado ? 'encerrado' : availability || (s.date === TODAY ? 'hoje' : ''),
+    status: passado ? 'encerrado' : availability || (s.date === today ? 'hoje' : ''),
     ingressos: { url: s.tickets_url, rotulo: s.tickets_label },
   };
 }
@@ -287,107 +289,110 @@ function escolaWhen(s, long) {
 const ddmm = (s) => { const { m, d } = parts(s); return `${d}/${String(m).padStart(2, '0')}`; };
 
 // --- Home
-function buildHome() {
+function renderHome(schedule) {
+  const { today, upcoming } = schedule;
   let body = read('pages/index.html');
-  const next = UPCOMING[0];
-  const todayShow = next?.date === TODAY ? next : null;
-  const openingLink = todayShow
-    ? `<p class="abertura__hoje"><a href="${showUrl(todayShow)}"><span class="label">Hoje no Clube</span><strong>${esc(todayShow.title)}</strong></a></p>`
+  const next = upcoming[0];
+  const isToday = next?.date === today;
+  const openingLink = next
+    ? `<p class="abertura__hoje"><a href="${showUrl(next)}"><span class="label">${isToday ? 'Hoje no Clube' : `Próximo show · ${esc(dayLabel(next))}`}</span><strong>${esc(next.title)}</strong></a></p>`
     : '';
+  const nextWeek = addDays(weekStart(today), 7);
+  const week = upcoming.filter((s) => s.date < nextWeek).slice(0, 6);
   body = body.replace('<!--@chancela-->', C.chancela())
     .replace('<!--@home-hoje-->', openingLink)
-    .replace('<!--@home-next-->', next ? C.destaque(showView(next, { destaque: true }), Boolean(todayShow)) : '<p class="vazio">Em breve, novas datas na agenda.</p>')
-    .replace('<!--@home-week-->', C.setlist(UPCOMING.slice(0, 6).map((s) => showView(s))));
-  const esc3 = UPCOMING.filter((s) => s.escola).slice(0, 3);
+    .replace('<!--@home-next-->', next ? C.destaque(showView(next, schedule, { destaque: true }), isToday) : '<p class="vazio">Em breve, novas datas na agenda.</p>')
+    .replace('<!--@home-week-->', week.length
+      ? C.setlist(week.map((s) => showView(s, schedule)))
+      : '<p class="vazio">Nenhum show programado para esta semana.</p>');
+  const esc3 = upcoming.filter((s) => s.escola).slice(0, 3);
   body = body.replace('<!--@home-escola-->', esc3.map((s) => fill(T.homeEscola, { ddmm: ddmm(s), name: esc(escolaName(s)), when: esc(escolaWhen(s)) })).join('\n'));
-  out('/', layout({
+  return layout({
     body, home: true,
     headHtml: head({
       title: 'Clube de Jazz do Café com Letras · Jazz ao vivo na Savassi, BH',
       description: 'Clube de Jazz do Café com Letras, na Savassi, em Belo Horizonte. Confira a agenda de jazz e música instrumental ao vivo e os ingressos de cada show.',
       path: '/', jsonld: [VENUE, ORGANIZATION, WEBSITE],
     }),
-  }));
+  });
 }
 
 // --- Agenda
-function buildAgenda() {
+function renderAgenda(schedule) {
+  const { upcoming, upcomingSlugs } = schedule;
   let body = read('pages/agenda.html');
   const months = new Map();
-  for (const show of UPCOMING) {
+  for (const show of upcoming) {
     const key = show.date.slice(0, 7);
     if (!months.has(key)) months.set(key, []);
-    months.get(key).push(showView(show));
+    months.get(key).push(showView(show, schedule));
   }
   const groups = [...months].map(([key, list]) => `<section class="agenda-mes" data-mes aria-labelledby="mes-${key}">
     <h2 class="mes" id="mes-${key}">${MESES[list[0].mes - 1]} ${key.slice(0, 4)}</h2>
     ${C.setlist(list)}
   </section>`).join('\n');
   const recent = SHOWS.filter((s) => !upcomingSlugs.has(s.slug)).slice(-6).reverse();
-  body = body.replace('<!--@agenda-contagem-->', `${UPCOMING.length} ${UPCOMING.length === 1 ? 'show' : 'shows'}`)
+  body = body.replace('<!--@agenda-contagem-->', `${upcoming.length} ${upcoming.length === 1 ? 'show' : 'shows'}`)
     .replace('<!--@agenda-->', groups)
     .replace('<!--@agenda-passados-->', `<section class="secao secao--neutra" id="agenda-passados" aria-labelledby="agenda-passados-titulo"><div class="wrap">
       <div class="cabeca"><h2 class="t-2" id="agenda-passados-titulo">Arquivo de shows passados</h2></div>
-      ${recent.length ? C.setlist(recent.map((s) => showView(s))) : '<p class="meta">Nenhum show anterior disponível.</p>'}
+      ${recent.length ? C.setlist(recent.map((s) => showView(s, schedule))) : '<p class="meta">Nenhum show anterior disponível.</p>'}
       <p class="secao-link"><a class="link-forte" href="/ao-vivo/">Perdeu algum? Assista no Ao vivo →</a></p>
     </div></section>`);
-  out('/agenda/', layout({
+  return layout({
     body, nav: 'agenda',
     headHtml: head({
       title: 'Agenda de shows · Clube de Jazz do Café com Letras',
       description: 'Próximos shows de jazz e música instrumental no Clube de Jazz do Café com Letras, na Savassi, em Belo Horizonte.',
-      path: '/agenda/', jsonld: [{ '@type': 'ItemList', itemListElement: UPCOMING.map((s, i) => ({ '@type': 'ListItem', position: i + 1, url: SITE_URL + showUrl(s) })) }],
+      path: '/agenda/', jsonld: [{ '@type': 'ItemList', itemListElement: upcoming.map((s, i) => ({ '@type': 'ListItem', position: i + 1, url: SITE_URL + showUrl(s) })) }],
     }),
-  }));
+  });
 }
 
 // --- Páginas de show
-function buildShows() {
-  for (const s of SHOWS) {
-    const [main] = splitTitle(s.title);
-    const view = showView(s, { destaque: true });
-    let body = T.show;
-    body = fill(body, {
-      image: s.image, title_attr: esc(s.title), title_main: esc(main),
-      eyebrow: esc(s.weekday.toLowerCase() + ", " + (view.passado ? s.date.slice(0, 4) : view.inicio)),
-      status: C.statusTag(view), ticket_button: C.botaoIngressos(view, { bloco: true }),
-      ticket_note_hidden: view.passado ? ' hidden' : '',
-      date_short: ddmm(s), full_date: esc(s.weekday + ', ' + Number(view.dia) + ' de ' + MESES[view.mes - 1] + ' de ' + s.date.slice(0, 4)),
-      event_date: s.date,
-      tickets_note: isSympla(s) ? 'Compra segura pelo Sympla' : 'Venda feita pelo parceiro do evento',
-      ics_url: showUrl(s) + 'evento.ics', url: SITE_URL + showUrl(s),
-    });
-    const subText = view.sub.join(' · ');
-    body = body.replace('<!--@title-sub-->', subText ? fill(showParts['sub-p'], { text: esc(subText) }) : '');
-    body = body.replace('<!--@description-->', s.description.map((p, i) => fill(i === 0 ? showParts['lead-p'] : showParts['desc-p'], { text: esc(p) })).join('\n'));
-    if (s.formation.length) {
-      const items = s.formation.map((f) => (f.role
-        ? fill(showParts['formation-item'], { name: esc(f.name), role: esc(f.role) })
-        : `<li class="grupo">${esc(f.name)}</li>`)).join('\n');
-      body = body.replace('<!--@formation-->', `${showParts['formation-h2']}\n${showParts['formation-grid-open']}\n${items}\n</ul></section>`);
-    } else body = body.replace('<!--@formation-->', '');
-    body = body.replace('<!--@video-->', s.youtube ? fill(showParts['video-block'], { youtube: esc(s.youtube), title_attr: esc(s.title) }) : '');
-    body = body.replace('<!--@bomsaber-->', isSympla(s) ? showParts['bomsaber-block'] : '');
-    body = body.replace('<!--@aside-rows-->', timeRows(s).map((r) => fill(showParts['aside-row'], { label: esc(r.label), value: esc(r.value) })).join('\n'));
-    const more = UPCOMING.filter((x) => x.slug !== s.slug && x.startsAt >= s.startsAt).slice(0, 3);
-    if (more.length) {
-      body = body.replace('<!--@more-->', C.setlist(more.map((x) => showView(x))))
-        .replace('<!--@more-start-->', '').replace('<!--@more-end-->', '');
-    } else {
-      body = body.replace(/<!--@more-start-->[\s\S]*<!--@more-end-->/, '');
-    }
-    const desc = (s.description.find((p) => p.length > 60) || s.description[0] || s.title).replace(/\s+/g, ' ');
-    out(showUrl(s), layout({
-      body, nav: 'agenda',
-      dock: view.passado ? { href: '/agenda/', label: 'Ver a agenda' } : { html: C.botaoIngressos(view) },
-      headHtml: head({
-        title: `${s.title} · ${dayLabel(s)}/${s.date.slice(0, 4)} · Clube de Jazz`,
-        description: desc.length > 155 ? desc.slice(0, 152).replace(/\s+\S*$/, '') + '…' : desc,
-        path: showUrl(s), image: s.image, imageAlt: s.title, type: 'article', jsonld: [eventLD(s), showBreadcrumb(s)],
-      }),
-    }));
-    out(showUrl(s) + 'evento.ics', ics(s));
+function renderShow(s, schedule) {
+  const [main] = splitTitle(s.title);
+  const view = showView(s, schedule, { destaque: true });
+  let body = T.show;
+  body = fill(body, {
+    image: s.image, title_attr: esc(s.title), title_main: esc(main),
+    eyebrow: esc(s.weekday.toLowerCase() + ", " + (view.passado ? s.date.slice(0, 4) : view.inicio)),
+    status: C.statusTag(view), ticket_button: C.botaoIngressos(view, { bloco: true }),
+    ticket_note_hidden: view.passado ? ' hidden' : '',
+    date_short: ddmm(s), full_date: esc(s.weekday + ', ' + Number(view.dia) + ' de ' + MESES[view.mes - 1] + ' de ' + s.date.slice(0, 4)),
+    event_date: s.date,
+    tickets_note: isSympla(s) ? 'Compra segura pelo Sympla' : 'Venda feita pelo parceiro do evento',
+    ics_url: showUrl(s) + 'evento.ics', url: SITE_URL + showUrl(s),
+  });
+  const subText = view.sub.join(' · ');
+  body = body.replace('<!--@title-sub-->', subText ? fill(showParts['sub-p'], { text: esc(subText) }) : '');
+  body = body.replace('<!--@description-->', s.description.map((p, i) => fill(i === 0 ? showParts['lead-p'] : showParts['desc-p'], { text: esc(p) })).join('\n'));
+  if (s.formation.length) {
+    const items = s.formation.map((f) => (f.role
+      ? fill(showParts['formation-item'], { name: esc(f.name), role: esc(f.role) })
+      : `<li class="grupo">${esc(f.name)}</li>`)).join('\n');
+    body = body.replace('<!--@formation-->', `${showParts['formation-h2']}\n${showParts['formation-grid-open']}\n${items}\n</ul></section>`);
+  } else body = body.replace('<!--@formation-->', '');
+  body = body.replace('<!--@video-->', s.youtube ? fill(showParts['video-block'], { youtube: esc(s.youtube), title_attr: esc(s.title) }) : '');
+  body = body.replace('<!--@bomsaber-->', isSympla(s) ? showParts['bomsaber-block'] : '');
+  body = body.replace('<!--@aside-rows-->', timeRows(s).map((r) => fill(showParts['aside-row'], { label: esc(r.label), value: esc(r.value) })).join('\n'));
+  const more = schedule.upcoming.filter((x) => x.slug !== s.slug && x.startsAt >= s.startsAt).slice(0, 3);
+  if (more.length) {
+    body = body.replace('<!--@more-->', C.setlist(more.map((x) => showView(x, schedule))))
+      .replace('<!--@more-start-->', '').replace('<!--@more-end-->', '');
+  } else {
+    body = body.replace(/<!--@more-start-->[\s\S]*<!--@more-end-->/, '');
   }
+  const desc = (s.description.find((p) => p.length > 60) || s.description[0] || s.title).replace(/\s+/g, ' ');
+  return layout({
+    body, nav: 'agenda',
+    dock: view.passado ? { href: '/agenda/', label: 'Ver a agenda' } : { html: C.botaoIngressos(view) },
+    headHtml: head({
+      title: `${s.title} · ${dayLabel(s)}/${s.date.slice(0, 4)} · Clube de Jazz`,
+      description: desc.length > 155 ? desc.slice(0, 152).replace(/\s+\S*$/, '') + '…' : desc,
+      path: showUrl(s), image: s.image, imageAlt: s.title, type: 'article', jsonld: [eventLD(s, !view.passado), showBreadcrumb(s)],
+    }),
+  });
 }
 
 function foldCalendarLine(line) {
@@ -432,25 +437,81 @@ const STATIC = [
   { src: 'cardapio', path: '/cardapio/', nav: 'cardapio', title: 'Cardápio e bar · Clube de Jazz do Café com Letras', description: 'Tira-gostos e porções, pratos, sobremesas, coquetéis autorais, vinhos e cervejas do Clube de Jazz do Café com Letras.' },
   { src: 'o-clube', path: '/o-clube/', nav: 'clube', title: 'O Clube e Amigos do Clube · Clube de Jazz do Café com Letras', description: 'Jazz de perto, no coração da Savassi. O Clube de Jazz do Café com Letras, o palco, as bandas residentes e o programa Amigos do Clube.' },
 ];
+function renderPage(p, schedule) {
+  let body = read(`pages/${p.src}.html`);
+  if (p.src === 'artistas') {
+    body = body.replace('<!--@artistas-->', schedule.upcoming.length
+      ? `<ul class="artistas" role="list">${schedule.upcoming.map((s) => C.artista(showView(s, schedule))).join('\n')}</ul>`
+      : '<p class="vazio">Em breve, novas datas na agenda.</p>');
+  }
+  if (p.src === 'escola-do-jazz') {
+    const rows = schedule.upcoming.filter((s) => s.escola).slice(0, 4);
+    body = body.replace('<!--@escola-list-->', rows.map((s) => fill(T.escolaRow, { ddmm: ddmm(s), name: esc(escolaName(s)), when: esc(escolaWhen(s, true)) })).join('\n'));
+  }
+  return layout({ body, nav: p.nav, headHtml: head({ title: p.title, description: p.description, path: p.path }) });
+}
+
+const schedulePages = STATIC.filter(({ src }) => ['artistas', 'escola-do-jazz'].includes(src));
+
 function buildStatic() {
-  for (const p of STATIC) {
-    let body = read(`pages/${p.src}.html`);
-    if (p.src === 'artistas') {
-      body = body.replace('<!--@artistas-->', UPCOMING.length
-        ? `<ul class="artistas" role="list">${UPCOMING.map((s) => C.artista(showView(s))).join('\n')}</ul>`
-        : '<p class="vazio">Em breve, novas datas na agenda.</p>');
-    }
-    if (p.src === 'escola-do-jazz') {
-      const rows = UPCOMING.filter((s) => s.escola).slice(0, 4);
-      body = body.replace('<!--@escola-list-->', rows.map((s) => fill(T.escolaRow, { ddmm: ddmm(s), name: esc(escolaName(s)), when: esc(escolaWhen(s, true)) })).join('\n'));
-    }
-    out(p.path, layout({ body, nav: p.nav, headHtml: head({ title: p.title, description: p.description, path: p.path }) }));
+  for (const p of STATIC.filter((page) => !schedulePages.includes(page))) {
+    out(p.path, renderPage(p));
   }
   const notFound = layout({
     body: read('pages/404.html'),
     headHtml: head({ title: 'Página não encontrada · Clube de Jazz do Café com Letras', description: 'Página não encontrada.', path: '/404' }).replace('<link rel="canonical"', '<meta name="robots" content="noindex">\n<link rel="canonical"'),
   });
   out('404.html', notFound);
+}
+
+function buildSchedule() {
+  const firstDay = initialSchedule.today;
+  const firstTime = buildDate ? -Infinity : buildTime.getTime();
+  const dates = new Set();
+  const endings = new Map();
+  for (const show of SHOWS) {
+    if (show.date < firstDay) continue;
+    dates.add(weekStart(show.date));
+    dates.add(show.date);
+    dates.add(addDays(show.date, 1));
+    const end = Date.parse(show.endsAt);
+    if (end > firstTime) {
+      if (!endings.has(show.date)) endings.set(show.date, new Set());
+      endings.get(show.date).add(end);
+    }
+  }
+
+  // Uma virada é definida pela data local. Encerramentos explícitos usam o instante do evento.
+  const transitions = [...new Set([firstDay, ...dates])].filter((date) => date >= firstDay).sort()
+    .flatMap((date) => [[date, null], ...[...(endings.get(date) ?? [])].sort((a, b) => a - b).map((end) => [date, end])])
+    .slice(1)
+    .map(([date, end]) => ({ end, schedule: scheduleOn(SHOWS, date, end ?? -Infinity) }));
+  const pages = [
+    ['/', renderHome],
+    ['/agenda/', renderAgenda],
+    ...schedulePages.map((page) => [page.path, (schedule) => renderPage(page, schedule)]),
+    ...SHOWS.map((show) => [showUrl(show), (schedule) => renderShow(show, schedule)]),
+  ];
+  const manifest = {};
+  for (const [path, render] of pages) {
+    const baseline = render(initialSchedule);
+    out(path, baseline);
+    const variants = [[firstDay, null, path]];
+    const assets = new Map([[baseline, path]]);
+    for (const { end, schedule } of transitions) {
+      const html = render(schedule);
+      if (!assets.has(html)) {
+        const hash = createHash('sha256').update(html).digest('hex');
+        const asset = `/_programacao/${hash}/`;
+        out(asset, html);
+        assets.set(html, asset);
+      }
+      const asset = assets.get(html);
+      if (asset !== variants.at(-1)[2]) variants.push([schedule.today, end, asset]);
+    }
+    if (variants.length > 1) manifest[path] = variants;
+  }
+  writeFileSync(join(ROOT, 'scripts', 'schedule-data.generated.mjs'), `export default ${JSON.stringify(manifest)};\n`);
 }
 
 // --- sitemap e robots
@@ -486,11 +547,10 @@ if (TURNSTILE_ENABLED || CF_TOKEN || GA_ID || GTM_ID) {
     return TURNSTILE_ENABLED ? `${csp}; frame-src ${TURNSTILE_ORIGIN}` : csp;
   }));
 }
-buildHome();
-buildAgenda();
-buildShows();
+buildSchedule();
+for (const show of SHOWS) out(showUrl(show) + 'evento.ics', ics(show));
 buildStatic();
 buildSeoFiles();
 
 const count = (dir) => readdirSync(dir, { withFileTypes: true }).reduce((n, e) => n + (e.isDirectory() ? count(join(dir, e.name)) : 1), 0);
-console.log(`Build concluído em dist/ — ${count(DIST)} arquivos · ${UPCOMING.length} shows na agenda (hoje = ${TODAY}) · SITE_URL = ${SITE_URL}${CF_TOKEN ? ' · analytics ativo' : ''}`);
+console.log(`Build concluído em dist/ — ${count(DIST)} arquivos · ${initialSchedule.upcoming.length} shows na agenda (hoje = ${initialSchedule.today}) · SITE_URL = ${SITE_URL}${CF_TOKEN ? ' · analytics ativo' : ''}`);

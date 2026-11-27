@@ -4,6 +4,7 @@ dist/
 .env.*
 !.env.example
 .wrangler/
+/scripts/schedule-data.generated.mjs
 .dev.vars
 .DS_Store
 *.log

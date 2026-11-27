@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "include": ["/", "/agenda/", "/artistas/", "/escola-do-jazz/", "/shows/*", "/_programacao/*", "/api/*"],
+  "exclude": []
+}

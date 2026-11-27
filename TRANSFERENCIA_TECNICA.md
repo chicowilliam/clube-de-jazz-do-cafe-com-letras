@@ -71,7 +71,9 @@ Horários: o build converte `20:00` em `20h` e `21:30` em `21h30`. Fuso: `-03:00
 
 ## 5. Rebuild diário (agenda "andando")
 
-O site é estático: a lista de próximos shows é calculada no momento do build (`BUILD_DATE` ou a data atual em America/Sao_Paulo). Para que shows passados saiam sozinhos da agenda, crie um **Deploy Hook** no Cloudflare Pages (*Settings > Builds > Deploy hooks*) e chame-o uma vez por dia de madrugada (ex.: 03h) por um Cron Trigger de Worker, GitHub Actions (`schedule`) ou outro agendador. Sem isso, a agenda só muda quando alguém faz um novo deploy.
+A publicação no Cloudflare Pages executa `npm run build` com a programação de `src/data/shows.json`. O build gera HTML completo para cada mudança programada e um índice para a Pages Function. Em cada acesso, a Function seleciona a versão da home, da agenda e das páginas relacionadas usando o fuso `America/Sao_Paulo`. As mudanças da data e os encerramentos cadastrados entram em vigor sem rebuild, cron ou Deploy Hook. As respostas das páginas variáveis usam `Cache-Control: no-store`. As novas datas entram no ar na próxima publicação do conteúdo.
+
+Para conferir a seleção automática localmente, rode `npm run build` e `npm run pages:dev` na raiz do projeto. `BUILD_DATE` simula a data inicial do build. A Function usa o relógio do Cloudflare na publicação.
 
 Evolução natural: trocar `shows.json` por uma fonte viva (a planilha de programação do Clube, o admin atual ou um CMS headless) lida no build. Não foi feito porque exige credenciais e decisão do Clube.
 

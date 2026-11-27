@@ -1,9 +1,7 @@
 import { statSync } from 'node:fs';
+import { dateInSaoPaulo } from './schedule-clock.mjs';
 
 const zone = 'America/Sao_Paulo';
-const localDate = new Intl.DateTimeFormat('en-CA', {
-  timeZone: zone, year: 'numeric', month: '2-digit', day: '2-digit',
-});
 const localOffset = new Intl.DateTimeFormat('en', { timeZone: zone, timeZoneName: 'longOffset' });
 const weekday = new Intl.DateTimeFormat('pt-BR', { timeZone: 'UTC', weekday: 'long' });
 const categories = new Set(['jazz', 'instrumental', 'minas', 'vocal', 'bigband', 'escola']);
@@ -25,11 +23,6 @@ function isHttps(value) {
 
 export function firstStart(show) {
   return (show.times.find((row) => /^primeiro\b/i.test(row.label.trim())) || show.times[0]).value;
-}
-
-function dateInSaoPaulo(now) {
-  const parts = Object.fromEntries(localDate.formatToParts(now).map(({ type, value }) => [type, value]));
-  return [parts.year, parts.month, parts.day].join('-');
 }
 
 function inSaoPaulo(date, time) {
@@ -87,7 +80,11 @@ export function prepareShows(data, { now = new Date(), buildDate, assetDir }) {
   }).sort((a, b) => Date.parse(a.startsAt) - Date.parse(b.startsAt) || a.slug.localeCompare(b.slug));
 
   const today = buildDate ?? dateInSaoPaulo(now);
+  return { shows, ...scheduleOn(shows, today, buildDate ? -Infinity : now.getTime()) };
+}
+
+export function scheduleOn(shows, today, now) {
   const upcoming = shows.filter((show) => show.date >= today &&
-    (buildDate || !show.endsAt || Date.parse(show.endsAt) > now.getTime()));
-  return { today, shows, upcoming };
+    (show.date > today || !show.endsAt || Date.parse(show.endsAt) > now));
+  return { today, upcoming, upcomingSlugs: new Set(upcoming.map((show) => show.slug)) };
 }
