@@ -546,7 +546,7 @@ button { font: inherit; color: inherit; }
 .indice .link {
   gap: var(--s2); color: var(--creme); font-weight: 600; line-height: 1.35; text-decoration: none;
 }
-.indice .link::after { content: "↘" / ""; color: var(--mostarda); }
+.indice__icone { flex: none; }
 .indice .link:is(:hover, :focus-visible) { color: var(--mostarda); }
 .carta { display: grid; gap: var(--s8); }
 .carta h2 { margin-bottom: var(--s2); }
@@ -554,9 +554,9 @@ button { font: inherit; color: inherit; }
 .pratos { list-style: none; margin: 0; padding: 0; display: grid; column-gap: var(--s8); }
 .prato { padding: var(--s3) 0; break-inside: avoid; }
 .prato__linha { display: flex; align-items: baseline; gap: var(--s2); font-weight: 600; }
-.prato__linha::after { content: ""; order: 2; flex: 1; border-bottom: 1.5px dotted var(--linha-forte); transform: translateY(-4px); min-width: 24px; }
-.prato__nome { order: 1; }
-.prato__preco { order: 3; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.prato__linha::after { content: ""; order: 2; flex: 1; border-bottom: 1.5px dotted var(--linha-forte); transform: translateY(-4px); min-width: var(--s2); }
+.prato__nome { order: 1; min-width: 0; overflow-wrap: anywhere; }
+.prato__preco { order: 3; flex: none; white-space: nowrap; font-variant-numeric: tabular-nums; text-align: right; }
 .prato__desc { font-style: italic; color: var(--creme-2); font-size: 16px; line-height: 1.45; }
 .prato__tipo { font: italic 500 13px/1 var(--f-texto); color: var(--lilas); margin-left: var(--s2); }
 @media (min-width: 900px) { .pratos { grid-template-columns: 1fr 1fr; } }
@@ -659,8 +659,6 @@ input, textarea, select { scroll-margin-bottom: calc(var(--dock) + var(--s5)); }
 .legal { display: grid; gap: var(--s7); overflow-wrap: anywhere; }
 .cardapio-painel + .cardapio-painel { margin-top: var(--s7); }
 .abas:not([hidden]) ~ .cardapio-painel { margin-top: 0; }
-.prato__nome { min-width: 0; overflow-wrap: anywhere; }
-.prato__preco { flex: 0 1 auto; white-space: normal; text-align: right; }
 .rodape__social { margin-top: var(--s5); }
 .rodape__col--contato { min-width: 0; }
 .rodape__col--contato .link {
